@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<title>Cổng TTĐT Ban QLDA khu vực Phú Thọ — Bản xin ý kiến</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Be Vietnam Pro', system-ui, sans-serif; -webkit-font-smoothing: antialiased; background: #F4F6F9; }
+  a { color: #0B4B8F; text-decoration: none; }
+  a:hover { color: #D42A2A; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  ::selection { background: #0B4B8F; color: #fff; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:radial-gradient(1100px 560px at 6% -4%,#E6F0FB 0%,rgba(230,240,251,0) 62%),radial-gradient(900px 480px at 100% 10%,#F5EEE1 0%,rgba(245,238,225,0) 58%),#F4F6F9;color:#16202E;font-size:16px;line-height:1.6;padding-bottom:72px;zoom:{{ pageZoom }}">
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+<div>
+  <!-- utility bar -->
+  <div style="background:#073766;color:#C7D8EC;font-size:13px">
+    <div style="max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;min-height:38px">
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <span>{{ today }}</span>
+        <span style="opacity:.4">|</span>
+        <a href="#" onClick="{{ goSitemap }}" style="color:#C7D8EC">Sơ đồ cổng</a>
+        <a href="#" onClick="{{ goContact }}" style="color:#C7D8EC">Hỏi đáp</a>
+        <a href="#" style="color:#C7D8EC">RSS</a>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="opacity:.75">Cỡ chữ</span>
+          <button onClick="{{ fontDown }}" style="width:26px;height:24px;border:1px solid #245D9B;background:transparent;color:#C7D8EC;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px" style-hover="background:#0B4B8F;color:#fff">A-</button>
+          <button onClick="{{ fontReset }}" style="width:26px;height:24px;border:1px solid #245D9B;background:transparent;color:#C7D8EC;border-radius:4px;cursor:pointer;font-family:inherit;font-size:13px" style-hover="background:#0B4B8F;color:#fff">A</button>
+          <button onClick="{{ fontUp }}" style="width:26px;height:24px;border:1px solid #245D9B;background:transparent;color:#C7D8EC;border-radius:4px;cursor:pointer;font-family:inherit;font-size:15px" style-hover="background:#0B4B8F;color:#fff">A+</button>
+        </div>
+        <span style="opacity:.4">|</span>
+        <a href="#" style="color:#C7D8EC">English</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- header -->
+  <div style="position:relative;overflow:hidden;color:#fff;background:radial-gradient(1100px 430px at 84% -15%,rgba(122,208,255,.45),rgba(122,208,255,0) 62%),radial-gradient(760px 380px at 10% 125%,rgba(46,178,146,.34),rgba(46,178,146,0) 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,rgba(255,255,255,0) 2px 10px),linear-gradient(104deg,#0A3E72 0%,#0F5FA6 52%,#1C87C6 100%)">
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 26% 118%,rgba(255,255,255,.16),rgba(255,255,255,0) 45%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:26px 20px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+      <div style="display:flex;gap:16px;align-items:center;min-width:280px">
+        <div style="width:78px;height:78px;flex:none;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))"><img src="assets/logo-phu-tho.svg" alt="Logo tỉnh Phú Thọ" style="width:100%;height:100%;object-fit:contain" /></div>
+        <div>
+          <div style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#A9CDF2;font-weight:500">Trang thông tin điện tử</div>
+          <div style="font-size:clamp(20px,2.3vw,30px);font-weight:800;line-height:1.18;margin-top:4px;letter-spacing:-.01em">BAN QUẢN LÝ DỰ ÁN<br />KHU VỰC PHÚ THỌ</div>
+          <div style="font-size:13px;color:#A9CDF2;margin-top:7px">Cơ quan chủ quản: Ủy ban nhân dân tỉnh Phú Thọ</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+        <div style="display:flex;align-items:center;background:#fff;border-radius:99px;overflow:hidden;min-width:330px;height:46px;box-shadow:0 8px 24px rgba(3,25,48,.28)">
+          <input placeholder="Nhập từ khóa tìm kiếm..." style="border:0;outline:0;padding:0 14px;flex:1;font-family:inherit;font-size:14.5px;color:#16202E;background:transparent" />
+          <button style="height:46px;padding:0 24px;border:0;background:#D42A2A;color:#fff;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer" style-hover="background:#B71F1F">Tìm kiếm</button>
+        </div>
+        <div style="font-size:13.5px;color:#9FC4E8">Đường dây nóng: <strong style="color:#fff">0210 3846 507</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- main nav -->
+  <div style="background:linear-gradient(90deg,#052240 0%,#0B4B8F 55%,#1466A6 100%);position:sticky;top:0;z-index:60;box-shadow:0 4px 18px rgba(5,34,64,.35)">
+    <div style="max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
+        <div onMouseEnter="{{ item.enter }}" onMouseLeave="{{ item.leave }}" style="position:relative">
+          <button onClick="{{ item.go }}" style="border:0;background:{{ item.bg }};color:#fff;font-family:inherit;font-size:14.5px;font-weight:600;padding:14px 18px;cursor:pointer;letter-spacing:.01em;display:block" style-hover="background:#0B4B8F">{{ item.label }}</button>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:0;background:#fff;min-width:250px;box-shadow:0 12px 30px rgba(7,55,102,.22);border-top:3px solid #D42A2A;z-index:70;padding:6px 0">
+              <sc-for list="{{ item.children }}" as="c" hint-placeholder-count="3">
+                <button onClick="{{ c.go }}" style="display:block;width:100%;text-align:left;border:0;background:transparent;font-family:inherit;font-size:14.5px;color:#16202E;padding:10px 18px;cursor:pointer" style-hover="background:#EEF4FB;color:#0B4B8F">{{ c.label }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- breadcrumb -->
+  <sc-if value="{{ showCrumb }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff;border-bottom:1px solid #E2E8F0">
+      <div style="max-width:1280px;margin:0 auto;padding:11px 20px;font-size:13.5px;color:#5A6B80">
+        <a href="#" onClick="{{ goHome }}">Trang chủ</a> <span style="margin:0 8px;color:#B6C2D0">›</span> <a href="#" onClick="{{ goCrumb }}" style="color:{{ crumbColor }};font-weight:500">{{ crumb }}</a>
+        <sc-if value="{{ hasCrumbSub }}" hint-placeholder-val="{{ false }}"><span style="margin:0 8px;color:#B6C2D0">›</span> <span style="color:#16202E;font-weight:500">{{ crumbSub }}</span></sc-if>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ hasSubTabs }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1280px;margin:0 auto;padding:20px 20px 0;display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{ subTabs }}" as="st" hint-placeholder-count="4">
+        <button onClick="{{ st.go }}" style="border:1px solid {{ st.border }};background:{{ st.bg }};color:{{ st.color }};font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:99px;cursor:pointer" style-hover="border-color:#0B4B8F">{{ st.label }}</button>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <!-- ===================== HOME ===================== -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <!-- hero slider -->
+    <div style="background:#fff;border-bottom:1px solid #E2E8F0">
+      <div style="max-width:1280px;margin:0 auto;padding:24px 20px;display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+        <div style="position:relative;flex:999 1 560px;min-width:0;min-height:400px;border-radius:10px;overflow:hidden;background:#0A4079">
+          <sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="1">
+            <div style="position:absolute;inset:0;opacity:{{ s.op }};transition:opacity .5s ease;pointer-events:{{ s.pe }}">
+              <image-slot id="{{ s.slot }}" src="{{ s.img }}" credit="Wikimedia Commons" shape="rect" placeholder="{{ s.ph }}"></image-slot>
+              <div style="position:absolute;left:0;right:0;bottom:0;padding:56px 28px 34px;background:linear-gradient(180deg,rgba(7,55,102,0) 0%,rgba(7,32,60,.92) 70%);pointer-events:none">
+                <div style="display:inline-block;background:{{ s.tagBg }};color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:3px;margin-bottom:10px">{{ s.tag }}</div>
+                <div style="color:#fff;font-size:clamp(20px,2.2vw,28px);font-weight:700;line-height:1.3;text-wrap:pretty">{{ s.title }}</div>
+                <div style="color:#C7D8EC;font-size:13.5px;margin-top:8px">{{ s.meta }}</div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="position:absolute;right:22px;bottom:20px;display:flex;gap:7px;align-items:center;z-index:3">
+            <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="3">
+              <div onClick="{{ d.pick }}" style="width:{{ d.w }};height:5px;border-radius:99px;background:{{ d.bg }};cursor:pointer;transition:width .3s ease"></div>
+            </sc-for>
+          </div>
+          <div onClick="{{ heroPrev }}" style="position:absolute;left:16px;top:50%;width:38px;height:38px;margin-top:-19px;border-radius:50%;background:rgba(3,22,42,.42);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:3" style-hover="background:rgba(3,22,42,.72)">‹</div>
+          <div onClick="{{ heroNext }}" style="position:absolute;right:16px;top:50%;width:38px;height:38px;margin-top:-19px;border-radius:50%;background:rgba(3,22,42,.42);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:3" style-hover="background:rgba(3,22,42,.72)">›</div>
+        </div>
+        <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ heroSide }}" as="h" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid #EDF1F6">
+              <div style="width:104px;height:70px;flex:none;border-radius:6px;overflow:hidden">
+                <image-slot id="{{ h.slot }}" src="{{ h.img }}" credit="Wikimedia Commons" shape="rounded" radius="6" placeholder="Ảnh"></image-slot>
+              </div>
+              <div>
+                <div style="font-size:14.5px;font-weight:600;line-height:1.4;text-wrap:pretty">{{ h.title }}</div>
+                <div style="font-size:12.5px;color:#7A8A9C;margin-top:5px">{{ h.date }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- marquee -->
+    <div style="max-width:1280px;margin:0 auto;padding:22px 20px 0">
+      <div style="background:#FFF4E5;border:1px solid #F2DFC0;border-radius:8px">
+        <div style="padding:0 16px;display:flex;align-items:center;gap:14px;height:46px;overflow:hidden">
+        <div style="flex:none;background:#D42A2A;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:3px">Thông báo khẩn</div>
+        <div style="flex:1;overflow:hidden;white-space:nowrap">
+          <div style="display:inline-flex;gap:60px;animation:marquee 34s linear infinite;font-size:14.5px;color:#7A4A0A;font-weight:500">
+            <span>Thông báo về việc điều chỉnh thời gian đóng thầu Gói thầu số 07 — Dự án Đường trục Đông Tây, TP. Việt Trì (đến 09:00 ngày 05/9/2026)</span>
+            <span>Thông báo về việc điều chỉnh thời gian đóng thầu Gói thầu số 07 — Dự án Đường trục Đông Tây, TP. Việt Trì (đến 09:00 ngày 05/9/2026)</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- banners -->
+    <div style="max-width:1280px;margin:0 auto;padding:22px 20px 4px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+      <sc-for list="{{ banners }}" as="b" hint-placeholder-count="4">
+        <div style="position:relative;height:110px;border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:0 6px 18px rgba(11,75,143,.13)" style-hover="box-shadow:0 14px 30px rgba(11,75,143,.26)">
+          <image-slot id="{{ b.slot }}" src="{{ b.img }}" credit="Wikimedia Commons" shape="rounded" radius="10" placeholder="Ảnh banner"></image-slot>
+          <div style="position:absolute;inset:0;background:{{ b.overlay }};pointer-events:none"></div>
+          <div style="position:absolute;inset:0;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;pointer-events:none">
+            <div style="color:#fff;font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ b.title }}</div>
+            <div style="color:rgba(255,255,255,.85);font-size:12.5px;margin-top:5px">{{ b.sub }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- stats -->
+    <div style="max-width:1280px;margin:0 auto;padding:22px 20px 0">
+      <div style="position:relative;overflow:hidden;border:1px solid #C9DAEE;border-radius:10px;background:radial-gradient(700px 300px at 90% -30%,rgba(201,162,39,.24),rgba(201,162,39,0) 65%),repeating-linear-gradient(115deg,rgba(11,75,143,.075) 0 2px,rgba(11,75,143,0) 2px 11px),linear-gradient(120deg,#E4EEFB 0%,#D3E4F7 58%,#DDF0E9 100%)">
+        <div style="position:relative;padding:26px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:20px">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div style="border-left:3px solid #C9A227;padding-left:16px">
+            <div style="color:#0B4B8F;font-size:clamp(26px,3vw,36px);font-weight:800;line-height:1.1">{{ s.value }}</div>
+            <div style="color:#4A6076;font-size:14px;margin-top:4px">{{ s.label }}</div>
+          </div>
+        </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- news + sidebar -->
+    <div style="background:linear-gradient(180deg,#F2F8FF 0%,#FBFDFF 55%,#FFFFFF 100%)">
+    <div style="max-width:1280px;margin:0 auto;padding:34px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:stretch">
+      <div style="flex:999 1 620px;min-width:0;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #E2E8F0;margin-bottom:20px">
+          <div style="display:flex;gap:4px">
+            <sc-for list="{{ newsTabs }}" as="t" hint-placeholder-count="3">
+              <button onClick="{{ t.pick }}" style="border:0;border-bottom:3px solid {{ t.line }};background:transparent;font-family:inherit;font-size:15px;font-weight:700;color:{{ t.color }};padding:10px 14px;margin-bottom:-2px;cursor:pointer">{{ t.label }}</button>
+            </sc-for>
+          </div>
+          <button onClick="{{ goNews }}" style="border:0;background:transparent;font-family:inherit;font-size:13.5px;color:#5A6B80;cursor:pointer" style-hover="color:#D42A2A">Xem tất cả ›</button>
+        </div>
+
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px">
+          <div style="position:relative;width:420px;flex:1 1 340px;min-width:300px;height:270px;border-radius:8px;overflow:hidden;background:#0A4079">
+            <sc-for list="{{ featSlides }}" as="f" hint-placeholder-count="1">
+              <div style="position:absolute;inset:0;opacity:{{ f.op }};transition:opacity .45s ease;pointer-events:{{ f.pe }}">
+                <image-slot id="{{ f.slot }}" src="{{ f.img }}" credit="Wikimedia Commons" shape="rounded" radius="8" placeholder="{{ f.ph }}"></image-slot>
+              </div>
+            </sc-for>
+            <div onClick="{{ featPrev }}" style="position:absolute;left:10px;top:50%;width:34px;height:34px;margin-top:-17px;border-radius:50%;background:rgba(3,22,42,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;z-index:3" style-hover="background:rgba(212,42,42,.9)">‹</div>
+            <div onClick="{{ featNext }}" style="position:absolute;right:10px;top:50%;width:34px;height:34px;margin-top:-17px;border-radius:50%;background:rgba(3,22,42,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;z-index:3" style-hover="background:rgba(212,42,42,.9)">›</div>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:10px 14px;display:flex;gap:6px;justify-content:center;z-index:3">
+              <sc-for list="{{ featDots }}" as="d" hint-placeholder-count="4">
+                <div onClick="{{ d.pick }}" style="width:{{ d.w }};height:5px;border-radius:99px;background:{{ d.bg }};cursor:pointer;transition:width .3s ease"></div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="flex:1 1 300px;min-width:280px">
+            <div style="font-size:12.5px;color:#D42A2A;font-weight:600;text-transform:uppercase;letter-spacing:.06em">{{ featCat }}</div>
+            <div onClick="{{ goArticle }}" style="font-size:20px;font-weight:700;line-height:1.35;margin-top:8px;cursor:pointer;text-wrap:pretty" style-hover="color:#D42A2A">{{ featTitle }}</div>
+            <div style="font-size:13px;color:#7A8A9C;margin-top:8px">{{ featMeta }}</div>
+            <div style="font-size:14.5px;color:#455567;margin-top:10px;line-height:1.65;text-wrap:pretty">{{ featExcerpt }}</div>
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #E2E8F0;padding-top:12px">
+              <sc-for list="{{ featOlder }}" as="o" hint-placeholder-count="3">
+                <div onClick="{{ o.pick }}" style="display:flex;gap:9px;align-items:baseline;cursor:pointer;font-size:14px;line-height:1.45;color:{{ o.color }};text-wrap:pretty" style-hover="color:#D42A2A">
+                  <span style="color:#C9A227;font-size:15px;line-height:1.2">•</span>
+                  <span>{{ o.title }}<span style="color:#98A6B5;font-size:12.5px"> — {{ o.date }}</span></span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 28px;flex:1;align-content:space-between">
+          <sc-for list="{{ news }}" as="n" hint-placeholder-count="6">
+            <div onClick="{{ goArticle }}" style="display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed #E2E8F0;cursor:pointer;align-items:flex-start">
+              <div style="width:96px;height:66px;flex:none;border-radius:6px;overflow:hidden">
+                <image-slot id="{{ n.hslot }}" src="{{ n.img }}" credit="Wikimedia Commons" shape="rounded" radius="6" placeholder="Ảnh"></image-slot>
+              </div>
+              <div>
+                <div style="font-size:14.5px;font-weight:500;line-height:1.45;text-wrap:pretty" style-hover="color:#D42A2A">{{ n.title }}</div>
+                <div style="font-size:12.5px;color:#8A98A8;margin-top:4px">{{ n.date }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- sidebar -->
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px;letter-spacing:.02em">DỊCH VỤ CÔNG — THỦ TỤC</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr">
+            <sc-for list="{{ services }}" as="sv" hint-placeholder-count="6">
+              <div style="padding:16px 10px;text-align:center;border-right:1px solid #EDF1F6;border-bottom:1px solid #EDF1F6;cursor:pointer" style-hover="background:#EEF4FB">
+                <div style="display:flex;justify-content:center"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0B4B8F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="{{ sv.d }}"></path></svg></div>
+                <div style="font-size:13px;font-weight:500;margin-top:6px;line-height:1.35;color:#2A3B4F">{{ sv.label }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px;display:flex;justify-content:space-between;align-items:center">
+            <span>VĂN BẢN MỚI</span>
+            <button onClick="{{ goDocs }}" style="border:0;background:transparent;color:#9FC4E8;font-family:inherit;font-size:12.5px;cursor:pointer">Tra cứu ›</button>
+          </div>
+          <div style="padding:6px 16px 12px">
+            <sc-for list="{{ docs }}" as="d" hint-placeholder-count="4">
+              <div style="padding:11px 0;border-bottom:1px dashed #E2E8F0">
+                <div style="font-size:12.5px;color:#D42A2A;font-weight:600">{{ d.number }}</div>
+                <div style="font-size:14px;line-height:1.45;margin-top:3px;text-wrap:pretty">{{ d.title }}</div>
+                <div style="font-size:12px;color:#8A98A8;margin-top:4px">{{ d.date }} · PDF</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">HỎI ĐÁP</div>
+          <div style="padding:6px 16px 16px">
+            <sc-for list="{{ faqsHome }}" as="f" hint-placeholder-count="2">
+              <div style="padding:11px 0;border-bottom:1px dashed #E2E8F0">
+                <div style="font-size:14px;font-weight:500;line-height:1.45;text-wrap:pretty">{{ f.q }}</div>
+                <div style="font-size:12.5px;color:#8A98A8;margin-top:4px">{{ f.who }} · {{ f.date }}</div>
+              </div>
+            </sc-for>
+            <button onClick="{{ goContact }}" style="width:100%;margin-top:14px;border:1px solid #0B4B8F;background:#fff;color:#0B4B8F;font-family:inherit;font-weight:600;font-size:14px;padding:10px;border-radius:6px;cursor:pointer" style-hover="background:#0B4B8F;color:#fff">Gửi câu hỏi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- projects -->
+    <div style="background:#fff;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0">
+      <div style="max-width:1280px;margin:0 auto;padding:34px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #E2E8F0;margin-bottom:22px">
+          <div style="font-size:19px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;margin-bottom:-2px">Dự án tiêu biểu</div>
+          <button onClick="{{ goProjects }}" style="border:0;background:transparent;font-family:inherit;font-size:13.5px;color:#5A6B80;cursor:pointer;padding-bottom:10px" style-hover="color:#D42A2A">Toàn bộ dự án ›</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <div onClick="{{ goProject }}" style="border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;background:#fff;cursor:pointer" style-hover="box-shadow:0 10px 26px rgba(11,75,143,.14);border-color:#C4D6E9">
+              <div style="height:158px">
+                <image-slot id="{{ p.slot }}" src="{{ p.img }}" credit="Wikimedia Commons" shape="rect" placeholder="Ảnh dự án"></image-slot>
+              </div>
+              <div style="padding:15px">
+                <div style="display:inline-block;font-size:11.5px;font-weight:600;color:{{ p.statusColor }};background:{{ p.statusBg }};padding:3px 9px;border-radius:3px">{{ p.status }}</div>
+                <div style="font-size:15.5px;font-weight:600;line-height:1.4;margin-top:9px;min-height:44px;text-wrap:pretty">{{ p.name }}</div>
+                <div style="font-size:13px;color:#7A8A9C;margin-top:8px">{{ p.location }} · {{ p.capital }}</div>
+                <div style="margin-top:12px">
+                  <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#5A6B80;margin-bottom:5px"><span>Tiến độ</span><span style="font-weight:600;color:#0B4B8F">{{ p.pct }}</span></div>
+                  <div style="height:6px;background:#EDF1F6;border-radius:99px;overflow:hidden">
+                    <div style="height:100%;background:#0B4B8F;border-radius:99px;width:{{ p.pct }}"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #CBDBEF;border-bottom:1px solid #CBDBEF;background:radial-gradient(800px 340px at 88% -20%,rgba(122,208,255,.34),rgba(122,208,255,0) 62%),repeating-linear-gradient(0deg,rgba(11,75,143,.07) 0 1px,rgba(11,75,143,0) 1px 26px),repeating-linear-gradient(90deg,rgba(11,75,143,.07) 0 1px,rgba(11,75,143,0) 1px 26px),linear-gradient(160deg,#DCEAFA 0%,#E9F2FC 58%,#FBEFD8 100%)">
+      <div style="max-width:1280px;margin:0 auto;padding:32px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:18px">
+          <div>
+            <div style="color:#A5811A;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase">Hình ảnh</div>
+            <div style="color:#12314F;font-size:clamp(19px,2.1vw,23px);font-weight:700;margin-top:6px">Công trình tiêu biểu trên địa bàn tỉnh</div>
+          </div>
+          <div style="color:#0B4B8F;font-size:13.5px;font-weight:600;cursor:pointer" style-hover="color:#D42A2A">Thư viện ảnh ›</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+          <sc-for list="{{ showcase }}" as="w" hint-placeholder-count="5">
+            <div style="position:relative;height:175px;border-radius:8px;overflow:hidden;cursor:pointer">
+              <image-slot id="{{ w.slot }}" src="{{ w.img }}" credit="Wikimedia Commons" shape="rounded" radius="8" placeholder="Ảnh công trình"></image-slot>
+              <div style="position:absolute;inset:auto 0 0 0;padding:28px 12px 11px;background:linear-gradient(180deg,rgba(3,22,42,0),rgba(3,22,42,.9));pointer-events:none">
+                <div style="color:#fff;font-size:13px;font-weight:600;line-height:1.35;text-wrap:pretty">{{ w.name }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- tenders -->
+    <div style="background:linear-gradient(180deg,#FFFFFF 0%,#F4F9FF 100%)">
+    <div style="max-width:1280px;margin:0 auto;padding:34px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start">
+      <div style="flex:999 1 620px;min-width:0">
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #E2E8F0;margin-bottom:16px">
+          <div style="font-size:19px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;margin-bottom:-2px">Thông báo mời thầu</div>
+          <button onClick="{{ goTender }}" style="border:0;background:transparent;font-family:inherit;font-size:13.5px;color:#5A6B80;cursor:pointer;padding-bottom:10px" style-hover="color:#D42A2A">Xem tất cả ›</button>
+        </div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <sc-for list="{{ tenders }}" as="t" hint-placeholder-count="4">
+            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #EDF1F6" style-hover="background:#F8FAFD">
+              <div style="min-width:240px;flex:1">
+                <div style="font-size:12px;color:#8A98A8;font-weight:500">{{ t.code }}</div>
+                <div style="font-size:14.5px;font-weight:500;line-height:1.45;margin-top:3px;text-wrap:pretty">{{ t.name }}</div>
+              </div>
+              <div style="display:flex;gap:18px;align-items:center">
+                <div style="text-align:right">
+                  <div style="font-size:11.5px;color:#8A98A8">Đóng thầu</div>
+                  <div style="font-size:13.5px;font-weight:600">{{ t.deadline }}</div>
+                </div>
+                <div style="font-size:11.5px;font-weight:600;color:{{ t.color }};background:{{ t.bg }};padding:4px 10px;border-radius:3px;white-space:nowrap">{{ t.status }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="flex:1 1 300px;min-width:0">
+        <div style="font-size:19px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:18px">Thư viện ảnh — video</div>
+        <div style="position:relative;height:196px;border-radius:8px;overflow:hidden;margin-bottom:10px;cursor:pointer">
+          <image-slot id="video-main" src="{{ videoThumb }}" credit="Wikimedia Commons" shape="rounded" radius="8" placeholder="Video tiến độ dự án"></image-slot>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,22,42,.12),rgba(3,22,42,.78));pointer-events:none"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(3,22,42,.45)">
+              <div style="width:0;height:0;border-left:17px solid #D42A2A;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:5px"></div>
+            </div>
+          </div>
+          <div style="position:absolute;left:14px;right:14px;bottom:12px;color:#fff;font-size:13.5px;font-weight:600;line-height:1.35;pointer-events:none">Toàn cảnh thi công đường trục Đông Tây · 3:12</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <sc-for list="{{ gallery3 }}" as="g" hint-placeholder-count="3">
+            <div style="position:relative;height:82px;border-radius:6px;overflow:hidden;cursor:pointer">
+              <image-slot id="{{ g.slot }}" src="{{ g.img }}" credit="Wikimedia Commons" shape="rounded" radius="6" placeholder="{{ g.label }}"></image-slot>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- links -->
+    <div style="background:#fff;border-top:1px solid #E2E8F0">
+      <div style="max-width:1280px;margin:0 auto;padding:22px 20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <div style="font-size:14.5px;font-weight:700;color:#0B4B8F;white-space:nowrap">Liên kết website</div>
+        <!-- links row -->
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+          <div style="border:1px solid #DCE5EF;border-radius:6px;padding:9px 14px;font-size:13.5px;color:#455567;background:#F8FAFD;cursor:pointer;white-space:nowrap" style-hover="border-color:#0B4B8F;color:#0B4B8F">{{ l }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== NEWS LIST ===================== -->
+  <sc-if value="{{ isNews }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start">
+    <div style="flex:999 1 620px;min-width:0">
+      <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:22px">{{ newsTitle }}</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <sc-for list="{{ newsShown }}" as="n" hint-placeholder-count="6">
+          <div onClick="{{ goArticle }}" style="display:flex;gap:18px;flex-wrap:wrap;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:14px;cursor:pointer" style-hover="box-shadow:0 8px 22px rgba(11,75,143,.12)">
+            <div style="width:230px;height:145px;flex:0 0 auto;border-radius:6px;overflow:hidden">
+              <image-slot id="{{ n.slot }}" src="{{ n.img }}" credit="Wikimedia Commons" shape="rounded" radius="6" placeholder="Ảnh"></image-slot>
+            </div>
+            <div style="flex:1 1 260px">
+              <div style="font-size:12px;color:#D42A2A;font-weight:600;text-transform:uppercase;letter-spacing:.06em">{{ n.cat }}</div>
+              <div style="font-size:17.5px;font-weight:600;line-height:1.4;margin-top:6px;text-wrap:pretty">{{ n.title }}</div>
+              <div style="font-size:12.5px;color:#8A98A8;margin-top:6px">{{ n.date }} · {{ n.views }} lượt xem</div>
+              <div style="font-size:14.5px;color:#455567;margin-top:8px;line-height:1.6;text-wrap:pretty">{{ n.excerpt }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:6px;justify-content:center;margin-top:26px">
+        <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="5">
+          <div style="min-width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid {{ pg.border }};background:{{ pg.bg }};color:{{ pg.color }};border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;padding:0 10px">{{ pg.label }}</div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+        <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">CHUYÊN MỤC</div>
+        <div style="padding:8px 0">
+          <sc-for list="{{ categories }}" as="c" hint-placeholder-count="5">
+            <div onClick="{{ c.go }}" style="padding:10px 16px;font-size:14.5px;border-bottom:1px solid #F2F5F9;display:flex;justify-content:space-between;cursor:pointer;color:{{ c.color }};background:{{ c.bg }};font-weight:{{ c.fw }}" style-hover="background:#EEF4FB;color:#0B4B8F"><span>{{ c.label }}</span><span style="color:#9BAABA;font-size:13px">{{ c.count }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+        <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">XEM NHIỀU NHẤT</div>
+        <div style="padding:6px 16px 12px">
+          <sc-for list="{{ news }}" as="n" hint-placeholder-count="4">
+            <div style="padding:10px 0;border-bottom:1px dashed #E2E8F0;font-size:14px;line-height:1.45;cursor:pointer" style-hover="color:#D42A2A">{{ n.title }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== ARTICLE ===================== -->
+  <sc-if value="{{ isArticle }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px;display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
+    <div style="flex:999 1 620px;min-width:0;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:clamp(20px,3vw,40px)">
+      <div style="font-size:12.5px;color:#D42A2A;font-weight:600;text-transform:uppercase;letter-spacing:.07em">Hoạt động của Ban</div>
+      <h1 style="font-size:clamp(24px,3vw,33px);font-weight:700;line-height:1.3;margin:10px 0 0;text-wrap:pretty">Ban QLDA khu vực Phú Thọ đẩy nhanh tiến độ giải ngân vốn đầu tư công 8 tháng đầu năm 2026</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:#8A98A8;margin:14px 0 20px;padding-bottom:16px;border-bottom:1px solid #EDF1F6">
+        <span>20/08/2026 · 09:15</span><span>Nguồn: Ban QLDA khu vực Phú Thọ</span><span>214 lượt xem</span>
+        <span style="margin-left:auto;display:flex;gap:8px;align-items:center"><span>Chia sẻ:</span><span style="width:26px;height:26px;border-radius:4px;background:#1877F2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">f</span><span style="width:26px;height:26px;border-radius:4px;background:#0B4B8F;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">in</span><span style="width:26px;height:26px;border-radius:4px;background:#5A6B80;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px">✉</span></span>
+      </div>
+      <div style="font-family:Lora,serif;font-size:17.5px;font-weight:600;line-height:1.7;color:#243449;margin-bottom:18px;text-wrap:pretty">Tính đến hết tháng 8/2026, tỷ lệ giải ngân của các dự án do Ban làm chủ đầu tư đạt 71,4% kế hoạch vốn được giao, cao hơn 9,2 điểm phần trăm so với cùng kỳ năm 2025.</div>
+      <div style="height:360px;border-radius:8px;overflow:hidden;margin-bottom:10px">
+        <image-slot id="art-1" shape="rounded" radius="8" placeholder="Ảnh minh họa bài viết"></image-slot>
+      </div>
+      <div style="font-size:13px;color:#8A98A8;text-align:center;font-style:italic;margin-bottom:22px">Thi công hạng mục cầu chính thuộc Dự án đường trục Đông Tây, thành phố Việt Trì</div>
+      <div style="font-family:Lora,serif;font-size:17px;line-height:1.85;color:#26333F">
+        <p style="margin:0 0 18px">Theo báo cáo tại cuộc họp giao ban tháng 8, Ban Quản lý dự án khu vực Phú Thọ đang trực tiếp quản lý 34 dự án với tổng mức đầu tư hơn 9.800 tỷ đồng, trong đó có 6 dự án trọng điểm của tỉnh.</p>
+        <p style="margin:0 0 18px">Lãnh đạo Ban yêu cầu các phòng chuyên môn rà soát toàn bộ khối lượng đã nghiệm thu, hoàn thiện hồ sơ thanh toán trong vòng 5 ngày làm việc kể từ khi có biên bản nghiệm thu; đối với các gói thầu chậm tiến độ, tổ chức kiểm điểm trách nhiệm nhà thầu và xem xét điều chuyển khối lượng.</p>
+        <blockquote style="margin:0 0 18px;padding:16px 20px;background:#F4F8FD;border-left:4px solid #0B4B8F;font-size:16.5px;color:#1E3550;font-family:Lora,serif">"Giải ngân không phải là mục tiêu tự thân. Vốn đi đến đâu, khối lượng thực tế trên công trường phải tương ứng đến đó", đại diện lãnh đạo Ban nhấn mạnh.</blockquote>
+        <p style="margin:0 0 18px">Về công tác giải phóng mặt bằng, Ban phối hợp với UBND các xã, phường liên quan hoàn thành kiểm đếm 412/468 hộ dân thuộc phạm vi Dự án cầu vượt sông Lô, phấn đấu bàn giao toàn bộ mặt bằng sạch trong quý IV/2026.</p>
+        <p style="margin:0">Trong 4 tháng còn lại của năm, Ban đặt mục tiêu giải ngân đạt trên 95% kế hoạch vốn, đồng thời khởi công 3 dự án mới đã hoàn thành thủ tục đầu tư.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding-top:20px;border-top:1px solid #EDF1F6">
+        <sc-for list="{{ tags }}" as="tg" hint-placeholder-count="3">
+          <div style="font-size:13px;background:#EEF4FB;color:#0B4B8F;padding:5px 12px;border-radius:99px">#{{ tg }}</div>
+        </sc-for>
+      </div>
+      <div style="margin-top:28px">
+        <div style="font-size:16px;font-weight:700;color:#0B4B8F;margin-bottom:12px">Tin liên quan</div>
+        <sc-for list="{{ news }}" as="n" hint-placeholder-count="4">
+          <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed #E2E8F0;font-size:14.5px;cursor:pointer" style-hover="color:#D42A2A"><span style="color:#D42A2A">▪</span><span>{{ n.title }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+        <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">VĂN BẢN LIÊN QUAN</div>
+        <div style="padding:6px 16px 12px">
+          <sc-for list="{{ docs }}" as="d" hint-placeholder-count="3">
+            <div style="padding:11px 0;border-bottom:1px dashed #E2E8F0">
+              <div style="font-size:12.5px;color:#D42A2A;font-weight:600">{{ d.number }}</div>
+              <div style="font-size:14px;line-height:1.45;margin-top:3px">{{ d.title }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#0B4B8F;border-radius:8px;padding:20px;color:#fff">
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px">Đăng ký nhận tin</div>
+        <div style="font-size:13.5px;color:#9FC4E8;line-height:1.55;margin-bottom:14px">Nhận thông báo mời thầu và văn bản mới qua email.</div>
+        <input placeholder="Email của bạn" style="width:100%;border:0;border-radius:6px;padding:11px 13px;font-family:inherit;font-size:14px;margin-bottom:10px" />
+        <button style="width:100%;border:0;background:#D42A2A;color:#fff;font-family:inherit;font-weight:600;font-size:14px;padding:11px;border-radius:6px;cursor:pointer">Đăng ký</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== ABOUT ===================== -->
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">{{ aboutTitle }}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start">
+      <div style="flex:999 1 620px;min-width:0;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:clamp(20px,3vw,34px)">
+        <sc-if value="{{ aboutDuties }}" hint-placeholder-val="{{ true }}">
+        <div>
+        <div style="height:280px;border-radius:8px;overflow:hidden;margin-bottom:22px">
+          <image-slot id="about-hero" shape="rounded" radius="8" placeholder="Ảnh trụ sở Ban"></image-slot>
+        </div>
+        <div style="font-family:Lora,serif;font-size:16.5px;line-height:1.85;color:#26333F">
+          <p style="margin:0 0 16px">Ban Quản lý dự án khu vực Phú Thọ là đơn vị sự nghiệp công lập trực thuộc Ủy ban nhân dân tỉnh Phú Thọ, có tư cách pháp nhân, con dấu riêng và được mở tài khoản tại Kho bạc Nhà nước và ngân hàng thương mại theo quy định.</p>
+          <p style="margin:0 0 16px">Ban thực hiện chức năng làm chủ đầu tư, quản lý dự án đối với các dự án đầu tư xây dựng sử dụng vốn ngân sách nhà nước, vốn nhà nước ngoài ngân sách do UBND tỉnh giao; đồng thời nhận ủy thác quản lý dự án cho các chủ đầu tư khác khi được yêu cầu.</p>
+        </div>
+        <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:26px 0 14px">Nhiệm vụ chính</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+          <sc-for list="{{ duties }}" as="d" hint-placeholder-count="4">
+            <div style="background:#F8FAFD;border:1px solid #E7EEF6;border-radius:8px;padding:16px">
+              <div style="width:30px;height:30px;border-radius:6px;background:#0B4B8F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin-bottom:10px">{{ d.no }}</div>
+              <div style="font-size:14.5px;line-height:1.55;color:#2A3B4F;text-wrap:pretty">{{ d.text }}</div>
+            </div>
+          </sc-for>
+        </div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ aboutOrg }}" hint-placeholder-val="{{ false }}">
+        <div>
+        <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:{{ orgTop }} 0 14px">Cơ cấu tổ chức</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0">
+          <div style="background:#0B4B8F;color:#fff;padding:13px 30px;border-radius:6px;font-size:15px;font-weight:600">Giám đốc Ban</div>
+          <div style="width:2px;height:20px;background:#C4D6E9"></div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+            <div style="background:#245D9B;color:#fff;padding:11px 22px;border-radius:6px;font-size:14px;font-weight:500">Phó Giám đốc</div>
+            <div style="background:#245D9B;color:#fff;padding:11px 22px;border-radius:6px;font-size:14px;font-weight:500">Phó Giám đốc</div>
+          </div>
+          <div style="width:2px;height:20px;background:#C4D6E9"></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;width:100%">
+            <sc-for list="{{ depts }}" as="dp" hint-placeholder-count="5">
+              <div style="background:#fff;border:1px solid #D5E2EF;border-radius:6px;padding:13px;text-align:center;font-size:13.5px;font-weight:500;color:#2A3B4F">{{ dp }}</div>
+            </sc-for>
+          </div>
+        </div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ aboutHistory }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ history }}" as="h" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:96px 22px 1fr;gap:12px">
+              <div style="font-size:18px;font-weight:800;color:#0B4B8F;padding-top:2px">{{ h.year }}</div>
+              <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#D42A2A;margin-top:9px;flex:none"></div><div style="width:2px;flex:1;background:#D5E2EF"></div></div>
+              <div style="padding-bottom:26px">
+                <div style="font-size:15.5px;font-weight:600;line-height:1.45">{{ h.title }}</div>
+                <div style="font-size:14.5px;color:#455567;line-height:1.65;margin-top:5px;text-wrap:pretty">{{ h.text }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+        <sc-if value="{{ aboutLeaders }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+          <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="3">
+            <div style="border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;background:#fff">
+              <div style="height:240px"><image-slot id="{{ l.slot }}" shape="rect" placeholder="Ảnh chân dung"></image-slot></div>
+              <div style="padding:16px">
+                <div style="font-size:12.5px;color:#D42A2A;font-weight:700;text-transform:uppercase;letter-spacing:.06em">{{ l.role }}</div>
+                <div style="font-size:16.5px;font-weight:700;margin-top:5px">{{ l.name }}</div>
+                <div style="font-size:13.5px;color:#5A6B80;margin-top:8px;line-height:1.7">{{ l.task }}<br />Điện thoại: {{ l.phone }}<br />Email: {{ l.email }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+      </div>
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">GIỚI THIỆU</div>
+          <div style="padding:8px 0">
+            <sc-for list="{{ aboutMenu }}" as="a" hint-placeholder-count="4">
+              <div onClick="{{ a.go }}" style="padding:11px 16px;font-size:14.5px;border-bottom:1px solid #F2F5F9;cursor:pointer;color:{{ a.color }};background:{{ a.bg }};font-weight:{{ a.fw }}" style-hover="background:#EEF4FB;color:#0B4B8F">{{ a.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:18px">
+          <div style="font-size:14.5px;font-weight:700;color:#0B4B8F;margin-bottom:12px">Thông tin liên hệ</div>
+          <div style="font-size:14px;line-height:1.9;color:#455567">
+            <div>Địa chỉ: Số 215 đường Minh Lang, phường Việt Trì, tỉnh Phú Thọ</div>
+            <div>Điện thoại: 0210 3846 507</div>
+            <div>Email: bqlduan@phutho.gov.vn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== PROJECTS LIST ===================== -->
+  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:22px">{{ projTitle }}</div>
+    <sc-if value="{{ showDisb }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px">
+        <sc-for list="{{ disbStats }}" as="s" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:18px;border-left:3px solid #C9A227">
+            <div style="font-size:26px;font-weight:800;color:#0B4B8F;line-height:1.15">{{ s.value }}</div>
+            <div style="font-size:13.5px;color:#5A6B80;margin-top:4px">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto">
+        <div style="display:grid;grid-template-columns:1fr 150px 150px 220px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:820px">
+          <div>Dự án</div><div>Kế hoạch vốn 2026</div><div>Đã giải ngân</div><div>Tỷ lệ</div>
+        </div>
+        <sc-for list="{{ disbursement }}" as="d" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:1fr 150px 150px 220px;gap:14px;padding:14px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:820px">
+            <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ d.name }}</div>
+            <div style="font-size:14px">{{ d.plan }}</div>
+            <div style="font-size:14px;font-weight:600">{{ d.done }}</div>
+            <div style="display:flex;gap:10px;align-items:center"><div style="flex:1;height:7px;background:#EDF1F6;border-radius:99px;overflow:hidden"><div style="height:100%;background:{{ d.color }};width:{{ d.pct }}"></div></div><span style="font-size:13.5px;font-weight:700;color:{{ d.color }};width:48px;text-align:right">{{ d.pct }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="font-size:13px;color:#7A8A9C;margin-top:12px">Số liệu cập nhật đến ngày 20/08/2026. Nguồn: Phòng Kế hoạch — Tài chính.</div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ showProjGrid }}" hint-placeholder-val="{{ true }}">
+    <div>
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:24px">
+      <div>
+        <div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Tên dự án</div>
+        <input placeholder="Nhập tên dự án" style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;outline:0" />
+      </div>
+      <div>
+        <div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Lĩnh vực</div>
+        <select style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fff"><option>Tất cả lĩnh vực</option><option>Giao thông</option><option>Dân dụng</option><option>Hạ tầng kỹ thuật</option><option>Thủy lợi</option></select>
+      </div>
+      <div>
+        <div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Trạng thái</div>
+        <select style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fff"><option>Tất cả</option><option>Chuẩn bị đầu tư</option><option>Đang thi công</option><option>Hoàn thành</option></select>
+      </div>
+      <div>
+        <div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Năm khởi công</div>
+        <select style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fff"><option>Tất cả</option><option>2026</option><option>2025</option><option>2024</option></select>
+      </div>
+      <div style="display:flex;align-items:flex-end">
+        <button style="width:100%;border:0;background:#0B4B8F;color:#fff;font-family:inherit;font-weight:600;font-size:14px;padding:11px;border-radius:6px;cursor:pointer" style-hover="background:#073766">Tìm kiếm</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px">
+      <sc-for list="{{ projShown }}" as="p" hint-placeholder-count="6">
+        <div onClick="{{ goProject }}" style="border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;background:#fff;cursor:pointer" style-hover="box-shadow:0 10px 26px rgba(11,75,143,.14)">
+          <div style="height:160px">
+            <image-slot id="{{ p.slot }}" src="{{ p.img }}" credit="Wikimedia Commons" shape="rect" placeholder="Ảnh dự án"></image-slot>
+          </div>
+          <div style="padding:15px">
+            <div style="display:inline-block;font-size:11.5px;font-weight:600;color:{{ p.statusColor }};background:{{ p.statusBg }};padding:3px 9px;border-radius:3px">{{ p.status }}</div>
+            <div style="font-size:15.5px;font-weight:600;line-height:1.4;margin-top:9px;text-wrap:pretty">{{ p.name }}</div>
+            <div style="font-size:13px;color:#7A8A9C;margin-top:8px;line-height:1.7">{{ p.location }}<br />Tổng mức đầu tư: <strong style="color:#16202E">{{ p.capital }}</strong></div>
+            <div style="margin-top:12px">
+              <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#5A6B80;margin-bottom:5px"><span>Tiến độ</span><span style="font-weight:600;color:#0B4B8F">{{ p.pct }}</span></div>
+              <div style="height:6px;background:#EDF1F6;border-radius:99px;overflow:hidden"><div style="height:100%;background:#0B4B8F;border-radius:99px;width:{{ p.pct }}"></div></div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <!-- ===================== PROJECT DETAIL ===================== -->
+  <sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start">
+    <div style="flex:999 1 620px;min-width:0">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+        <div style="height:340px">
+          <image-slot id="proj-hero" shape="rect" placeholder="Phối cảnh dự án"></image-slot>
+        </div>
+        <div style="padding:clamp(18px,3vw,30px)">
+          <div style="display:inline-block;font-size:11.5px;font-weight:600;color:#0B5A2B;background:#E3F5E9;padding:4px 10px;border-radius:3px">Đang thi công</div>
+          <h1 style="font-size:clamp(21px,2.6vw,29px);font-weight:700;line-height:1.32;margin:12px 0 0;text-wrap:pretty">Dự án Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)</h1>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:#E7EEF6;border:1px solid #E7EEF6;border-radius:8px;margin-top:22px;overflow:hidden">
+            <sc-for list="{{ projectFacts }}" as="f" hint-placeholder-count="6">
+              <div style="background:#F8FAFD;padding:15px 16px">
+                <div style="font-size:12.5px;color:#7A8A9C">{{ f.k }}</div>
+                <div style="font-size:15px;font-weight:600;margin-top:4px;line-height:1.4">{{ f.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="margin-top:26px">
+            <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px"><span style="font-weight:600">Tiến độ tổng thể</span><span style="font-weight:700;color:#0B4B8F">68%</span></div>
+            <div style="height:10px;background:#EDF1F6;border-radius:99px;overflow:hidden"><div style="height:100%;width:68%;background:linear-gradient(90deg,#0B4B8F,#2E7BC4);border-radius:99px"></div></div>
+          </div>
+          <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:28px 0 12px">Quy mô đầu tư</div>
+          <div style="font-family:Lora,serif;font-size:16.5px;line-height:1.85;color:#26333F">
+            <p style="margin:0 0 14px">Tuyến đường dài 6,8 km, quy mô mặt cắt ngang 42 m gồm 6 làn xe cơ giới, dải phân cách giữa, vỉa hè hai bên; xây dựng đồng bộ hệ thống thoát nước, cấp nước, chiếu sáng, cây xanh và hào kỹ thuật.</p>
+            <p style="margin:0">Trên tuyến xây dựng 02 cầu vượt nút giao và 01 hầm chui dân sinh; kết nối trực tiếp với Quốc lộ 2 và đường cao tốc Nội Bài — Lào Cai.</p>
+          </div>
+          <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:28px 0 12px">Tiến độ các hạng mục</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="4">
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px"><span>{{ m.name }}</span><span style="color:#5A6B80">{{ m.pct }}</span></div>
+                <div style="height:7px;background:#EDF1F6;border-radius:99px;overflow:hidden"><div style="height:100%;background:{{ m.color }};border-radius:99px;width:{{ m.pct }}"></div></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:28px 0 12px">Hình ảnh công trường</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px">
+            <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="4">
+              <div style="height:120px;border-radius:6px;overflow:hidden"><image-slot id="{{ g.pslot }}" shape="rounded" radius="6" placeholder="Ảnh"></image-slot></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+        <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">HỒ SƠ DỰ ÁN</div>
+        <div style="padding:8px 0">
+          <sc-for list="{{ projectFiles }}" as="pf" hint-placeholder-count="4">
+            <div style="padding:11px 16px;border-bottom:1px solid #F2F5F9;display:flex;gap:10px;align-items:center;cursor:pointer" style-hover="background:#EEF4FB">
+              <span style="font-size:11px;font-weight:700;color:#D42A2A;border:1px solid #F0C9C9;background:#FDF0F0;padding:2px 5px;border-radius:3px">{{ pf.type }}</span>
+              <span style="font-size:14px;line-height:1.4">{{ pf.name }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+        <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">GÓI THẦU THUỘC DỰ ÁN</div>
+        <div style="padding:6px 16px 12px">
+          <sc-for list="{{ tenders }}" as="t" hint-placeholder-count="3">
+            <div style="padding:11px 0;border-bottom:1px dashed #E2E8F0">
+              <div style="font-size:12px;color:#8A98A8">{{ t.code }}</div>
+              <div style="font-size:14px;line-height:1.45;margin-top:3px">{{ t.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TENDER ===================== -->
+  <sc-if value="{{ isTender }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:22px">{{ tenderTitle }}</div>
+    <sc-if value="{{ tenderResult }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto">
+      <div style="display:grid;grid-template-columns:1fr 200px 130px 160px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:860px">
+        <div>Gói thầu</div><div>Nhà thầu trúng thầu</div><div>Giá trúng thầu</div><div>Quyết định phê duyệt</div>
+      </div>
+      <sc-for list="{{ tenderResults }}" as="r" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:1fr 200px 130px 160px;gap:14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:860px" style-hover="background:#F8FAFD">
+          <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ r.name }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">{{ r.code }} · Giá gói thầu {{ r.value }}</div></div>
+          <div style="font-size:14px;font-weight:600;color:#0B4B8F;line-height:1.4">{{ r.winner }}</div>
+          <div style="font-size:14px;font-weight:600">{{ r.price }}</div>
+          <div style="font-size:13.5px;color:#455567;line-height:1.45">{{ r.decision }}<div style="font-size:12.5px;color:#8A98A8">{{ r.date }}</div></div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+    <sc-if value="{{ tenderPlan }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <sc-for list="{{ tenderPlans }}" as="pl" hint-placeholder-count="2">
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto">
+          <div style="padding:14px 18px;border-bottom:1px solid #E2E8F0;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;align-items:baseline">
+            <div style="font-size:15.5px;font-weight:700;color:#0B4B8F">{{ pl.project }}</div>
+            <div style="font-size:13px;color:#5A6B80">{{ pl.decision }}</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 130px 170px 130px 120px;gap:14px;padding:11px 18px;background:#F1F5FA;font-size:12px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:860px">
+            <div>Tên gói thầu</div><div>Giá gói thầu</div><div>Hình thức lựa chọn</div><div>Thời gian tổ chức</div><div>Loại hợp đồng</div>
+          </div>
+          <sc-for list="{{ pl.items }}" as="it" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:1fr 130px 170px 130px 120px;gap:14px;padding:13px 18px;border-top:1px solid #EDF1F6;align-items:center;min-width:860px;font-size:14px">
+              <div style="line-height:1.45;text-wrap:pretty">{{ it.name }}</div><div style="font-weight:600">{{ it.value }}</div><div style="color:#455567">{{ it.method }}</div><div>{{ it.time }}</div><div style="color:#455567">{{ it.contract }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+    <sc-if value="{{ tenderNotice }}" hint-placeholder-val="{{ true }}">
+    <div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+      <sc-for list="{{ tenderFilters }}" as="tf" hint-placeholder-count="4">
+        <div style="border:1px solid {{ tf.border }};background:{{ tf.bg }};color:{{ tf.color }};padding:9px 16px;border-radius:99px;font-size:14px;font-weight:500;cursor:pointer">{{ tf.label }}</div>
+      </sc-for>
+    </div>
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto;-webkit-overflow-scrolling:touch">
+      <div style="display:grid;grid-template-columns:96px 1fr 150px 130px 120px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:820px">
+        <div>Mã TBMT</div><div>Tên gói thầu</div><div>Bên mời thầu</div><div>Đóng thầu</div><div>Trạng thái</div>
+      </div>
+      <sc-for list="{{ tendersFull }}" as="t" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:96px 1fr 150px 130px 120px;gap:14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:820px;cursor:pointer" style-hover="background:#F8FAFD">
+          <div style="font-size:13px;color:#0B4B8F;font-weight:600">{{ t.code }}</div>
+          <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ t.name }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">Giá gói thầu: {{ t.value }}</div></div>
+          <div style="font-size:13.5px;color:#455567">{{ t.owner }}</div>
+          <div style="font-size:13.5px;font-weight:600">{{ t.deadline }}</div>
+          <div><span style="font-size:11.5px;font-weight:600;color:{{ t.color }};background:{{ t.bg }};padding:4px 10px;border-radius:3px;white-space:nowrap">{{ t.status }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="background:#FFF4E5;border:1px solid #F2DFC0;border-radius:8px;padding:16px 18px;margin-top:20px;font-size:14px;color:#7A4A0A;line-height:1.6">Hồ sơ mời thầu được phát hành đồng thời trên Hệ thống mạng đấu thầu quốc gia. Nhà thầu nộp hồ sơ dự thầu trực tuyến theo đúng thời gian ghi trong thông báo.</div>
+    </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <!-- ===================== DOCS ===================== -->
+  <sc-if value="{{ isDocs }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:22px">Văn bản pháp quy</div>
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px">
+      <div><div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Số ký hiệu</div><input placeholder="VD: 12/2026/QĐ-UBND" style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;outline:0" /></div>
+      <div><div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Loại văn bản</div><select style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fff"><option>Tất cả</option><option>Quyết định</option><option>Thông tư</option><option>Nghị định</option><option>Công văn</option></select></div>
+      <div><div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Cơ quan ban hành</div><select style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fff"><option>Tất cả</option><option>Chính phủ</option><option>Bộ Xây dựng</option><option>UBND tỉnh Phú Thọ</option></select></div>
+      <div><div style="font-size:12.5px;color:#5A6B80;margin-bottom:5px;font-weight:500">Trích yếu</div><input placeholder="Nhập từ khóa" style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:10px 12px;font-family:inherit;font-size:14px;outline:0" /></div>
+      <div style="display:flex;align-items:flex-end"><button style="width:100%;border:0;background:#0B4B8F;color:#fff;font-family:inherit;font-weight:600;font-size:14px;padding:11px;border-radius:6px;cursor:pointer">Tra cứu</button></div>
+    </div>
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto;-webkit-overflow-scrolling:touch">
+      <div style="display:grid;grid-template-columns:170px 1fr 130px 120px 90px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:840px">
+        <div>Số ký hiệu</div><div>Trích yếu</div><div>Cơ quan</div><div>Ngày ban hành</div><div>Tải về</div>
+      </div>
+      <sc-for list="{{ docsFull }}" as="d" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:170px 1fr 130px 120px 90px;gap:14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:840px" style-hover="background:#F8FAFD">
+          <div style="font-size:13.5px;font-weight:600;color:#0B4B8F">{{ d.number }}</div>
+          <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ d.title }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">{{ d.type }}</div></div>
+          <div style="font-size:13.5px;color:#455567">{{ d.org }}</div>
+          <div style="font-size:13.5px">{{ d.date }}</div>
+          <div><span style="font-size:12px;font-weight:600;color:#D42A2A;border:1px solid #F0C9C9;background:#FDF0F0;padding:5px 10px;border-radius:4px;cursor:pointer">PDF ↓</span></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== SITEMAP ===================== -->
+  <sc-if value="{{ isSitemap }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">Sơ đồ cổng thông tin</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;align-items:start">
+      <sc-for list="{{ sitemap }}" as="g" hint-placeholder-count="7">
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div onClick="{{ g.go }}" style="background:#0B4B8F;color:#fff;font-size:15px;font-weight:700;padding:13px 16px;cursor:pointer" style-hover="background:#073766">{{ g.label }}</div>
+          <div style="padding:6px 0">
+            <sc-for list="{{ g.children }}" as="c" hint-placeholder-count="3">
+              <div onClick="{{ c.go }}" style="display:flex;gap:10px;align-items:baseline;padding:9px 16px;font-size:14.5px;cursor:pointer;color:#2A3B4F" style-hover="background:#EEF4FB;color:#0B4B8F"><span style="color:#C9A227">›</span><span>{{ c.label }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== CONTACT ===================== -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">Liên hệ — Hỏi đáp</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px;align-items:start">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:26px">
+        <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin-bottom:16px">Gửi câu hỏi / kiến nghị</div>
+        <div style="display:grid;gap:14px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
+            <div><div style="font-size:13px;color:#5A6B80;margin-bottom:5px;font-weight:500">Họ và tên <span style="color:#D42A2A">*</span></div><input style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:11px 12px;font-family:inherit;font-size:14.5px;outline:0" /></div>
+            <div><div style="font-size:13px;color:#5A6B80;margin-bottom:5px;font-weight:500">Điện thoại</div><input style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:11px 12px;font-family:inherit;font-size:14.5px;outline:0" /></div>
+          </div>
+          <div><div style="font-size:13px;color:#5A6B80;margin-bottom:5px;font-weight:500">Email <span style="color:#D42A2A">*</span></div><input style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:11px 12px;font-family:inherit;font-size:14.5px;outline:0" /></div>
+          <div><div style="font-size:13px;color:#5A6B80;margin-bottom:5px;font-weight:500">Lĩnh vực</div><select style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:11px 12px;font-family:inherit;font-size:14.5px;background:#fff"><option>Thủ tục đầu tư xây dựng</option><option>Đấu thầu</option><option>Giải phóng mặt bằng</option><option>Khác</option></select></div>
+          <div><div style="font-size:13px;color:#5A6B80;margin-bottom:5px;font-weight:500">Nội dung <span style="color:#D42A2A">*</span></div><textarea rows="5" style="width:100%;border:1px solid #DCE5EF;border-radius:6px;padding:11px 12px;font-family:inherit;font-size:14.5px;outline:0;resize:vertical"></textarea></div>
+          <button style="border:0;background:#D42A2A;color:#fff;font-family:inherit;font-weight:600;font-size:15px;padding:13px;border-radius:6px;cursor:pointer;justify-self:start;padding-left:34px;padding-right:34px" style-hover="background:#B71F1F">Gửi câu hỏi</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div style="height:260px"><iframe src="https://maps.google.com/maps?q=21.3125821,105.4080518&amp;z=18&amp;output=embed" title="Bản đồ vị trí trụ sở" loading="lazy" style="width:100%;height:100%;border:0;display:block"></iframe></div>
+          <div style="padding:20px">
+            <div style="font-size:16px;font-weight:700;margin-bottom:12px">Ban Quản lý dự án khu vực Phú Thọ</div>
+            <div style="font-size:14.5px;line-height:2;color:#455567">
+              <div>Địa chỉ: Số 215 đường Minh Lang, phường Việt Trì, tỉnh Phú Thọ</div>
+              <div>Điện thoại: 0210 3846 507 — 0210 3846 172</div>
+              <div>Email: bqlduan@phutho.gov.vn</div>
+              <div>Giờ làm việc: 07:30 — 11:30 và 13:30 — 17:00 (Thứ 2 — Thứ 6)</div>
+              <div><a href="https://maps.app.goo.gl/4GBrQxPHMQkQcnjZA" target="_blank" rel="noopener" style="color:#0B4B8F;font-weight:600">Xem đường đi trên Google Maps ›</a></div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+          <div style="background:#0B4B8F;color:#fff;font-size:14.5px;font-weight:700;padding:12px 16px">CÂU HỎI ĐÃ TRẢ LỜI</div>
+          <div style="padding:6px 18px 16px">
+            <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+              <div style="padding:13px 0;border-bottom:1px dashed #E2E8F0">
+                <div style="font-size:14.5px;font-weight:600;line-height:1.45;text-wrap:pretty">{{ f.q }}</div>
+                <div style="font-size:13.5px;color:#5A6B80;margin-top:6px;line-height:1.6">{{ f.a }}</div>
+                <div style="font-size:12.5px;color:#8A98A8;margin-top:6px">{{ f.who }} · {{ f.date }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- footer -->
+  <div style="position:relative;overflow:hidden;color:#D3E4F6;margin-top:36px;background:radial-gradient(950px 420px at 88% 0%,rgba(122,208,255,.3),rgba(122,208,255,0) 62%),radial-gradient(700px 340px at 6% 110%,rgba(46,178,146,.26),rgba(46,178,146,0) 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.055) 0 2px,rgba(255,255,255,0) 2px 11px),linear-gradient(180deg,#0C5192 0%,#0A3F73 62%,#093459 100%)">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:36px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px">
+      <div style="grid-column:span 2;min-width:260px;display:flex;gap:16px;align-items:flex-start">
+        <div style="width:62px;height:62px;flex:none"><img src="assets/logo-phu-tho.svg" alt="Logo tỉnh Phú Thọ" style="width:100%;height:100%;object-fit:contain" /></div>
+        <div>
+        <div style="color:#fff;font-size:16.5px;font-weight:700;line-height:1.4">BAN QUẢN LÝ DỰ ÁN KHU VỰC PHÚ THỌ</div>
+        <div style="font-size:14px;line-height:1.9;margin-top:12px">
+          <div>Cơ quan chủ quản: Ủy ban nhân dân tỉnh Phú Thọ</div>
+          <div>Địa chỉ: Số 215 đường Minh Lang, phường Việt Trì, tỉnh Phú Thọ</div>
+          <div>Điện thoại: 0210 3846 507 · 0210 3846 172 · Email: bqlduan@phutho.gov.vn</div>
+          <div>Mã số thuế: 2601120030</div>
+          <div>Chịu trách nhiệm nội dung: Giám đốc Ban</div>
+        </div>
+        </div>
+      </div>
+      <div>
+        <div style="color:#fff;font-size:14.5px;font-weight:700;margin-bottom:12px">Liên kết nhanh</div>
+        <div style="font-size:14px;line-height:2.1">
+          <div><a href="#" onClick="{{ goAbout }}" style="color:#B9CFE6">Giới thiệu chung</a></div>
+          <div><a href="#" onClick="{{ goNews }}" style="color:#B9CFE6">Tin tức — Sự kiện</a></div>
+          <div><a href="#" onClick="{{ goProjects }}" style="color:#B9CFE6">Danh mục dự án</a></div>
+          <div><a href="#" onClick="{{ goTender }}" style="color:#B9CFE6">Thông báo mời thầu</a></div>
+          <div><a href="#" onClick="{{ goDocs }}" style="color:#B9CFE6">Văn bản pháp quy</a></div>
+        </div>
+      </div>
+      <div>
+        <div style="color:#fff;font-size:14.5px;font-weight:700;margin-bottom:12px">Thống kê truy cập</div>
+        <div style="font-size:14px;line-height:2.1">
+          <div>Đang online: <strong style="color:#fff">37</strong></div>
+          <div>Hôm nay: <strong style="color:#fff">1.284</strong></div>
+          <div>Tổng lượt truy cập: <strong style="color:#fff">2.146.903</strong></div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;border-top:1px solid rgba(159,196,232,.22)">
+      <div style="max-width:1280px;margin:0 auto;padding:16px 20px;font-size:13px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between">
+        <span>© 2026 Ban Quản lý dự án khu vực Phú Thọ. Ghi rõ nguồn khi phát hành lại thông tin từ cổng thông tin này.</span>
+        <span>Giấy phép số …/GP-TTĐT do Sở Văn hóa, Thể thao và Du lịch tỉnh Phú Thọ cấp</span>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== MOBILE ===================== -->
+<sc-if value="{{ isMobileScreen }}" hint-placeholder-val="{{ false }}">
+<div style="background:#E7ECF2;padding:40px 20px;min-height:100vh;display:flex;justify-content:center">
+  <div style="width:390px;max-width:100%;background:#F4F6F9;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(7,55,102,.28);border:1px solid #D5DEE8">
+    <div style="background:#073766;color:#C7D8EC;font-size:11.5px;padding:7px 16px;display:flex;justify-content:space-between"><span>09:41</span><span>bqlduan.phutho.gov.vn</span></div>
+    <div style="position:relative;overflow:hidden;background:linear-gradient(100deg,#052240,#0B4B8F 60%,#1466A6);padding:12px 14px;display:flex;gap:11px;align-items:center">
+      <div style="width:40px;height:40px;flex:none"><img src="assets/logo-phu-tho.svg" alt="Logo tỉnh Phú Thọ" style="width:100%;height:100%;object-fit:contain" /></div>
+      <div style="flex:1">
+        <div style="font-size:9.5px;letter-spacing:.1em;color:#9FC4E8;text-transform:uppercase">UBND tỉnh Phú Thọ</div>
+        <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.25">Ban QLDA<br />khu vực Phú Thọ</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;padding:8px;cursor:pointer">
+        <div style="width:20px;height:2px;background:#fff;border-radius:2px"></div><div style="width:20px;height:2px;background:#fff;border-radius:2px"></div><div style="width:20px;height:2px;background:#fff;border-radius:2px"></div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(180deg,#0B4B8F,#0A4079);padding:0 14px 12px"><div style="background:#fff;border-radius:8px;height:38px;display:flex;align-items:center;gap:8px;padding:0 12px;color:#9BAABA;font-size:13.5px"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#9BAABA" strokeWidth="1.8" strokeLinecap="round"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4.2-4.2"></path></svg><span>Tìm kiếm thông tin...</span></div></div>
+    <div style="position:relative;height:200px"><image-slot id="m-hero" shape="rect" placeholder="Ảnh nổi bật"></image-slot>
+      <div style="position:absolute;inset:auto 0 0 0;padding:40px 14px 12px;background:linear-gradient(180deg,rgba(7,55,102,0),rgba(7,32,60,.92));pointer-events:none">
+        <div style="color:#fff;font-size:15px;font-weight:700;line-height:1.35;text-wrap:pretty">Khởi công Dự án cầu vượt sông Lô kết nối Việt Trì — Phù Ninh</div>
+      </div>
+      <div style="position:absolute;bottom:8px;right:12px;display:flex;gap:5px">
+        <div style="width:16px;height:4px;border-radius:99px;background:#fff"></div><div style="width:6px;height:4px;border-radius:99px;background:rgba(255,255,255,.5)"></div><div style="width:6px;height:4px;border-radius:99px;background:rgba(255,255,255,.5)"></div>
+      </div>
+    </div>
+    <div style="background:#FFF4E5;padding:9px 14px;font-size:12.5px;color:#7A4A0A;display:flex;gap:9px;align-items:center;overflow:hidden;white-space:nowrap"><span style="background:#D42A2A;color:#fff;font-size:9.5px;font-weight:700;padding:3px 7px;border-radius:3px;flex:none">KHẨN</span><span style="overflow:hidden;text-overflow:ellipsis">Điều chỉnh thời gian đóng thầu Gói thầu số 07 — Đường trục Đông Tây</span></div>
+    <div style="background:#fff;padding:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;border-bottom:1px solid #E2E8F0">
+      <sc-for list="{{ mobileTiles }}" as="mt" hint-placeholder-count="8">
+        <div style="text-align:center"><div style="height:46px;border-radius:10px;background:#EEF4FB;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0B4B8F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="{{ mt.d }}"></path></svg></div><div style="font-size:10.5px;color:#2A3B4F;margin-top:5px;line-height:1.25">{{ mt.label }}</div></div>
+      </sc-for>
+    </div>
+    <div style="background:#0B4B8F;padding:16px 14px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <div style="border-left:3px solid #C9A227;padding-left:10px"><div style="color:#fff;font-size:19px;font-weight:800">{{ s.value }}</div><div style="color:#9FC4E8;font-size:11px;line-height:1.3">{{ s.label }}</div></div>
+      </sc-for>
+    </div>
+    <div style="padding:16px 14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div style="font-size:15px;font-weight:700;border-left:3px solid #D42A2A;padding-left:9px">Tin tức — Sự kiện</div><span style="font-size:12px;color:#5A6B80">Tất cả ›</span></div>
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="5">
+        <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid #E7EDF3">
+          <div style="width:88px;height:62px;flex:none;border-radius:6px;overflow:hidden"><image-slot id="{{ n.mslot }}" src="{{ n.img }}" credit="Wikimedia Commons" shape="rounded" radius="6" placeholder="Ảnh"></image-slot></div>
+          <div><div style="font-size:13.5px;font-weight:500;line-height:1.4;text-wrap:pretty">{{ n.title }}</div><div style="font-size:11.5px;color:#8A98A8;margin-top:4px">{{ n.date }}</div></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:0 14px 18px">
+      <div style="font-size:15px;font-weight:700;border-left:3px solid #D42A2A;padding-left:9px;margin-bottom:12px">Dự án tiêu biểu</div>
+      <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:6px">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+          <div style="width:210px;flex:none;background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+            <div style="height:110px"><image-slot id="{{ p.mslot }}" src="{{ p.img }}" credit="Wikimedia Commons" shape="rect" placeholder="Ảnh"></image-slot></div>
+            <div style="padding:11px">
+              <div style="font-size:13.5px;font-weight:600;line-height:1.35;text-wrap:pretty">{{ p.name }}</div>
+              <div style="height:5px;background:#EDF1F6;border-radius:99px;overflow:hidden;margin-top:9px"><div style="height:100%;background:#0B4B8F;width:{{ p.pct }}"></div></div>
+              <div style="font-size:11.5px;color:#5A6B80;margin-top:5px">Tiến độ {{ p.pct }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="background:linear-gradient(180deg,#062A4C,#03162A);color:#B9CFE6;padding:18px 14px;font-size:11.5px;line-height:1.7;text-align:center">Ban QLDA đầu tư xây dựng khu vực Phú Thọ<br />Số 215 đường Minh Lang, phường Việt Trì<br />© 2026 · MST 2601120030</div>
+    <div style="background:#fff;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 0 12px">
+      <sc-for list="{{ mobileNav }}" as="mn" hint-placeholder-count="5">
+        <div style="text-align:center;color:{{ mn.color }}"><div style="display:flex;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="{{ mn.color }}" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="{{ mn.d }}"></path></svg></div><div style="font-size:10px;margin-top:2px;font-weight:500">{{ mn.label }}</div></div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== BOTBLE NOTES ===================== -->
+<sc-if value="{{ isBotble }}" hint-placeholder-val="{{ false }}">
+<div style="max-width:1000px;margin:0 auto;padding:44px 24px">
+  <div style="font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#D42A2A;font-weight:700">Ghi chú triển khai</div>
+  <h1 style="font-size:32px;font-weight:700;margin:8px 0 6px">Map thiết kế sang Botble CMS</h1>
+  <div style="font-size:15.5px;color:#5A6B80;margin-bottom:30px">Mỗi khối giao diện tương ứng với một plugin/module sẵn có hoặc một custom module cần viết thêm.</div>
+  <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:1fr 1fr 90px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em"><div>Khối giao diện</div><div>Module / Plugin Botble</div><div>Loại</div></div>
+    <sc-for list="{{ botbleRows }}" as="b" hint-placeholder-count="8">
+      <div style="display:grid;grid-template-columns:1fr 1fr 90px;gap:14px;padding:14px 18px;border-bottom:1px solid #EDF1F6;align-items:center">
+        <div style="font-size:14.5px;font-weight:500">{{ b.block }}</div>
+        <div style="font-size:14px;color:#455567;font-family:ui-monospace,monospace">{{ b.module }}</div>
+        <div><span style="font-size:11.5px;font-weight:600;color:{{ b.color }};background:{{ b.bg }};padding:4px 9px;border-radius:3px">{{ b.kind }}</span></div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:26px">
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:20px">
+      <div style="font-size:15.5px;font-weight:700;color:#0B4B8F;margin-bottom:10px">Cấu trúc theme</div>
+      <div style="font-size:14px;line-height:1.9;color:#455567;font-family:ui-monospace,monospace">platform/themes/phutho/<br />├ layouts/default.blade.php<br />├ partials/header · nav · footer<br />├ views/index · post · category<br />├ views/project · project-detail<br />├ widgets/ (news, docs, tender, links)<br />└ assets/ (css, js, img)</div>
+    </div>
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:20px">
+      <div style="font-size:15.5px;font-weight:700;color:#0B4B8F;margin-bottom:10px">Cần viết thêm</div>
+      <div style="font-size:14.5px;line-height:1.8;color:#455567">
+        <div>· Module <strong>Dự án</strong>: trường tiến độ, tổng mức đầu tư, hạng mục, thư viện ảnh, hồ sơ đính kèm.</div>
+        <div>· Module <strong>Đấu thầu</strong>: mã TBMT, bên mời thầu, giá gói thầu, hạn đóng thầu, trạng thái tự đổi theo ngày.</div>
+        <div>· Widget <strong>Thống kê tiến độ</strong> tổng hợp từ module Dự án.</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:#FFF4E5;border:1px solid #F2DFC0;border-radius:8px;padding:18px;margin-top:18px;font-size:14.5px;color:#7A4A0A;line-height:1.7">Lưu ý tuân thủ Nghị định về cung cấp thông tin trên cổng TTĐT cơ quan nhà nước: bắt buộc có sơ đồ cổng, thông tin liên hệ tiếp nhận phản ánh, giấy phép TTĐT ở chân trang, và hỗ trợ truy cập bằng bàn phím.</div>
+</div>
+</sc-if>
+
+<!-- screen switcher -->
+<div style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:200;background:rgba(7,32,60,.94);backdrop-filter:blur(10px);border-radius:99px;padding:6px;display:flex;gap:2px;flex-wrap:wrap;justify-content:center;max-width:94vw;box-shadow:0 10px 34px rgba(7,32,60,.4)">
+  <sc-for list="{{ screens }}" as="s" hint-placeholder-count="11">
+    <button onClick="{{ s.go }}" style="border:0;background:{{ s.bg }};color:{{ s.color }};font-family:inherit;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:99px;cursor:pointer;white-space:nowrap">{{ s.label }}</button>
+  </sc-for>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0 };
+
+  set(s, sub = null) { return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ screen: s, sub, openNav: null }); window.scrollTo(0, 0); }; }
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState(s => ({ slide: (s.slide + 1) % 4, album: (s.album + 1) % 5 })), 6000);
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+
+  renderVals() {
+    const screen = this.state.screen;
+    const S = (id, label) => ({ id, label, go: this.set(id),
+      bg: screen === id ? '#D42A2A' : 'transparent',
+      color: screen === id ? '#fff' : '#9FC4E8' });
+
+    const navDefs = [
+      { label: 'Trang chủ', to: 'home' },
+      { label: 'Giới thiệu', to: 'about', children: ['Chức năng, nhiệm vụ', 'Cơ cấu tổ chức', 'Lịch sử hình thành', 'Lãnh đạo Ban'] },
+      { label: 'Tin tức — Sự kiện', to: 'news', children: ['Hoạt động của Ban', 'Tin đầu tư xây dựng', 'Tin trong tỉnh', 'Thông báo'] },
+      { label: 'Dự án', to: 'projects', children: ['Danh mục dự án', 'Dự án trọng điểm', 'Dự án đã hoàn thành', 'Tiến độ giải ngân'] },
+      { label: 'Đấu thầu', to: 'tender', children: ['Thông báo mời thầu', 'Kết quả lựa chọn nhà thầu', 'Kế hoạch lựa chọn nhà thầu'] },
+      { label: 'Văn bản', to: 'docs' },
+      { label: 'Hỏi đáp — Liên hệ', to: 'contact' }
+    ];
+
+    const nav = navDefs.map((n, i) => ({
+      label: n.label,
+      bg: screen === n.to ? '#0B4B8F' : 'transparent',
+      open: this.state.openNav === i && !!n.children,
+      children: (n.children || []).map((c, j) => ({ label: c, go: this.set(n.to, j) })),
+      go: this.set(n.to),
+      enter: () => this.setState({ openNav: i }),
+      leave: () => this.setState({ openNav: null })
+    }));
+
+    const IMG = n => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(n) + '?width=900';
+    const PIC = [1,2,3,4,5,6,7,8,9].map(i => 'assets/img/anh-' + i + '.jpg');
+
+    const news = [
+      { title: 'Hội nghị giao ban tiến độ các dự án trọng điểm tháng 8/2026', date: '19/08/2026' },
+      { title: 'Bàn giao mặt bằng đợt 3 Dự án cầu vượt sông Lô', date: '17/08/2026' },
+      { title: 'Kiểm tra chất lượng thi công Trường THPT chuyên Hùng Vương', date: '15/08/2026' },
+      { title: 'Tập huấn nghiệp vụ đấu thầu qua mạng cho cán bộ các phòng', date: '13/08/2026' },
+      { title: 'Hoàn thành nghiệm thu giai đoạn 1 hệ thống thoát nước KCN Thụy Vân', date: '11/08/2026' },
+      { title: 'Phát động phong trào thi đua hoàn thành kế hoạch vốn năm 2026', date: '08/08/2026' },
+      { title: 'Làm việc với nhà thầu về biện pháp thi công trong mùa mưa bão', date: '06/08/2026' },
+      { title: 'Công bố phương án bồi thường, hỗ trợ tái định cư Dự án kè bờ hữu sông Thao', date: '04/08/2026' },
+      { title: 'Đoàn kiểm tra liên ngành đánh giá an toàn lao động tại 5 công trường', date: '01/08/2026' },
+      { title: 'Ban QLDA khu vực Phú Thọ ký kết hợp đồng Gói thầu số 12 lắp đặt thiết bị phòng học', date: '29/07/2026' },
+      { title: 'Ứng dụng mô hình thông tin công trình (BIM) trong quản lý dự án giao thông', date: '25/07/2026' },
+      { title: 'Trao tặng công trình nhà lớp học tại xã Bản Nguyên trước năm học mới', date: '22/07/2026' }
+    ].map((n, i) => ({ ...n, mslot: 'm-news-' + i, hslot: 'h-news-' + i, img: PIC[i % PIC.length] }));
+
+    const cats = ['Hoạt động của Ban', 'Tin đầu tư xây dựng', 'Thông báo', 'Tin trong tỉnh', 'Hoạt động của Ban'];
+    const newsFull = news.map((n, i) => ({
+      ...n, slot: 'nl-' + i, cat: cats[i % cats.length], views: 120 + i * 37,
+      excerpt: 'Ban Quản lý dự án khu vực Phú Thọ tiếp tục bám sát kế hoạch được UBND tỉnh giao, phối hợp chặt chẽ với các sở, ngành và địa phương để tháo gỡ vướng mắc phát sinh trên công trường.'
+    }));
+
+    const st = {
+      thicong: { status: 'Đang thi công', statusColor: '#0B5A2B', statusBg: '#E3F5E9' },
+      chuanbi: { status: 'Chuẩn bị đầu tư', statusColor: '#7A4A0A', statusBg: '#FFF1DC' },
+      hoanthanh: { status: 'Hoàn thành', statusColor: '#0B4B8F', statusBg: '#E6EFF9' }
+    };
+    const projectsAll = [
+      { name: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', location: 'TP. Việt Trì', capital: '1.860 tỷ đồng', pct: '68%', ...st.thicong },
+      { name: 'Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', location: 'Việt Trì — Phù Ninh', capital: '1.240 tỷ đồng', pct: '12%', ...st.chuanbi },
+      { name: 'Trường THPT chuyên Hùng Vương — hạng mục nhà học 4 tầng', location: 'TP. Việt Trì', capital: '186 tỷ đồng', pct: '84%', ...st.thicong },
+      { name: 'Hệ thống thoát nước và xử lý nước thải KCN Thụy Vân', location: 'Huyện Lâm Thao', capital: '412 tỷ đồng', pct: '46%', ...st.thicong },
+      { name: 'Bệnh viện Đa khoa tỉnh — khối kỹ thuật nghiệp vụ', location: 'TP. Việt Trì', capital: '760 tỷ đồng', pct: '100%', ...st.hoanthanh },
+      { name: 'Kè chống sạt lở bờ hữu sông Thao đoạn qua xã Bản Nguyên', location: 'Huyện Lâm Thao', capital: '238 tỷ đồng', pct: '31%', ...st.thicong },
+      { name: 'Nhà văn hóa trung tâm tỉnh và quảng trường phía trước', location: 'TP. Việt Trì', capital: '315 tỷ đồng', pct: '100%', ...st.hoanthanh },
+      { name: 'Đường giao thông liên xã Tiên Kiên — Hà Thạch', location: 'Huyện Lâm Thao', capital: '142 tỷ đồng', pct: '100%', ...st.hoanthanh }
+    ].map((p, i) => ({ ...p, key: [0, 1, 3, 4].includes(i) })).map((p, i) => ({ ...p, slot: 'proj-' + i, mslot: 'mproj-' + i, img: PIC[(i + 2) % PIC.length] }));
+
+    const tendersFull = [
+      { code: 'IB2600184', name: 'Gói thầu số 07: Thi công xây dựng đoạn Km2+300 — Km4+800, đường trục Đông Tây', value: '312,4 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '05/9/2026', status: 'Đang mở', color: '#0B5A2B', bg: '#E3F5E9' },
+      { code: 'IB2600179', name: 'Gói thầu số 03: Tư vấn giám sát thi công xây dựng cầu vượt sông Lô', value: '8,9 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '29/8/2026', status: 'Đang mở', color: '#0B5A2B', bg: '#E3F5E9' },
+      { code: 'IB2600171', name: 'Gói thầu số 12: Cung cấp và lắp đặt thiết bị phòng học, nhà học 4 tầng', value: '24,6 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '22/8/2026', status: 'Sắp đóng', color: '#7A4A0A', bg: '#FFF1DC' },
+      { code: 'IB2600168', name: 'Gói thầu số 05: Thi công hệ thống thu gom nước thải KCN Thụy Vân', value: '96,2 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '12/8/2026', status: 'Đã đóng', color: '#5A6B80', bg: '#EDF1F6' },
+      { code: 'IB2600160', name: 'Gói thầu số 02: Khảo sát, lập thiết kế bản vẽ thi công kè bờ hữu sông Thao', value: '5,4 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '04/8/2026', status: 'Đã đóng', color: '#5A6B80', bg: '#EDF1F6' },
+      { code: 'IB2600155', name: 'Gói thầu số 09: Bảo hiểm công trình xây dựng đường trục Đông Tây', value: '3,1 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '28/7/2026', status: 'Đã đóng', color: '#5A6B80', bg: '#EDF1F6' },
+      { code: 'IB2600151', name: 'Gói thầu số 04: Thi công xây dựng nhà học 4 tầng Trường THPT chuyên Hùng Vương', value: '128,7 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '20/7/2026', status: 'Đã đóng', color: '#5A6B80', bg: '#EDF1F6' },
+      { code: 'IB2600146', name: 'Gói thầu số 01: Tư vấn lập báo cáo nghiên cứu khả thi dự án đường vành đai phía Tây', value: '11,4 tỷ đồng', owner: 'Ban QLDA khu vực Phú Thọ', deadline: '02/9/2026', status: 'Đang mở', color: '#0B5A2B', bg: '#E3F5E9' }
+    ];
+
+    const docsFull = [
+      { number: '18/2026/QĐ-UBND', title: 'Quyết định phê duyệt điều chỉnh chủ trương đầu tư Dự án đường trục Đông Tây, thành phố Việt Trì', org: 'UBND tỉnh Phú Thọ', date: '12/08/2026', type: 'Quyết định' },
+      { number: '2145/QĐ-BQLDA', title: 'Quyết định phê duyệt kế hoạch lựa chọn nhà thầu Gói thầu số 07', org: 'Ban QLDA khu vực', date: '05/08/2026', type: 'Quyết định' },
+      { number: '05/2026/TT-BXD', title: 'Thông tư hướng dẫn xác định và quản lý chi phí đầu tư xây dựng', org: 'Bộ Xây dựng', date: '28/07/2026', type: 'Thông tư' },
+      { number: '1876/BQLDA-KHTH', title: 'Về việc đôn đốc hoàn thiện hồ sơ thanh toán khối lượng đã nghiệm thu', org: 'Ban QLDA khu vực', date: '21/07/2026', type: 'Công văn' },
+      { number: '96/2026/NĐ-CP', title: 'Nghị định quy định chi tiết một số điều của Luật Đấu thầu về lựa chọn nhà thầu', org: 'Chính phủ', date: '10/07/2026', type: 'Nghị định' },
+      { number: '1502/BQLDA-GPMB', title: 'Về việc phối hợp thực hiện công tác bồi thường, hỗ trợ tái định cư', org: 'Ban QLDA khu vực', date: '02/07/2026', type: 'Công văn' },
+      { number: '2098/QĐ-BQLDA', title: 'Quyết định phê duyệt kết quả lựa chọn nhà thầu Gói thầu số 12 — thiết bị phòng học', org: 'Ban QLDA khu vực', date: '26/06/2026', type: 'Quyết định' },
+      { number: '14/2026/QĐ-UBND', title: 'Quyết định ban hành đơn giá xây dựng công trình trên địa bàn tỉnh Phú Thọ', org: 'UBND tỉnh Phú Thọ', date: '18/06/2026', type: 'Quyết định' },
+      { number: '1187/BQLDA-KT', title: 'Về việc tăng cường quản lý chất lượng và an toàn lao động tại các công trường', org: 'Ban QLDA khu vực', date: '05/06/2026', type: 'Công văn' }
+    ];
+
+    const faqs = [
+      { q: 'Thủ tục đề nghị cấp phép thi công đấu nối vào tuyến đường do Ban quản lý?', a: 'Hồ sơ gửi trực tiếp tại bộ phận một cửa của Ban hoặc qua dịch vụ công trực tuyến, thời hạn giải quyết 10 ngày làm việc.', who: 'Nguyễn Văn A', date: '14/08/2026' },
+      { q: 'Nhà thầu tra cứu kết quả lựa chọn nhà thầu ở đâu?', a: 'Kết quả được đăng tải tại mục Đấu thầu — Kết quả lựa chọn nhà thầu, đồng thời trên Hệ thống mạng đấu thầu quốc gia.', who: 'Công ty CP Xây dựng B', date: '09/08/2026' },
+      { q: 'Phương án bồi thường Dự án cầu vượt sông Lô công bố khi nào?', a: 'Phương án đã được niêm yết công khai tại trụ sở UBND các xã, phường có đất thu hồi từ ngày 01/8/2026.', who: 'Trần Thị C', date: '03/08/2026' },
+      { q: 'Ban có tiếp nhận hồ sơ qua đường bưu chính không?', a: 'Có. Hồ sơ gửi qua bưu chính công ích được tiếp nhận và trả kết quả theo quy định.', who: 'Lê Văn D', date: '27/07/2026' },
+      { q: 'Thời gian phát hành hồ sơ mời thầu của các gói thầu đang mở?', a: 'Hồ sơ mời thầu được phát hành miễn phí trên Hệ thống mạng đấu thầu quốc gia từ ngày đăng tải thông báo đến thời điểm đóng thầu.', who: 'Công ty TNHH Xây dựng E', date: '21/07/2026' },
+      { q: 'Phản ánh về tiếng ồn thi công ban đêm gửi tới đâu?', a: 'Phản ánh gửi qua mục Tiếp nhận phản ánh, kiến nghị hoặc số điện thoại trực 0210 3846 507; Ban xử lý trong 3 ngày làm việc.', who: 'Phạm Thị F', date: '15/07/2026' }
+    ];
+
+    const screensList = [
+      ['home', 'Trang chủ'], ['news', 'Danh mục tin'], ['article', 'Chi tiết bài viết'],
+      ['about', 'Giới thiệu'], ['projects', 'Danh mục dự án'], ['project', 'Chi tiết dự án'],
+      ['tender', 'Đấu thầu'], ['docs', 'Văn bản'], ['contact', 'Liên hệ — Hỏi đáp'],
+      ['mobile', 'Mobile'], ['botble', 'Ghi chú Botble']
+    ];
+
+    const crumbs = { news: 'Tin tức — Sự kiện', article: 'Chi tiết tin', about: 'Giới thiệu', projects: 'Dự án', project: 'Chi tiết dự án', tender: 'Đấu thầu', docs: 'Văn bản pháp quy', sitemap: 'Sơ đồ cổng', contact: 'Liên hệ — Hỏi đáp' };
+
+    const album = [
+      { cat: 'Hoạt động của Ban', title: 'Ban QLDA khu vực Phú Thọ đẩy nhanh tiến độ giải ngân vốn đầu tư công 8 tháng đầu năm 2026', date: '20/08/2026', views: 214, excerpt: 'Tính đến hết tháng 8/2026, tỷ lệ giải ngân của các dự án do Ban làm chủ đầu tư đạt 71,4% kế hoạch vốn được giao, cao hơn 9,2 điểm phần trăm so với cùng kỳ năm trước.', ph: 'Ảnh tin chính 1' },
+      { cat: 'Hoạt động của Ban', title: 'Hội nghị giao ban tiến độ các dự án trọng điểm tháng 8/2026', date: '19/08/2026', views: 186, excerpt: 'Lãnh đạo Ban yêu cầu các phòng chuyên môn rà soát toàn bộ khối lượng đã nghiệm thu, hoàn thiện hồ sơ thanh toán trong vòng 5 ngày làm việc đối với các gói thầu đã đủ điều kiện.', ph: 'Ảnh tin chính 2' },
+      { cat: 'Tin đầu tư xây dựng', title: 'Bàn giao mặt bằng đợt 3 Dự án cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', date: '17/08/2026', views: 152, excerpt: 'Ban phối hợp với UBND các xã, phường liên quan hoàn thành kiểm đếm 412/468 hộ dân thuộc phạm vi thu hồi đất, bàn giao thêm 4,2 km tuyến chính cho nhà thầu thi công.', ph: 'Ảnh tin chính 3' },
+      { cat: 'Thông báo', title: 'Kiểm tra chất lượng thi công nhà học 4 tầng Trường THPT chuyên Hùng Vương', date: '15/08/2026', views: 143, excerpt: 'Đoàn kiểm tra đánh giá công trình đạt 84% khối lượng, yêu cầu nhà thầu tăng cường nhân lực để bàn giao trước ngày khai giảng năm học 2026 — 2027.', ph: 'Ảnh tin chính 4' },
+      { cat: 'Hoạt động của Ban', title: 'Tập huấn nghiệp vụ đấu thầu qua mạng cho cán bộ các phòng chuyên môn', date: '13/08/2026', views: 128, excerpt: 'Hơn 60 cán bộ được hướng dẫn quy trình lựa chọn nhà thầu trên Hệ thống mạng đấu thầu quốc gia theo quy định mới của Luật Đấu thầu.', ph: 'Ảnh tin chính 5' }
+    ].map((a, i) => ({ ...a, slot: 'feat-' + i, img: PIC[(i + 4) % PIC.length] }));
+
+    const tab = this.state.tab;
+    const newsTabs = ['Hoạt động của Ban', 'Tin đầu tư xây dựng', 'Thông báo'].map((label, i) => ({
+      label, pick: () => this.setState({ tab: i }),
+      color: tab === i ? '#0B4B8F' : '#7A8A9C',
+      line: tab === i ? '#D42A2A' : 'transparent'
+    }));
+
+    const pageDefs = ['‹', '1', '2', '3', '4', '›'];
+    const pages = pageDefs.map(label => ({
+      label,
+      bg: label === '1' ? '#0B4B8F' : '#fff',
+      color: label === '1' ? '#fff' : '#455567',
+      border: label === '1' ? '#0B4B8F' : '#DCE5EF'
+    }));
+
+    const tf = ['Tất cả', 'Đang mở', 'Sắp đóng', 'Đã đóng'];
+    const tenderFilters = tf.map((label, i) => ({
+      label,
+      bg: i === 0 ? '#0B4B8F' : '#fff',
+      color: i === 0 ? '#fff' : '#455567',
+      border: i === 0 ? '#0B4B8F' : '#DCE5EF'
+    }));
+
+    const sub = this.state.sub;
+    const def = navDefs.find(n => n.to === screen);
+    const subs = (def && def.children) || [];
+    const subLabel = sub != null ? subs[sub] : null;
+    const pill = (active) => ({ bg: active ? '#0B4B8F' : '#fff', color: active ? '#fff' : '#455567', border: active ? '#0B4B8F' : '#DCE5EF' });
+    const subTabs = subs.map((label, j) => ({ label, go: this.set(screen, j), ...pill(sub === j) }));
+    const side = (label, j) => ({ label, go: this.set(screen, j), color: sub === j ? '#0B4B8F' : '#16202E', bg: sub === j ? '#EEF4FB' : 'transparent', fw: sub === j ? 600 : 400 });
+
+    const newsShown = subLabel ? newsFull.filter(n => n.cat === subLabel) : newsFull;
+    const catCounts = { 'Hoạt động của Ban': 128, 'Tin đầu tư xây dựng': 96, 'Tin trong tỉnh': 52, 'Thông báo': 74 };
+    const categories = navDefs[2].children.map((label, j) => ({ ...side(label, j), go: this.set('news', j), count: catCounts[label] }));
+
+    const projShown = sub === 1 ? projectsAll.filter(p => p.key) : sub === 2 ? projectsAll.filter(p => p.pct === '100%') : projectsAll;
+    const disbursement = [
+      ['Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', '420,0', '326,8'],
+      ['Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', '180,0', '84,6'],
+      ['Trường THPT chuyên Hùng Vương — nhà học 4 tầng', '62,0', '55,1'],
+      ['Hệ thống thoát nước và xử lý nước thải KCN Thụy Vân', '140,0', '97,2'],
+      ['Bệnh viện Đa khoa tỉnh — khối kỹ thuật nghiệp vụ', '96,0', '93,4'],
+      ['Kè chống sạt lở bờ hữu sông Thao đoạn qua xã Bản Nguyên', '75,0', '38,3']
+    ].map(([name, plan, done]) => {
+      const p = Math.round(parseFloat(done.replace(',', '.')) / parseFloat(plan.replace(',', '.')) * 100);
+      return { name, plan: plan + ' tỷ', done: done + ' tỷ', pct: p + '%', color: p >= 80 ? '#0B5A2B' : p >= 50 ? '#0B4B8F' : '#B5651D' };
+    });
+
+    const tenderResults = [
+      { code: 'IB2600171', name: 'Gói thầu số 12: Cung cấp và lắp đặt thiết bị phòng học, nhà học 4 tầng', value: '24,6 tỷ', winner: 'Công ty CP Thiết bị giáo dục Hùng Vương', price: '23,92 tỷ', decision: 'QĐ số 2098/QĐ-BQLDA', date: '26/06/2026' },
+      { code: 'IB2600168', name: 'Gói thầu số 05: Thi công hệ thống thu gom nước thải KCN Thụy Vân', value: '96,2 tỷ', winner: 'Liên danh Xây dựng Thủy lợi Phú Thọ — Hạ tầng Việt Trì', price: '94,05 tỷ', decision: 'QĐ số 2131/QĐ-BQLDA', date: '22/08/2026' },
+      { code: 'IB2600160', name: 'Gói thầu số 02: Khảo sát, lập thiết kế bản vẽ thi công kè bờ hữu sông Thao', value: '5,4 tỷ', winner: 'Công ty CP Tư vấn Xây dựng Giao thông Phú Thọ', price: '5,21 tỷ', decision: 'QĐ số 2117/QĐ-BQLDA', date: '15/08/2026' },
+      { code: 'IB2600155', name: 'Gói thầu số 09: Bảo hiểm công trình xây dựng đường trục Đông Tây', value: '3,1 tỷ', winner: 'Tổng Công ty Bảo hiểm — Chi nhánh Phú Thọ', price: '2,96 tỷ', decision: 'QĐ số 2102/QĐ-BQLDA', date: '08/08/2026' },
+      { code: 'IB2600151', name: 'Gói thầu số 04: Thi công xây dựng nhà học 4 tầng Trường THPT chuyên Hùng Vương', value: '128,7 tỷ', winner: 'Công ty CP Xây dựng và Thương mại Đất Tổ', price: '126,14 tỷ', decision: 'QĐ số 2089/QĐ-BQLDA', date: '01/08/2026' }
+    ];
+    const tenderPlans = [
+      { project: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', decision: 'QĐ số 2145/QĐ-BQLDA ngày 05/08/2026', items: [
+        { name: 'Gói thầu số 07: Thi công xây dựng đoạn Km2+300 — Km4+800', value: '312,4 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Đơn giá cố định' },
+        { name: 'Gói thầu số 08: Tư vấn giám sát thi công gói thầu số 07', value: '4,6 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Theo thời gian' },
+        { name: 'Gói thầu số 09: Bảo hiểm công trình', value: '3,1 tỷ', method: 'Chào hàng cạnh tranh', time: 'Quý III/2026', contract: 'Trọn gói' }
+      ] },
+      { project: 'Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', decision: 'QĐ số 2120/QĐ-BQLDA ngày 18/07/2026', items: [
+        { name: 'Gói thầu số 03: Tư vấn giám sát thi công xây dựng', value: '8,9 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Theo thời gian' },
+        { name: 'Gói thầu số 04: Thi công cầu chính và đường dẫn hai đầu cầu', value: '846,0 tỷ', method: 'Đấu thầu rộng rãi quốc tế', time: 'Quý IV/2026', contract: 'Đơn giá điều chỉnh' }
+      ] }
+    ];
+
+    const titles = { news: 'Tin tức — Sự kiện', projects: 'Danh mục dự án', tender: 'Thông báo mời thầu', about: 'Giới thiệu chung' };
+
+    return {
+      subTabs, hasSubTabs: subs.length > 0,
+      hasCrumbSub: !!subLabel, crumbSub: subLabel || '',
+      goCrumb: this.set(screen), crumbColor: subLabel ? '#0B4B8F' : '#16202E',
+      newsTitle: subLabel || titles.news, newsShown,
+      projTitle: subLabel || titles.projects, projShown,
+      showDisb: screen === 'projects' && sub === 3, showProjGrid: sub !== 3,
+      disbursement,
+      disbStats: [
+        { value: '973,0 tỷ', label: 'Tổng kế hoạch vốn năm 2026' },
+        { value: '695,4 tỷ', label: 'Đã giải ngân đến 20/08/2026' },
+        { value: '71,4%', label: 'Tỷ lệ giải ngân' }
+      ],
+      tenderTitle: subLabel || titles.tender,
+      tenderNotice: sub == null || sub === 0, tenderResult: sub === 1, tenderPlan: sub === 2,
+      tenderResults, tenderPlans,
+      aboutTitle: subLabel || titles.about,
+      aboutDuties: sub == null || sub === 0, aboutOrg: sub == null || sub === 1,
+      aboutHistory: sub === 2, aboutLeaders: sub === 3,
+      orgTop: sub === 1 ? '0' : '30px',
+      history: [
+        { year: '…', title: 'Thành lập Ban', text: 'Thành lập theo Quyết định số …/QĐ-UBND của UBND tỉnh Phú Thọ trên cơ sở hợp nhất các Ban quản lý dự án chuyên ngành.' },
+        { year: '…', title: 'Kiện toàn tổ chức', text: 'Kiện toàn cơ cấu tổ chức, bổ sung chức năng nhận ủy thác quản lý dự án cho các chủ đầu tư khác.' },
+        { year: '2025', title: 'Sắp xếp sau hợp nhất tỉnh', text: 'Tổ chức lại theo mô hình chính quyền địa phương hai cấp, tiếp nhận các dự án chuyển giao trên địa bàn tỉnh mới.' },
+        { year: '2026', title: 'Quản lý 34 dự án', text: 'Trực tiếp quản lý 34 dự án với tổng mức đầu tư hơn 9.800 tỷ đồng, trong đó có 6 dự án trọng điểm của tỉnh.' }
+      ],
+      leaders: [
+        { role: 'Giám đốc', name: 'Đang cập nhật', task: 'Phụ trách chung, công tác kế hoạch — tài chính', phone: '0210 3846 507', email: 'bqlduan@phutho.gov.vn', slot: 'leader-0' },
+        { role: 'Phó Giám đốc', name: 'Đang cập nhật', task: 'Phụ trách kỹ thuật, chất lượng công trình', phone: '0210 3846 172', email: 'bqlduan@phutho.gov.vn', slot: 'leader-1' },
+        { role: 'Phó Giám đốc', name: 'Đang cập nhật', task: 'Phụ trách đấu thầu, giải phóng mặt bằng', phone: '0210 3846 172', email: 'bqlduan@phutho.gov.vn', slot: 'leader-2' }
+      ],
+      goAbout: this.set('about'), goSitemap: this.set('sitemap'), isSitemap: screen === 'sitemap',
+      sitemap: navDefs.map(n => ({
+        label: n.label, go: this.set(n.to),
+        children: n.children ? n.children.map((c, j) => ({ label: c, go: this.set(n.to, j) }))
+          : n.to === 'docs' ? [{ label: 'Văn bản pháp quy', go: this.set('docs') }]
+          : n.to === 'contact' ? [{ label: 'Gửi câu hỏi, kiến nghị', go: this.set('contact') }, { label: 'Câu hỏi đã trả lời', go: this.set('contact') }, { label: 'Bản đồ vị trí trụ sở', go: this.set('contact') }]
+          : [{ label: 'Tin nổi bật', go: this.set('home') }, { label: 'Dự án tiêu biểu', go: this.set('home') }, { label: 'Thư viện ảnh — video', go: this.set('home') }]
+      })),
+      pageZoom: this.state.zoom,
+      today: 'Thứ Hai, ngày 24 tháng 8 năm 2026',
+      fontUp: () => this.setState(s => ({ zoom: Math.min(1.3, +(s.zoom + 0.1).toFixed(2)) })),
+      fontDown: () => this.setState(s => ({ zoom: Math.max(0.85, +(s.zoom - 0.1).toFixed(2)) })),
+      fontReset: () => this.setState({ zoom: 1 }),
+      nav,
+      screens: screensList.map(([id, label]) => S(id, label)),
+      isDesktop: !['mobile', 'botble'].includes(screen),
+      isHome: screen === 'home', isNews: screen === 'news', isArticle: screen === 'article',
+      isAbout: screen === 'about', isProjects: screen === 'projects', isProject: screen === 'project',
+      isTender: screen === 'tender', isDocs: screen === 'docs', isContact: screen === 'contact',
+      isMobileScreen: screen === 'mobile', isBotble: screen === 'botble',
+      showCrumb: !!crumbs[screen], crumb: crumbs[screen] || '',
+      goHome: this.set('home'), goNews: this.set('news'), goArticle: this.set('article'),
+      goProjects: this.set('projects'), goProject: this.set('project'), goTender: this.set('tender'),
+      goDocs: this.set('docs'), goContact: this.set('contact'),
+      heroSlides: [
+        { tag: 'Tin nổi bật', tagBg: '#D42A2A', title: 'Khởi công Dự án cầu vượt sông Lô kết nối thành phố Việt Trì với huyện Phù Ninh', meta: '18/08/2026 — Tổng mức đầu tư 1.240 tỷ đồng, dự kiến hoàn thành quý IV/2028', ph: 'Ảnh 1 — lễ khởi công cầu vượt sông Lô' },
+        { tag: 'Tiến độ', tagBg: '#0B4B8F', title: 'Đường trục Đông Tây, thành phố Việt Trì đạt 68% khối lượng, thông tuyến cuối năm 2026', meta: '16/08/2026 — Giai đoạn 2 dài 8,4 km, quy mô 6 làn xe', ph: 'Ảnh 2 — công trường đường trục Đông Tây' },
+        { tag: 'Hoàn thành', tagBg: '#0B5A2B', title: 'Nghiệm thu đưa vào sử dụng khối kỹ thuật nghiệp vụ Bệnh viện Đa khoa tỉnh', meta: '11/08/2026 — Tổng mức đầu tư 760 tỷ đồng, 9 tầng nổi 1 tầng hầm', ph: 'Ảnh 3 — khối kỹ thuật Bệnh viện Đa khoa tỉnh' },
+        { tag: 'Sự kiện', tagBg: '#7A4A0A', title: 'Hội nghị giao ban tiến độ các dự án trọng điểm trên địa bàn tỉnh tháng 8/2026', meta: '19/08/2026 — 34 dự án đang quản lý, giải ngân 8 tháng đạt 71,4%', ph: 'Ảnh 4 — hội nghị giao ban tiến độ' }
+      ].map((s, i) => ({ ...s, slot: 'hero-slide-' + i, img: PIC[i % PIC.length], op: this.state.slide === i ? 1 : 0, pe: this.state.slide === i ? 'auto' : 'none' })),
+      heroDots: [0, 1, 2, 3].map(i => ({
+        pick: () => this.setState({ slide: i }),
+        w: this.state.slide === i ? '28px' : '9px',
+        bg: this.state.slide === i ? '#fff' : 'rgba(255,255,255,.5)'
+      })),
+      heroPrev: () => this.setState(s => ({ slide: (s.slide + 3) % 4 })),
+      heroNext: () => this.setState(s => ({ slide: (s.slide + 1) % 4 })),
+      featSlides: album.map((a, i) => ({ slot: a.slot, ph: a.ph, img: a.img, op: this.state.album === i ? 1 : 0, pe: this.state.album === i ? 'auto' : 'none' })),
+      featDots: album.map((a, i) => ({
+        pick: () => this.setState({ album: i }),
+        w: this.state.album === i ? '24px' : '8px',
+        bg: this.state.album === i ? '#fff' : 'rgba(255,255,255,.55)'
+      })),
+      featCat: album[this.state.album].cat,
+      featTitle: album[this.state.album].title,
+      featMeta: album[this.state.album].date + ' · ' + album[this.state.album].views + ' lượt xem',
+      featExcerpt: album[this.state.album].excerpt,
+      featOlder: album.filter((a, i) => i !== this.state.album).slice(0, 3).map(a => ({
+        title: a.title, date: a.date, color: '#2A3B4F',
+        pick: () => this.setState({ album: album.indexOf(a) })
+      })),
+      featPrev: () => this.setState(s => ({ album: (s.album + album.length - 1) % album.length })),
+      featNext: () => this.setState(s => ({ album: (s.album + 1) % album.length })),
+      heroSide: [
+        { title: 'Phê duyệt điều chỉnh chủ trương đầu tư đường trục Đông Tây', date: '16/08/2026', slot: 'hero-s0', img: PIC[2] },
+        { title: 'Đẩy nhanh bàn giao mặt bằng 6 dự án trọng điểm', date: '14/08/2026', slot: 'hero-s1', img: PIC[7] },
+        { title: 'Nghiệm thu đưa vào sử dụng khối kỹ thuật Bệnh viện Đa khoa tỉnh', date: '11/08/2026', slot: 'hero-s2', img: PIC[4] }
+      ],
+      stats: [
+        { value: '34', label: 'Dự án đang quản lý' },
+        { value: '9.842', label: 'Tỷ đồng tổng mức đầu tư' },
+        { value: '71,4%', label: 'Tỷ lệ giải ngân 8 tháng' },
+        { value: '12', label: 'Gói thầu đang mở' }
+      ],
+      newsTabs, news, newsFull, pages,
+      faqsHome: faqs.slice(0, 2),
+      categories,
+      tags: ['giải ngân vốn đầu tư công', 'Phú Thọ', 'đường trục Đông Tây'],
+      services: [
+        { label: 'Dịch vụ công trực tuyến', d: 'M7 3h7l4 4v14H7zM14 3v4h4M10 13h6M10 17h4' },
+        { label: 'Thủ tục hành chính', d: 'M3 7h6l2 2h10v11H3zM3 7V5h6' },
+        { label: 'Tra cứu hồ sơ', d: 'M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4.2-4.2' },
+        { label: 'Tiếp nhận phản ánh', d: 'M3 6h18v12H3zM3 6l9 7 9-7' },
+        { label: 'Công khai ngân sách', d: 'M4 20V11M10 20V4M16 20v-7M2 20h20' },
+        { label: 'Lịch tiếp công dân', d: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4' }
+      ],
+      banners: [
+        { title: 'Dịch vụ công trực tuyến', sub: 'Nộp hồ sơ và tra cứu kết quả', slot: 'bn-0', img: PIC[5], overlay: 'linear-gradient(100deg,rgba(5,34,64,.92),rgba(11,75,143,.62))' },
+        { title: 'Tiếp nhận phản ánh, kiến nghị', sub: 'Gửi ý kiến tới Ban', slot: 'bn-1', img: PIC[3], overlay: 'linear-gradient(100deg,rgba(122,20,20,.92),rgba(212,42,42,.6))' },
+        { title: 'Đấu thầu qua mạng', sub: 'Hệ thống mạng đấu thầu quốc gia', slot: 'bn-2', img: PIC[0], overlay: 'linear-gradient(100deg,rgba(10,58,50,.92),rgba(17,120,96,.6))' },
+        { title: 'Công khai tiến độ dự án', sub: 'Cập nhật hằng tháng', slot: 'bn-3', img: PIC[1], overlay: 'linear-gradient(100deg,rgba(90,66,10,.92),rgba(201,162,39,.62))' }
+      ],
+      showcase: [
+        { name: 'Cầu Văn Lang bắc qua sông Hồng', slot: 'sw-0', img: PIC[1] },
+        { name: 'Đường trục Đông Tây, phường Việt Trì', slot: 'sw-1', img: PIC[0] },
+        { name: 'Bệnh viện Đa khoa tỉnh Phú Thọ', slot: 'sw-2', img: PIC[4] },
+        { name: 'Trường THPT chuyên Hùng Vương', slot: 'sw-3', img: PIC[3] },
+        { name: 'Hạ tầng KCN Thụy Vân', slot: 'sw-4', img: PIC[6] }
+      ],
+      docs: docsFull.slice(0, 4), docsFull,
+      faqs,
+      projects: projectsAll.slice(0, 4), projectsAll,
+      tenders: tendersFull.slice(0, 4), tendersFull, tenderFilters,
+      gallery3: [{ label: 'Ảnh', slot: 'g1', img: PIC[0] }, { label: 'Ảnh', slot: 'g2', img: PIC[3] }, { label: 'Ảnh', slot: 'g3', img: PIC[6] }],
+      videoThumb: PIC[1],
+      gallery: [
+        { label: 'Ảnh công trường', slot: 'g0', pslot: 'pg0' }, { label: 'Lễ khởi công', slot: 'g1', pslot: 'pg1' },
+        { label: 'Video tiến độ', slot: 'g2', pslot: 'pg2' }, { label: 'Nghiệm thu', slot: 'g3', pslot: 'pg3' }
+      ],
+      links: ['Cổng TTĐT tỉnh Phú Thọ', 'Dịch vụ công tỉnh Phú Thọ', 'Ban Quản lý các KCN tỉnh Phú Thọ', 'Hệ thống mạng đấu thầu quốc gia', 'Công báo Phú Thọ'],
+      duties: [
+        { no: '1', text: 'Làm chủ đầu tư các dự án đầu tư xây dựng sử dụng vốn ngân sách do UBND tỉnh giao.' },
+        { no: '2', text: 'Tổ chức lập, thẩm định, trình phê duyệt và quản lý thực hiện dự án theo quy định pháp luật.' },
+        { no: '3', text: 'Tổ chức lựa chọn nhà thầu, quản lý hợp đồng, nghiệm thu, thanh quyết toán công trình.' },
+        { no: '4', text: 'Phối hợp thực hiện bồi thường, hỗ trợ, tái định cư và giải phóng mặt bằng.' }
+      ],
+      depts: ['Phòng Hành chính — Tổng hợp', 'Phòng Kế hoạch — Tài chính', 'Phòng Kỹ thuật — Thẩm định', 'Phòng Quản lý dự án 1', 'Phòng Quản lý dự án 2'],
+      aboutMenu: navDefs[1].children.map((label, j) => ({ ...side(label, j), go: this.set('about', j) })),
+      projectFacts: [
+        { k: 'Chủ đầu tư', v: 'Ban QLDA khu vực Phú Thọ' },
+        { k: 'Địa điểm', v: 'Thành phố Việt Trì' },
+        { k: 'Tổng mức đầu tư', v: '1.860 tỷ đồng' },
+        { k: 'Nguồn vốn', v: 'Ngân sách tỉnh và ngân sách trung ương' },
+        { k: 'Khởi công', v: 'Quý II/2024' },
+        { k: 'Hoàn thành dự kiến', v: 'Quý IV/2027' }
+      ],
+      milestones: [
+        { name: 'Giải phóng mặt bằng', pct: '88%', color: '#0B5A2B' },
+        { name: 'Nền đường và thoát nước', pct: '74%', color: '#0B4B8F' },
+        { name: 'Kết cấu mặt đường', pct: '52%', color: '#0B4B8F' },
+        { name: 'Cầu vượt nút giao và hầm chui', pct: '39%', color: '#C9A227' }
+      ],
+      projectFiles: [
+        { type: 'PDF', name: 'Quyết định phê duyệt dự án đầu tư' },
+        { type: 'PDF', name: 'Quyết định phê duyệt thiết kế bản vẽ thi công' },
+        { type: 'XLS', name: 'Biểu tổng hợp khối lượng và tiến độ' },
+        { type: 'PDF', name: 'Báo cáo giám sát đánh giá đầu tư quý II/2026' }
+      ],
+      mobileTiles: [
+        { label: 'Tin tức', d: 'M4 5h13v14H4zM17 9h3v8a2 2 0 01-3 1.7M7 9h7M7 13h7' },
+        { label: 'Dự án', d: 'M4 20V8l6-4v16M10 12h6v8h-6M13 16h1' },
+        { label: 'Đấu thầu', d: 'M9 4h6v3H9zM6 5h3M15 5h3v15H6V5M9 12h6M9 16h4' },
+        { label: 'Văn bản', d: 'M7 3h7l4 4v14H7zM14 3v4h4' },
+        { label: 'Hỏi đáp', d: 'M4 5h16v10H9l-5 4z' },
+        { label: 'DVC', d: 'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z' },
+        { label: 'Liên hệ', d: 'M6 3l3 5-2 2a12 12 0 005 5l2-2 5 3-2 3A16 16 0 013 6z' },
+        { label: 'Sơ đồ', d: 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14' }
+      ],
+      mobileNav: [
+        { label: 'Trang chủ', color: '#0B4B8F', d: 'M4 11l8-7 8 7v9H4z' },
+        { label: 'Tin tức', color: '#8A98A8', d: 'M4 5h13v14H4zM17 9h3v8a2 2 0 01-3 1.7M7 9h7M7 13h7' },
+        { label: 'Dự án', color: '#8A98A8', d: 'M4 20V8l6-4v16M10 12h6v8h-6' },
+        { label: 'Đấu thầu', color: '#8A98A8', d: 'M9 4h6v3H9zM6 5h3M15 5h3v15H6V5' },
+        { label: 'Thêm', color: '#8A98A8', d: 'M3 6h18M3 12h18M3 18h18' }
+      ],
+      botbleRows: [
+        { block: 'Tin tức, chuyên mục, chi tiết bài viết', module: 'plugin/blog (Posts, Categories, Tags)', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Trang Giới thiệu, cơ cấu tổ chức', module: 'core/page + custom blade', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Slider ảnh nổi bật', module: 'plugin/simple-slider', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Danh mục dự án + chi tiết', module: 'plugin/project (custom module)', kind: 'Viết mới', color: '#7A4A0A', bg: '#FFF1DC' },
+        { block: 'Thông báo mời thầu', module: 'plugin/tender (custom module)', kind: 'Viết mới', color: '#7A4A0A', bg: '#FFF1DC' },
+        { block: 'Văn bản pháp quy (tra cứu, tải file)', module: 'plugin/document (custom) + core/media', kind: 'Viết mới', color: '#7A4A0A', bg: '#FFF1DC' },
+        { block: 'Thư viện ảnh — video', module: 'plugin/gallery', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Hỏi đáp + form liên hệ', module: 'plugin/contact + plugin/faq', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Liên kết website, menu, footer', module: 'core/menu + theme options + widgets', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Đa ngôn ngữ (Việt / English)', module: 'plugin/language + language-advanced', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Tìm kiếm toàn văn', module: 'core/base search + Scout (tùy chọn)', kind: 'Có sẵn', color: '#0B5A2B', bg: '#E3F5E9' },
+        { block: 'Thống kê tiến độ dự án trang chủ', module: 'widget tổng hợp từ plugin/project', kind: 'Viết mới', color: '#7A4A0A', bg: '#FFF1DC' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

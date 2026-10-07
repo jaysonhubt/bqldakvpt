@@ -1,0 +1,10 @@
+CỔNG TTĐT BAN QLDA KHU VỰC PHÚ THỌ — BẢN XIN Ý KIẾN
+
+Cách xem:
+1. Giải nén toàn bộ thư mục (không mở trực tiếp trong file zip).
+2. Mở file index.html bằng Chrome, Edge hoặc Firefox.
+3. Dùng menu chính hoặc thanh chuyển trang ở cuối màn hình để xem từng trang.
+
+Đăng lên máy chủ: chép nguyên thư mục lên web server (IIS, Nginx, Apache...), truy cập index.html.
+
+Ghi chú: ảnh minh họa lấy từ Wikimedia Commons (giấy phép CC), sẽ thay bằng ảnh của Ban. Phông chữ Be Vietnam Pro tải từ Google Fonts khi có mạng; không có mạng sẽ dùng phông mặc định của máy.
