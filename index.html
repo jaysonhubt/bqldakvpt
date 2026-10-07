@@ -1071,7 +1071,7 @@
 </sc-if>
 
 <!-- screen switcher -->
-<div style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:200;background:rgba(7,32,60,.94);backdrop-filter:blur(10px);border-radius:99px;padding:6px;display:flex;gap:2px;flex-wrap:wrap;justify-content:center;max-width:94vw;box-shadow:0 10px 34px rgba(7,32,60,.4)">
+<div style="display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:200;background:rgba(7,32,60,.94);backdrop-filter:blur(10px);border-radius:99px;padding:6px;display:flex;gap:2px;flex-wrap:wrap;justify-content:center;max-width:94vw;box-shadow:0 10px 34px rgba(7,32,60,.4)">
   <sc-for list="{{ screens }}" as="s" hint-placeholder-count="11">
     <button onClick="{{ s.go }}" style="border:0;background:{{ s.bg }};color:{{ s.color }};font-family:inherit;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:99px;cursor:pointer;white-space:nowrap">{{ s.label }}</button>
   </sc-for>
