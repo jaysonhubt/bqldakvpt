@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
-<title>Cổng TTĐT Ban QLDA khu vực Phú Thọ — Bản xin ý kiến</title>
+<title>Trang TTĐT Ban QLDA khu vực Phú Thọ — Bản xin ý kiến</title>
 </head>
 <body>
 <x-dc>
@@ -33,7 +33,7 @@
       <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
         <span>{{ today }}</span>
         <span style="opacity:.4">|</span>
-        <a href="#" onClick="{{ goSitemap }}" style="color:#C7D8EC">Sơ đồ cổng</a>
+        <a href="#" onClick="{{ goSitemap }}" style="color:#C7D8EC">Sơ đồ trang</a>
         <a href="#" onClick="{{ goContact }}" style="color:#C7D8EC">Hỏi đáp</a>
         <a href="#" style="color:#C7D8EC">RSS</a>
       </div>
@@ -545,16 +545,33 @@
         <div>
         <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:{{ orgTop }} 0 14px">Cơ cấu tổ chức</div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:0">
-          <div style="background:#0B4B8F;color:#fff;padding:13px 30px;border-radius:6px;font-size:15px;font-weight:600">Giám đốc Ban</div>
-          <div style="width:2px;height:20px;background:#C4D6E9"></div>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-            <div style="background:#245D9B;color:#fff;padding:11px 22px;border-radius:6px;font-size:14px;font-weight:500">Phó Giám đốc</div>
-            <div style="background:#245D9B;color:#fff;padding:11px 22px;border-radius:6px;font-size:14px;font-weight:500">Phó Giám đốc</div>
+          <div style="background:#0B4B8F;color:#fff;padding:14px 36px;border-radius:8px;text-align:center;box-shadow:0 6px 18px rgba(11,75,143,.25)">
+            <div style="font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;opacity:.8">Giám đốc Ban</div>
+            <div style="font-size:19px;font-weight:700;margin-top:4px">{{ director }}</div>
           </div>
           <div style="width:2px;height:20px;background:#C4D6E9"></div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;width:100%">
-            <sc-for list="{{ depts }}" as="dp" hint-placeholder-count="5">
-              <div style="background:#fff;border:1px solid #D5E2EF;border-radius:6px;padding:13px;text-align:center;font-size:13.5px;font-weight:500;color:#2A3B4F">{{ dp }}</div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+            <sc-for list="{{ deputies }}" as="pg" hint-placeholder-count="3">
+              <div style="background:#2F6BAA;color:#fff;padding:11px 24px;border-radius:8px;text-align:center;min-width:170px">
+                <div style="font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;opacity:.8">Phó Giám đốc</div>
+                <div style="font-size:16px;font-weight:700;margin-top:3px">{{ pg }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="width:2px;height:20px;background:#C4D6E9"></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;width:100%">
+            <sc-for list="{{ depts }}" as="dp" hint-placeholder-count="8">
+              <div style="background:#fff;border:1px solid #D5E2EF;border-radius:8px;overflow:hidden;text-align:center">
+                <div style="background:#EEF4FB;border-bottom:1px solid #D5E2EF;padding:10px 12px;font-size:13.5px;font-weight:700;color:#0B4B8F">{{ dp.name }}</div>
+                <div style="padding:6px 12px 10px">
+                  <sc-for list="{{ dp.heads }}" as="hd" hint-placeholder-count="2">
+                    <div style="padding:7px 0;border-top:{{ hd.sep }}">
+                      <div style="font-size:11.5px;color:#7A8A9C;text-transform:uppercase;letter-spacing:.05em">{{ hd.role }}</div>
+                      <div style="font-size:{{ hd.size }};font-weight:{{ hd.weight }};color:{{ hd.color }};margin-top:2px">{{ hd.name }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
             </sc-for>
           </div>
         </div>
@@ -576,13 +593,13 @@
         </sc-if>
         <sc-if value="{{ aboutLeaders }}" hint-placeholder-val="{{ false }}">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
-          <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="3">
+          <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="4">
             <div style="border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;background:#fff">
-              <div style="height:240px"><image-slot id="{{ l.slot }}" shape="rect" placeholder="Ảnh chân dung"></image-slot></div>
+              <div style="height:240px"><image-slot id="{{ l.slot }}" src="assets/img/chan-dung.svg" shape="rect" placeholder="Ảnh chân dung"></image-slot></div>
               <div style="padding:16px">
                 <div style="font-size:12.5px;color:#D42A2A;font-weight:700;text-transform:uppercase;letter-spacing:.06em">{{ l.role }}</div>
                 <div style="font-size:16.5px;font-weight:700;margin-top:5px">{{ l.name }}</div>
-                <div style="font-size:13.5px;color:#5A6B80;margin-top:8px;line-height:1.7">{{ l.task }}<br />Điện thoại: {{ l.phone }}<br />Email: {{ l.email }}</div>
+                <div style="font-size:13.5px;color:#5A6B80;margin-top:8px;line-height:1.7">{{ l.task }}</div>
               </div>
             </div>
           </sc-for>
@@ -638,7 +655,7 @@
           </div>
         </sc-for>
       </div>
-      <div style="font-size:13px;color:#7A8A9C;margin-top:12px">Số liệu cập nhật đến ngày 20/08/2026. Nguồn: Phòng Kế hoạch — Tài chính.</div>
+      <div style="font-size:13px;color:#7A8A9C;margin-top:12px">Số liệu cập nhật đến ngày 20/08/2026. Nguồn: Phòng Kế hoạch — Đầu tư.</div>
     </div>
     </sc-if>
     <sc-if value="{{ showProjGrid }}" hint-placeholder-val="{{ true }}">
@@ -857,7 +874,7 @@
   <!-- ===================== SITEMAP ===================== -->
   <sc-if value="{{ isSitemap }}" hint-placeholder-val="{{ false }}">
   <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
-    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">Sơ đồ cổng thông tin</div>
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">Sơ đồ trang thông tin điện tử</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;align-items:start">
       <sc-for list="{{ sitemap }}" as="g" hint-placeholder-count="7">
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden">
@@ -876,7 +893,7 @@
   <!-- ===================== CONTACT ===================== -->
   <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
   <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
-    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">Liên hệ — Hỏi đáp</div>
+    <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:24px">Hỏi đáp — Liên hệ</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px;align-items:start">
       <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:26px">
         <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin-bottom:16px">Gửi câu hỏi / kiến nghị</div>
@@ -934,7 +951,7 @@
           <div>Địa chỉ: Số 215 đường Minh Lang, phường Việt Trì, tỉnh Phú Thọ</div>
           <div>Điện thoại: 0210 3846 507 · 0210 3846 172 · Email: bqlduan@phutho.gov.vn</div>
           <div>Mã số thuế: 2601120030</div>
-          <div>Chịu trách nhiệm nội dung: Giám đốc Ban</div>
+          <div>Chịu trách nhiệm nội dung: Giám đốc Ban Phạm Xuân Sơn</div>
         </div>
         </div>
       </div>
@@ -959,7 +976,7 @@
     </div>
     <div style="position:relative;border-top:1px solid rgba(159,196,232,.22)">
       <div style="max-width:1280px;margin:0 auto;padding:16px 20px;font-size:13px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between">
-        <span>© 2026 Ban Quản lý dự án khu vực Phú Thọ. Ghi rõ nguồn khi phát hành lại thông tin từ cổng thông tin này.</span>
+        <span>© 2026 Ban Quản lý dự án khu vực Phú Thọ. Ghi rõ nguồn khi phát hành lại thông tin từ trang thông tin điện tử này.</span>
         <span>Giấy phép số …/GP-TTĐT do Sở Văn hóa, Thể thao và Du lịch tỉnh Phú Thọ cấp</span>
       </div>
     </div>
@@ -1026,7 +1043,7 @@
         </sc-for>
       </div>
     </div>
-    <div style="background:linear-gradient(180deg,#062A4C,#03162A);color:#B9CFE6;padding:18px 14px;font-size:11.5px;line-height:1.7;text-align:center">Ban QLDA đầu tư xây dựng khu vực Phú Thọ<br />Số 215 đường Minh Lang, phường Việt Trì<br />© 2026 · MST 2601120030</div>
+    <div style="background:linear-gradient(180deg,#062A4C,#03162A);color:#B9CFE6;padding:18px 14px;font-size:11.5px;line-height:1.7;text-align:center">Ban Quản lý dự án khu vực Phú Thọ<br />Số 215 đường Minh Lang, phường Việt Trì<br />© 2026 · MST 2601120030</div>
     <div style="background:#fff;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 0 12px">
       <sc-for list="{{ mobileNav }}" as="mn" hint-placeholder-count="5">
         <div style="text-align:center;color:{{ mn.color }}"><div style="display:flex;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="{{ mn.color }}" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="{{ mn.d }}"></path></svg></div><div style="font-size:10px;margin-top:2px;font-weight:500">{{ mn.label }}</div></div>
@@ -1066,12 +1083,12 @@
       </div>
     </div>
   </div>
-  <div style="background:#FFF4E5;border:1px solid #F2DFC0;border-radius:8px;padding:18px;margin-top:18px;font-size:14.5px;color:#7A4A0A;line-height:1.7">Lưu ý tuân thủ Nghị định về cung cấp thông tin trên cổng TTĐT cơ quan nhà nước: bắt buộc có sơ đồ cổng, thông tin liên hệ tiếp nhận phản ánh, giấy phép TTĐT ở chân trang, và hỗ trợ truy cập bằng bàn phím.</div>
+  <div style="background:#FFF4E5;border:1px solid #F2DFC0;border-radius:8px;padding:18px;margin-top:18px;font-size:14.5px;color:#7A4A0A;line-height:1.7">Lưu ý tuân thủ Nghị định về cung cấp thông tin trên trang TTĐT cơ quan nhà nước: bắt buộc có sơ đồ trang, thông tin liên hệ tiếp nhận phản ánh, giấy phép TTĐT ở chân trang, và hỗ trợ truy cập bằng bàn phím.</div>
 </div>
 </sc-if>
 
 <!-- screen switcher -->
-<div style="display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:200;background:rgba(7,32,60,.94);backdrop-filter:blur(10px);border-radius:99px;padding:6px;display:flex;gap:2px;flex-wrap:wrap;justify-content:center;max-width:94vw;box-shadow:0 10px 34px rgba(7,32,60,.4)">
+<div style="display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:200;background:rgba(7,32,60,.94);backdrop-filter:blur(10px);border-radius:99px;padding:6px;gap:2px;flex-wrap:wrap;justify-content:center;max-width:94vw;box-shadow:0 10px 34px rgba(7,32,60,.4)">
   <sc-for list="{{ screens }}" as="s" hint-placeholder-count="11">
     <button onClick="{{ s.go }}" style="border:0;background:{{ s.bg }};color:{{ s.color }};font-family:inherit;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:99px;cursor:pointer;white-space:nowrap">{{ s.label }}</button>
   </sc-for>
@@ -1147,13 +1164,13 @@ class Component extends DCLogic {
       hoanthanh: { status: 'Hoàn thành', statusColor: '#0B4B8F', statusBg: '#E6EFF9' }
     };
     const projectsAll = [
-      { name: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', location: 'TP. Việt Trì', capital: '1.860 tỷ đồng', pct: '68%', ...st.thicong },
-      { name: 'Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', location: 'Việt Trì — Phù Ninh', capital: '1.240 tỷ đồng', pct: '12%', ...st.chuanbi },
-      { name: 'Trường THPT chuyên Hùng Vương — hạng mục nhà học 4 tầng', location: 'TP. Việt Trì', capital: '186 tỷ đồng', pct: '84%', ...st.thicong },
+      { name: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', location: 'Phường Việt Trì', capital: '1.860 tỷ đồng', pct: '68%', ...st.thicong },
+      { name: 'Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', location: 'Phường Việt Trì — xã Phù Ninh', capital: '1.240 tỷ đồng', pct: '12%', ...st.chuanbi },
+      { name: 'Trường THPT chuyên Hùng Vương — hạng mục nhà học 4 tầng', location: 'Phường Việt Trì', capital: '186 tỷ đồng', pct: '84%', ...st.thicong },
       { name: 'Hệ thống thoát nước và xử lý nước thải KCN Thụy Vân', location: 'Huyện Lâm Thao', capital: '412 tỷ đồng', pct: '46%', ...st.thicong },
-      { name: 'Bệnh viện Đa khoa tỉnh — khối kỹ thuật nghiệp vụ', location: 'TP. Việt Trì', capital: '760 tỷ đồng', pct: '100%', ...st.hoanthanh },
+      { name: 'Bệnh viện Đa khoa tỉnh — khối kỹ thuật nghiệp vụ', location: 'Phường Việt Trì', capital: '760 tỷ đồng', pct: '100%', ...st.hoanthanh },
       { name: 'Kè chống sạt lở bờ hữu sông Thao đoạn qua xã Bản Nguyên', location: 'Huyện Lâm Thao', capital: '238 tỷ đồng', pct: '31%', ...st.thicong },
-      { name: 'Nhà văn hóa trung tâm tỉnh và quảng trường phía trước', location: 'TP. Việt Trì', capital: '315 tỷ đồng', pct: '100%', ...st.hoanthanh },
+      { name: 'Nhà văn hóa trung tâm tỉnh và quảng trường phía trước', location: 'Phường Việt Trì', capital: '315 tỷ đồng', pct: '100%', ...st.hoanthanh },
       { name: 'Đường giao thông liên xã Tiên Kiên — Hà Thạch', location: 'Huyện Lâm Thao', capital: '142 tỷ đồng', pct: '100%', ...st.hoanthanh }
     ].map((p, i) => ({ ...p, key: [0, 1, 3, 4].includes(i) })).map((p, i) => ({ ...p, slot: 'proj-' + i, mslot: 'mproj-' + i, img: PIC[(i + 2) % PIC.length] }));
 
@@ -1170,14 +1187,14 @@ class Component extends DCLogic {
 
     const docsFull = [
       { number: '18/2026/QĐ-UBND', title: 'Quyết định phê duyệt điều chỉnh chủ trương đầu tư Dự án đường trục Đông Tây, thành phố Việt Trì', org: 'UBND tỉnh Phú Thọ', date: '12/08/2026', type: 'Quyết định' },
-      { number: '2145/QĐ-BQLDA', title: 'Quyết định phê duyệt kế hoạch lựa chọn nhà thầu Gói thầu số 07', org: 'Ban QLDA khu vực', date: '05/08/2026', type: 'Quyết định' },
+      { number: '2145/QĐ-BDA', title: 'Quyết định phê duyệt kế hoạch lựa chọn nhà thầu Gói thầu số 07', org: 'Ban QLDA khu vực', date: '05/08/2026', type: 'Quyết định' },
       { number: '05/2026/TT-BXD', title: 'Thông tư hướng dẫn xác định và quản lý chi phí đầu tư xây dựng', org: 'Bộ Xây dựng', date: '28/07/2026', type: 'Thông tư' },
-      { number: '1876/BQLDA-KHTH', title: 'Về việc đôn đốc hoàn thiện hồ sơ thanh toán khối lượng đã nghiệm thu', org: 'Ban QLDA khu vực', date: '21/07/2026', type: 'Công văn' },
+      { number: '1876/BDA-KHTH', title: 'Về việc đôn đốc hoàn thiện hồ sơ thanh toán khối lượng đã nghiệm thu', org: 'Ban QLDA khu vực', date: '21/07/2026', type: 'Công văn' },
       { number: '96/2026/NĐ-CP', title: 'Nghị định quy định chi tiết một số điều của Luật Đấu thầu về lựa chọn nhà thầu', org: 'Chính phủ', date: '10/07/2026', type: 'Nghị định' },
-      { number: '1502/BQLDA-GPMB', title: 'Về việc phối hợp thực hiện công tác bồi thường, hỗ trợ tái định cư', org: 'Ban QLDA khu vực', date: '02/07/2026', type: 'Công văn' },
-      { number: '2098/QĐ-BQLDA', title: 'Quyết định phê duyệt kết quả lựa chọn nhà thầu Gói thầu số 12 — thiết bị phòng học', org: 'Ban QLDA khu vực', date: '26/06/2026', type: 'Quyết định' },
+      { number: '1502/BDA-GPMB', title: 'Về việc phối hợp thực hiện công tác bồi thường, hỗ trợ tái định cư', org: 'Ban QLDA khu vực', date: '02/07/2026', type: 'Công văn' },
+      { number: '2098/QĐ-BDA', title: 'Quyết định phê duyệt kết quả lựa chọn nhà thầu Gói thầu số 12 — thiết bị phòng học', org: 'Ban QLDA khu vực', date: '26/06/2026', type: 'Quyết định' },
       { number: '14/2026/QĐ-UBND', title: 'Quyết định ban hành đơn giá xây dựng công trình trên địa bàn tỉnh Phú Thọ', org: 'UBND tỉnh Phú Thọ', date: '18/06/2026', type: 'Quyết định' },
-      { number: '1187/BQLDA-KT', title: 'Về việc tăng cường quản lý chất lượng và an toàn lao động tại các công trường', org: 'Ban QLDA khu vực', date: '05/06/2026', type: 'Công văn' }
+      { number: '1187/BDA-KT', title: 'Về việc tăng cường quản lý chất lượng và an toàn lao động tại các công trường', org: 'Ban QLDA khu vực', date: '05/06/2026', type: 'Công văn' }
     ];
 
     const faqs = [
@@ -1192,11 +1209,11 @@ class Component extends DCLogic {
     const screensList = [
       ['home', 'Trang chủ'], ['news', 'Danh mục tin'], ['article', 'Chi tiết bài viết'],
       ['about', 'Giới thiệu'], ['projects', 'Danh mục dự án'], ['project', 'Chi tiết dự án'],
-      ['tender', 'Đấu thầu'], ['docs', 'Văn bản'], ['contact', 'Liên hệ — Hỏi đáp'],
+      ['tender', 'Đấu thầu'], ['docs', 'Văn bản'], ['contact', 'Hỏi đáp — Liên hệ'],
       ['mobile', 'Mobile'], ['botble', 'Ghi chú Botble']
     ];
 
-    const crumbs = { news: 'Tin tức — Sự kiện', article: 'Chi tiết tin', about: 'Giới thiệu', projects: 'Dự án', project: 'Chi tiết dự án', tender: 'Đấu thầu', docs: 'Văn bản pháp quy', sitemap: 'Sơ đồ cổng', contact: 'Liên hệ — Hỏi đáp' };
+    const crumbs = { news: 'Tin tức — Sự kiện', article: 'Chi tiết tin', about: 'Giới thiệu', projects: 'Dự án', project: 'Chi tiết dự án', tender: 'Đấu thầu', docs: 'Văn bản pháp quy', sitemap: 'Sơ đồ cổng', contact: 'Hỏi đáp — Liên hệ' };
 
     const album = [
       { cat: 'Hoạt động của Ban', title: 'Ban QLDA khu vực Phú Thọ đẩy nhanh tiến độ giải ngân vốn đầu tư công 8 tháng đầu năm 2026', date: '20/08/2026', views: 214, excerpt: 'Tính đến hết tháng 8/2026, tỷ lệ giải ngân của các dự án do Ban làm chủ đầu tư đạt 71,4% kế hoạch vốn được giao, cao hơn 9,2 điểm phần trăm so với cùng kỳ năm trước.', ph: 'Ảnh tin chính 1' },
@@ -1255,19 +1272,19 @@ class Component extends DCLogic {
     });
 
     const tenderResults = [
-      { code: 'IB2600171', name: 'Gói thầu số 12: Cung cấp và lắp đặt thiết bị phòng học, nhà học 4 tầng', value: '24,6 tỷ', winner: 'Công ty CP Thiết bị giáo dục Hùng Vương', price: '23,92 tỷ', decision: 'QĐ số 2098/QĐ-BQLDA', date: '26/06/2026' },
-      { code: 'IB2600168', name: 'Gói thầu số 05: Thi công hệ thống thu gom nước thải KCN Thụy Vân', value: '96,2 tỷ', winner: 'Liên danh Xây dựng Thủy lợi Phú Thọ — Hạ tầng Việt Trì', price: '94,05 tỷ', decision: 'QĐ số 2131/QĐ-BQLDA', date: '22/08/2026' },
-      { code: 'IB2600160', name: 'Gói thầu số 02: Khảo sát, lập thiết kế bản vẽ thi công kè bờ hữu sông Thao', value: '5,4 tỷ', winner: 'Công ty CP Tư vấn Xây dựng Giao thông Phú Thọ', price: '5,21 tỷ', decision: 'QĐ số 2117/QĐ-BQLDA', date: '15/08/2026' },
-      { code: 'IB2600155', name: 'Gói thầu số 09: Bảo hiểm công trình xây dựng đường trục Đông Tây', value: '3,1 tỷ', winner: 'Tổng Công ty Bảo hiểm — Chi nhánh Phú Thọ', price: '2,96 tỷ', decision: 'QĐ số 2102/QĐ-BQLDA', date: '08/08/2026' },
-      { code: 'IB2600151', name: 'Gói thầu số 04: Thi công xây dựng nhà học 4 tầng Trường THPT chuyên Hùng Vương', value: '128,7 tỷ', winner: 'Công ty CP Xây dựng và Thương mại Đất Tổ', price: '126,14 tỷ', decision: 'QĐ số 2089/QĐ-BQLDA', date: '01/08/2026' }
+      { code: 'IB2600171', name: 'Gói thầu số 12: Cung cấp và lắp đặt thiết bị phòng học, nhà học 4 tầng', value: '24,6 tỷ', winner: 'Công ty CP Thiết bị giáo dục Hùng Vương', price: '23,92 tỷ', decision: 'QĐ số 2098/QĐ-BDA', date: '26/06/2026' },
+      { code: 'IB2600168', name: 'Gói thầu số 05: Thi công hệ thống thu gom nước thải KCN Thụy Vân', value: '96,2 tỷ', winner: 'Liên danh Xây dựng Thủy lợi Phú Thọ — Hạ tầng Việt Trì', price: '94,05 tỷ', decision: 'QĐ số 2131/QĐ-BDA', date: '22/08/2026' },
+      { code: 'IB2600160', name: 'Gói thầu số 02: Khảo sát, lập thiết kế bản vẽ thi công kè bờ hữu sông Thao', value: '5,4 tỷ', winner: 'Công ty CP Tư vấn Xây dựng Giao thông Phú Thọ', price: '5,21 tỷ', decision: 'QĐ số 2117/QĐ-BDA', date: '15/08/2026' },
+      { code: 'IB2600155', name: 'Gói thầu số 09: Bảo hiểm công trình xây dựng đường trục Đông Tây', value: '3,1 tỷ', winner: 'Tổng Công ty Bảo hiểm — Chi nhánh Phú Thọ', price: '2,96 tỷ', decision: 'QĐ số 2102/QĐ-BDA', date: '08/08/2026' },
+      { code: 'IB2600151', name: 'Gói thầu số 04: Thi công xây dựng nhà học 4 tầng Trường THPT chuyên Hùng Vương', value: '128,7 tỷ', winner: 'Công ty CP Xây dựng và Thương mại Đất Tổ', price: '126,14 tỷ', decision: 'QĐ số 2089/QĐ-BDA', date: '01/08/2026' }
     ];
     const tenderPlans = [
-      { project: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', decision: 'QĐ số 2145/QĐ-BQLDA ngày 05/08/2026', items: [
+      { project: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', decision: 'QĐ số 2145/QĐ-BDA ngày 05/08/2026', items: [
         { name: 'Gói thầu số 07: Thi công xây dựng đoạn Km2+300 — Km4+800', value: '312,4 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Đơn giá cố định' },
         { name: 'Gói thầu số 08: Tư vấn giám sát thi công gói thầu số 07', value: '4,6 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Theo thời gian' },
         { name: 'Gói thầu số 09: Bảo hiểm công trình', value: '3,1 tỷ', method: 'Chào hàng cạnh tranh', time: 'Quý III/2026', contract: 'Trọn gói' }
       ] },
-      { project: 'Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', decision: 'QĐ số 2120/QĐ-BQLDA ngày 18/07/2026', items: [
+      { project: 'Cầu vượt sông Lô kết nối Việt Trì — Phù Ninh', decision: 'QĐ số 2120/QĐ-BDA ngày 18/07/2026', items: [
         { name: 'Gói thầu số 03: Tư vấn giám sát thi công xây dựng', value: '8,9 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Theo thời gian' },
         { name: 'Gói thầu số 04: Thi công cầu chính và đường dẫn hai đầu cầu', value: '846,0 tỷ', method: 'Đấu thầu rộng rãi quốc tế', time: 'Quý IV/2026', contract: 'Đơn giá điều chỉnh' }
       ] }
@@ -1296,15 +1313,16 @@ class Component extends DCLogic {
       aboutHistory: sub === 2, aboutLeaders: sub === 3,
       orgTop: sub === 1 ? '0' : '30px',
       history: [
-        { year: '…', title: 'Thành lập Ban', text: 'Thành lập theo Quyết định số …/QĐ-UBND của UBND tỉnh Phú Thọ trên cơ sở hợp nhất các Ban quản lý dự án chuyên ngành.' },
-        { year: '…', title: 'Kiện toàn tổ chức', text: 'Kiện toàn cơ cấu tổ chức, bổ sung chức năng nhận ủy thác quản lý dự án cho các chủ đầu tư khác.' },
-        { year: '2025', title: 'Sắp xếp sau hợp nhất tỉnh', text: 'Tổ chức lại theo mô hình chính quyền địa phương hai cấp, tiếp nhận các dự án chuyển giao trên địa bàn tỉnh mới.' },
+        { year: '02/2025', title: 'Thành lập Ban', text: 'Thành lập Ban Quản lý dự án đầu tư xây dựng tỉnh Phú Thọ trên cơ sở hợp nhất Ban Quản lý dự án đầu tư xây dựng công trình giao thông, dân dụng và công nghiệp tỉnh với Ban Quản lý dự án đầu tư xây dựng công trình nông nghiệp và phát triển nông thôn tỉnh.' },
+        { year: '04/2025', title: 'Quy định chức năng, nhiệm vụ', text: 'UBND tỉnh ban hành Quyết định số 17/2025/QĐ-UBND ngày 01/4/2025 quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Ban; Ban là đơn vị sự nghiệp công lập tự bảo đảm chi thường xuyên, trực thuộc UBND tỉnh.' },
+        { year: '07/2025', title: 'Sắp xếp sau hợp nhất tỉnh', text: 'Sau khi hợp nhất tỉnh và thực hiện chính quyền địa phương hai cấp, tỉnh Phú Thọ tổ chức 3 Ban quản lý dự án cấp tỉnh theo khu vực; Ban được tổ chức lại thành Ban Quản lý dự án khu vực Phú Thọ, tiếp nhận các dự án chuyển giao trên địa bàn khu vực Phú Thọ.' },
         { year: '2026', title: 'Quản lý 34 dự án', text: 'Trực tiếp quản lý 34 dự án với tổng mức đầu tư hơn 9.800 tỷ đồng, trong đó có 6 dự án trọng điểm của tỉnh.' }
       ],
       leaders: [
-        { role: 'Giám đốc', name: 'Đang cập nhật', task: 'Phụ trách chung, công tác kế hoạch — tài chính', phone: '0210 3846 507', email: 'bqlduan@phutho.gov.vn', slot: 'leader-0' },
-        { role: 'Phó Giám đốc', name: 'Đang cập nhật', task: 'Phụ trách kỹ thuật, chất lượng công trình', phone: '0210 3846 172', email: 'bqlduan@phutho.gov.vn', slot: 'leader-1' },
-        { role: 'Phó Giám đốc', name: 'Đang cập nhật', task: 'Phụ trách đấu thầu, giải phóng mặt bằng', phone: '0210 3846 172', email: 'bqlduan@phutho.gov.vn', slot: 'leader-2' }
+        { role: 'Giám đốc', name: 'Phạm Xuân Sơn', task: 'Phụ trách chung', slot: 'leader-0' },
+        { role: 'Phó Giám đốc', name: 'Khuất Đăng Khoa', task: 'Phụ trách Phòng Quản lý dự án II', slot: 'leader-1' },
+        { role: 'Phó Giám đốc', name: 'Đỗ Thế Nam', task: 'Phụ trách Phòng Quản lý dự án III', slot: 'leader-2' },
+        { role: 'Phó Giám đốc', name: 'Lâm Việt Tuấn', task: 'Phụ trách Phòng Quản lý dự án I', slot: 'leader-3' }
       ],
       goAbout: this.set('about'), goSitemap: this.set('sitemap'), isSitemap: screen === 'sitemap',
       sitemap: navDefs.map(n => ({
@@ -1412,11 +1430,25 @@ class Component extends DCLogic {
         { no: '3', text: 'Tổ chức lựa chọn nhà thầu, quản lý hợp đồng, nghiệm thu, thanh quyết toán công trình.' },
         { no: '4', text: 'Phối hợp thực hiện bồi thường, hỗ trợ, tái định cư và giải phóng mặt bằng.' }
       ],
-      depts: ['Phòng Hành chính — Tổng hợp', 'Phòng Kế hoạch — Tài chính', 'Phòng Kỹ thuật — Thẩm định', 'Phòng Quản lý dự án 1', 'Phòng Quản lý dự án 2'],
+      director: 'Phạm Xuân Sơn',
+      deputies: ['Khuất Đăng Khoa', 'Đỗ Thế Nam', 'Lâm Việt Tuấn'],
+      depts: [
+        { name: 'Phòng Hành chính — Tổng hợp', heads: [{ role: 'Trưởng phòng', name: 'Doãn Thế Vinh' }, { role: 'Phó Trưởng phòng', name: 'Dư Quảng Nam' }] },
+        { name: 'Phòng Tài chính — Kế toán', heads: [{ role: 'PTP phụ trách phòng', name: 'La Thị Duyên' }, { role: 'Phó Trưởng phòng', name: 'Vũ Việt Hùng' }] },
+        { name: 'Phòng Kế hoạch — Đầu tư', heads: [{ role: 'Trưởng phòng', name: 'Nguyễn Anh Hùng' }] },
+        { name: 'Phòng Kỹ thuật — Thẩm định', heads: [{ role: 'Trưởng phòng', name: 'Nguyễn Mạnh Thắng' }, { role: 'Phó Trưởng phòng', name: 'Lê Đức Phương' }, { role: 'Phó Trưởng phòng', name: 'Đinh Thị Hoa' }] },
+        { name: 'Phòng Quản lý dự án I', heads: [{ role: 'Trưởng phòng', name: 'Hà Anh Tuấn' }, { role: 'Phó Trưởng phòng', name: 'Nguyễn Anh Tuấn' }, { role: 'Phó Trưởng phòng', name: 'Cao Thu Vân' }] },
+        { name: 'Phòng Quản lý dự án II', heads: [{ role: 'Trưởng phòng', name: 'Lê Trung Hà' }, { role: 'Phó Trưởng phòng', name: 'Nguyễn Văn Thắng' }, { role: 'Phó Trưởng phòng', name: 'Nguyễn Thị Nhung' }] },
+        { name: 'Phòng Quản lý dự án III', heads: [{ role: 'Trưởng phòng', name: 'Tạ Ngọc Anh' }, { role: 'Phó Trưởng phòng', name: 'Bùi Trường Giang' }, { role: 'Phó Trưởng phòng', name: 'Cao Kiên Cường' }] },
+        { name: 'Phòng Quản lý dự án IV', heads: [{ role: 'PTP phụ trách phòng', name: 'Nguyễn Quốc Việt' }, { role: 'Phó Trưởng phòng', name: 'Đỗ Mạnh Thắng' }] }
+      ].map(dp => ({ ...dp, heads: dp.heads.map((h, i) => {
+        const lead = !h.role.startsWith('Phó');
+        return { ...h, sep: i ? '1px dashed #E2E8F0' : 'none', size: lead ? '15.5px' : '15px', weight: 700, color: lead ? '#0B2E55' : '#1F3A5A' };
+      }) })),
       aboutMenu: navDefs[1].children.map((label, j) => ({ ...side(label, j), go: this.set('about', j) })),
       projectFacts: [
         { k: 'Chủ đầu tư', v: 'Ban QLDA khu vực Phú Thọ' },
-        { k: 'Địa điểm', v: 'Thành phố Việt Trì' },
+        { k: 'Địa điểm', v: 'Phường Việt Trì, tỉnh Phú Thọ' },
         { k: 'Tổng mức đầu tư', v: '1.860 tỷ đồng' },
         { k: 'Nguồn vốn', v: 'Ngân sách tỉnh và ngân sách trung ương' },
         { k: 'Khởi công', v: 'Quý II/2024' },
