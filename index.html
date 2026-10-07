@@ -20,19 +20,20 @@
   a:hover { color: #D42A2A; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   ::selection { background: #0B4B8F; color: #fff; }
+  image-slot[src$="chan-dung.png"]::part(frame) { background: #fff; }
 </style>
 </helmet>
 
-<div style="min-height:100vh;background:radial-gradient(1100px 560px at 6% -4%,#E6F0FB 0%,rgba(230,240,251,0) 62%),radial-gradient(900px 480px at 100% 10%,#F5EEE1 0%,rgba(245,238,225,0) 58%),#F4F6F9;color:#16202E;font-size:16px;line-height:1.6;padding-bottom:72px;zoom:{{ pageZoom }}">
+<div style="min-height:100vh;background:radial-gradient(1100px 560px at 6% -4%,#E6F0FB 0%,rgba(230,240,251,0) 62%),radial-gradient(900px 480px at 100% 10%,#F5EEE1 0%,rgba(245,238,225,0) 58%),#F4F6F9;color:#16202E;font-size:16px;line-height:1.6;zoom:{{ pageZoom }}">
 
 <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
 <div>
   <!-- utility bar -->
   <div style="background:#073766;color:#C7D8EC;font-size:13px">
     <div style="max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;min-height:38px">
-      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
-        <span>{{ today }}</span>
-        <span style="opacity:.4">|</span>
+      <div style="display:{{ utilLinks }};gap:18px;align-items:center;flex-wrap:wrap">
+        <span style="display:{{ utilDate }}">{{ today }}</span>
+        <span style="opacity:.4;display:{{ utilDate }}">|</span>
         <a href="#" onClick="{{ goSitemap }}" style="color:#C7D8EC">Sơ đồ trang</a>
         <a href="#" onClick="{{ goContact }}" style="color:#C7D8EC">Hỏi đáp</a>
         <a href="#" style="color:#C7D8EC">RSS</a>
@@ -53,27 +54,28 @@
   <!-- header -->
   <div style="position:relative;overflow:hidden;color:#fff;background:radial-gradient(1100px 430px at 84% -15%,rgba(122,208,255,.45),rgba(122,208,255,0) 62%),radial-gradient(760px 380px at 10% 125%,rgba(46,178,146,.34),rgba(46,178,146,0) 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,rgba(255,255,255,0) 2px 10px),linear-gradient(104deg,#0A3E72 0%,#0F5FA6 52%,#1C87C6 100%)">
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 26% 118%,rgba(255,255,255,.16),rgba(255,255,255,0) 45%);pointer-events:none"></div>
-    <div style="position:relative;max-width:1280px;margin:0 auto;padding:26px 20px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
-      <div style="display:flex;gap:16px;align-items:center;min-width:280px">
-        <div style="width:78px;height:78px;flex:none;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))"><img src="assets/logo-phu-tho.svg" alt="Logo tỉnh Phú Thọ" style="width:100%;height:100%;object-fit:contain" /></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:{{ hdrPad }};display:flex;flex-wrap:wrap;gap:18px 24px;align-items:center;justify-content:space-between">
+      <div style="display:flex;gap:14px;align-items:center;min-width:0;flex:1 1 280px">
+        <div style="width:{{ logoSize }};height:{{ logoSize }};flex:none;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))"><img src="assets/logo-phu-tho.svg" alt="Logo tỉnh Phú Thọ" style="width:100%;height:100%;object-fit:contain" /></div>
         <div>
           <div style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#A9CDF2;font-weight:500">Trang thông tin điện tử</div>
           <div style="font-size:clamp(20px,2.3vw,30px);font-weight:800;line-height:1.18;margin-top:4px;letter-spacing:-.01em">BAN QUẢN LÝ DỰ ÁN KHU VỰC PHÚ THỌ</div>
           <div style="font-size:13px;color:#A9CDF2;margin-top:7px">Cơ quan chủ quản: Ủy ban nhân dân tỉnh Phú Thọ</div>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
-        <div style="display:flex;align-items:center;background:#fff;border-radius:99px;overflow:hidden;min-width:330px;height:46px;box-shadow:0 8px 24px rgba(3,25,48,.28)">
-          <input placeholder="Nhập từ khóa tìm kiếm..." style="border:0;outline:0;padding:0 14px;flex:1;font-family:inherit;font-size:14.5px;color:#16202E;background:transparent" />
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:{{ hdrAlign }};flex:{{ hdrRight }}">
+        <div style="display:flex;align-items:center;background:#fff;border-radius:99px;overflow:hidden;min-width:{{ searchMin }};height:46px;box-shadow:0 8px 24px rgba(3,25,48,.28)">
+          <input placeholder="Nhập từ khóa tìm kiếm..." style="border:0;outline:0;padding:0 14px;flex:1;min-width:0;font-family:inherit;font-size:14.5px;color:#16202E;background:transparent" />
           <button style="height:46px;padding:0 24px;border:0;background:#D42A2A;color:#fff;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer" style-hover="background:#B71F1F">Tìm kiếm</button>
         </div>
-        <div style="font-size:13.5px;color:#9FC4E8">Đường dây nóng: <strong style="color:#fff">0210 3846 507</strong></div>
+        <div style="font-size:13.5px;color:#9FC4E8;text-align:{{ hotlineAlign }}">Đường dây nóng: <strong style="color:#fff">0210 3846 507</strong></div>
       </div>
     </div>
   </div>
 
   <!-- main nav -->
   <div style="background:linear-gradient(90deg,#052240 0%,#0B4B8F 55%,#1466A6 100%);position:sticky;top:0;z-index:60;box-shadow:0 4px 18px rgba(5,34,64,.35)">
+    <sc-if value="{{ navFull }}" hint-placeholder-val="{{ true }}">
     <div style="max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap">
       <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
         <div onMouseEnter="{{ item.enter }}" onMouseLeave="{{ item.leave }}" style="position:relative">
@@ -88,6 +90,57 @@
         </div>
       </sc-for>
     </div>
+    </sc-if>
+    <sc-if value="{{ navCompact }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="max-width:1280px;margin:0 auto;padding:0 12px;display:flex;align-items:center;gap:12px;height:52px">
+        <button onClick="{{ toggleMenu }}" aria-label="Mở menu" style="width:42px;height:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);border-radius:6px;cursor:pointer;padding:0"><span style="display:block;width:20px;height:2px;background:#fff;border-radius:2px"></span><span style="display:block;width:20px;height:2px;background:#fff;border-radius:2px"></span><span style="display:block;width:20px;height:2px;background:#fff;border-radius:2px"></span></button>
+        <div style="color:#fff;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ curNavLabel }}</div>
+      </div>
+      <!-- lớp nền mờ -->
+      <div onClick="{{ toggleMenu }}" style="position:fixed;inset:0;background:rgba(3,22,42,.55);opacity:{{ ovOp }};pointer-events:{{ ovPe }};transition:opacity .3s ease;z-index:90"></div>
+      <!-- ngăn kéo menu -->
+      <div style="position:fixed;top:0;left:0;bottom:0;width:320px;max-width:86vw;background:#fff;transform:translateX({{ drawerX }});transition:transform .3s ease;z-index:100;display:flex;flex-direction:column;box-shadow:6px 0 30px rgba(3,22,42,.3)">
+        <div style="flex:none;display:flex;align-items:center;gap:10px;padding:14px 12px 14px 16px;background:linear-gradient(104deg,#0A3E72 0%,#0F5FA6 100%);color:#fff">
+          <img src="assets/logo-phu-tho.svg" alt="" style="width:40px;height:40px;flex:none" />
+          <div style="flex:1;min-width:0;font-size:13px;font-weight:700;line-height:1.3">BAN QUẢN LÝ DỰ ÁN<br />KHU VỰC PHÚ THỌ</div>
+          <button onClick="{{ toggleMenu }}" aria-label="Đóng menu" style="width:36px;height:36px;flex:none;border:0;background:rgba(255,255,255,.12);color:#fff;border-radius:50%;font-size:18px;line-height:1;cursor:pointer">✕</button>
+        </div>
+        <div style="flex:none;padding:12px 14px;border-bottom:1px solid #EDF1F6">
+          <div style="display:flex;align-items:center;border:1px solid #DCE5EF;border-radius:99px;overflow:hidden;height:40px">
+            <input placeholder="Tìm kiếm..." style="border:0;outline:0;padding:0 14px;flex:1;min-width:0;font-family:inherit;font-size:14px;background:transparent" />
+            <button style="height:40px;padding:0 16px;border:0;background:#D42A2A;color:#fff;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer">Tìm</button>
+          </div>
+        </div>
+        <div style="flex:1;overflow-y:auto">
+          <sc-for list="{{ mnav }}" as="m" hint-placeholder-count="7">
+            <div style="border-bottom:1px solid #EDF1F6">
+              <div style="display:flex;align-items:stretch;border-left:3px solid {{ m.bar }}">
+                <button onClick="{{ m.go }}" style="flex:1;text-align:left;border:0;background:transparent;font-family:inherit;font-size:15px;font-weight:600;color:{{ m.color }};padding:14px 16px;cursor:pointer">{{ m.label }}</button>
+                <sc-if value="{{ m.hasKids }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ m.toggle }}" aria-label="Mở mục con" style="width:52px;border:0;border-left:1px solid #EDF1F6;background:transparent;font-family:inherit;font-size:20px;color:#0B4B8F;cursor:pointer">{{ m.arrow }}</button>
+                </sc-if>
+              </div>
+              <sc-if value="{{ m.kidsOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="background:#F6F9FC;padding:4px 0 8px">
+                  <sc-for list="{{ m.children }}" as="c" hint-placeholder-count="3">
+                    <button onClick="{{ c.go }}" style="display:block;width:100%;text-align:left;border:0;background:transparent;font-family:inherit;font-size:14.5px;color:#2A3B4F;padding:10px 16px 10px 34px;cursor:pointer">{{ c.label }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="flex:none;display:flex;flex-wrap:wrap;gap:8px 18px;padding:14px 16px;font-size:13.5px;background:#F6F9FC;border-top:1px solid #EDF1F6">
+          <a href="#" onClick="{{ goSitemap }}">Sơ đồ trang</a>
+          <a href="#" onClick="{{ goContact }}">Hỏi đáp</a>
+          <a href="#">RSS</a>
+          <a href="#">English</a>
+          <span style="width:100%;color:#5A6B80">Đường dây nóng: <strong style="color:#D42A2A">0210 3846 507</strong></span>
+        </div>
+      </div>
+    </div>
+    </sc-if>
   </div>
 
   <!-- breadcrumb -->
@@ -164,7 +217,7 @@
     </div>
 
     <!-- banners -->
-    <div style="max-width:1280px;margin:0 auto;padding:22px 20px 4px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+    <div style="max-width:1280px;margin:0 auto;padding:22px 20px 4px;display:grid;grid-template-columns:{{ bannerCols }};gap:16px">
       <sc-for list="{{ banners }}" as="b" hint-placeholder-count="4">
         <div style="position:relative;height:110px;border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:0 6px 18px rgba(11,75,143,.13)" style-hover="box-shadow:0 14px 30px rgba(11,75,143,.26)">
           <image-slot id="{{ b.slot }}" src="{{ b.img }}" credit="Wikimedia Commons" shape="rounded" radius="10" placeholder="Ảnh banner"></image-slot>
@@ -180,7 +233,7 @@
     <!-- stats -->
     <div style="max-width:1280px;margin:0 auto;padding:22px 20px 0">
       <div style="position:relative;overflow:hidden;border:1px solid #C9DAEE;border-radius:10px;background:radial-gradient(700px 300px at 90% -30%,rgba(201,162,39,.24),rgba(201,162,39,0) 65%),repeating-linear-gradient(115deg,rgba(11,75,143,.075) 0 2px,rgba(11,75,143,0) 2px 11px),linear-gradient(120deg,#E4EEFB 0%,#D3E4F7 58%,#DDF0E9 100%)">
-        <div style="position:relative;padding:26px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:20px">
+        <div style="position:relative;padding:26px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:20px">
         <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
           <div style="border-left:3px solid #C9A227;padding-left:16px">
             <div style="color:#0B4B8F;font-size:clamp(26px,3vw,36px);font-weight:800;line-height:1.1">{{ s.value }}</div>
@@ -195,13 +248,13 @@
     <div style="background:linear-gradient(180deg,#F2F8FF 0%,#FBFDFF 55%,#FFFFFF 100%)">
     <div style="max-width:1280px;margin:0 auto;padding:34px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:stretch">
       <div style="flex:999 1 620px;min-width:0;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #E2E8F0;margin-bottom:20px">
-          <div style="display:flex;gap:4px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:2px solid #E2E8F0;margin-bottom:20px">
+          <div style="display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none">
             <sc-for list="{{ newsTabs }}" as="t" hint-placeholder-count="3">
-              <button onClick="{{ t.pick }}" style="border:0;border-bottom:3px solid {{ t.line }};background:transparent;font-family:inherit;font-size:15px;font-weight:700;color:{{ t.color }};padding:10px 14px;margin-bottom:-2px;cursor:pointer">{{ t.label }}</button>
+              <button onClick="{{ t.pick }}" style="border:0;border-bottom:3px solid {{ t.line }};background:transparent;font-family:inherit;font-size:15px;font-weight:700;color:{{ t.color }};padding:10px 14px;margin-bottom:-2px;cursor:pointer;white-space:nowrap;flex:none">{{ t.label }}</button>
             </sc-for>
           </div>
-          <button onClick="{{ goNews }}" style="border:0;background:transparent;font-family:inherit;font-size:13.5px;color:#5A6B80;cursor:pointer" style-hover="color:#D42A2A">Xem tất cả ›</button>
+          <button onClick="{{ goNews }}" style="border:0;background:transparent;font-family:inherit;font-size:13.5px;color:#5A6B80;cursor:pointer;white-space:nowrap;flex:none" style-hover="color:#D42A2A">Xem tất cả ›</button>
         </div>
 
         <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px">
@@ -592,17 +645,26 @@
         </div>
         </sc-if>
         <sc-if value="{{ aboutLeaders }}" hint-placeholder-val="{{ false }}">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
-          <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="4">
-            <div style="border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;background:#fff">
-              <div style="height:240px"><image-slot id="{{ l.slot }}" src="assets/img/chan-dung.svg" shape="rect" placeholder="Ảnh chân dung"></image-slot></div>
-              <div style="padding:16px">
-                <div style="font-size:12.5px;color:#D42A2A;font-weight:700;text-transform:uppercase;letter-spacing:.06em">{{ l.role }}</div>
-                <div style="font-size:16.5px;font-weight:700;margin-top:5px">{{ l.name }}</div>
-                <div style="font-size:13.5px;color:#5A6B80;margin-top:8px;line-height:1.7">{{ l.task }}</div>
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="border:1px solid #D5E2EF;border-top:4px solid #0B4B8F;border-radius:8px;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 40%,#F1F6FC);padding:26px 20px 24px;display:flex;flex-direction:column;align-items:center;text-align:center">
+            <div style="width:250px;max-width:100%;height:300px;overflow:hidden;background:#fff;border-radius:6px;border:1px solid #E7EEF6"><image-slot id="{{ leaderHead.slot }}" src="assets/img/chan-dung.png" fit="contain" shape="rect" placeholder="Ảnh chân dung"></image-slot></div>
+            <div style="font-size:13px;color:#D42A2A;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-top:18px">{{ leaderHead.role }}</div>
+            <div style="font-size:25px;font-weight:800;color:#0B2E55;margin-top:6px;line-height:1.25">{{ leaderHead.name }}</div>
+            <div style="width:44px;height:3px;background:#D42A2A;border-radius:2px;margin:12px 0"></div>
+            <div style="font-size:14.5px;color:#455567;line-height:1.7">{{ leaderHead.task }}</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px">
+            <sc-for list="{{ leaderDeps }}" as="l" hint-placeholder-count="3">
+              <div style="border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;background:#fff">
+                <div style="height:230px;background:#fff"><image-slot id="{{ l.slot }}" src="assets/img/chan-dung.png" fit="contain" shape="rect" placeholder="Ảnh chân dung"></image-slot></div>
+                <div style="padding:16px">
+                  <div style="font-size:12.5px;color:#D42A2A;font-weight:700;text-transform:uppercase;letter-spacing:.06em">{{ l.role }}</div>
+                  <div style="font-size:17px;font-weight:700;color:#0B2E55;margin-top:5px">{{ l.name }}</div>
+                  <div style="font-size:13.5px;color:#5A6B80;margin-top:8px;line-height:1.6">{{ l.task }}</div>
+                </div>
               </div>
-            </div>
-          </sc-for>
+            </sc-for>
+          </div>
         </div>
         </sc-if>
       </div>
@@ -643,14 +705,14 @@
         </sc-for>
       </div>
       <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto">
-        <div style="display:grid;grid-template-columns:1fr 150px 150px 220px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:820px">
+        <div style="display:{{ thDisp }};grid-template-columns:{{ cDisb }};gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:{{ m820 }}">
           <div>Dự án</div><div>Kế hoạch vốn 2026</div><div>Đã giải ngân</div><div>Tỷ lệ</div>
         </div>
         <sc-for list="{{ disbursement }}" as="d" hint-placeholder-count="6">
-          <div style="display:grid;grid-template-columns:1fr 150px 150px 220px;gap:14px;padding:14px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:820px">
+          <div style="display:grid;grid-template-columns:{{ cDisb }};gap:{{ rowGap }} 14px;padding:14px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:{{ m820 }}">
             <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ d.name }}</div>
-            <div style="font-size:14px">{{ d.plan }}</div>
-            <div style="font-size:14px;font-weight:600">{{ d.done }}</div>
+            <div style="font-size:14px"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Kế hoạch vốn 2026: </span>{{ d.plan }}</div>
+            <div style="font-size:14px;font-weight:600"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Đã giải ngân: </span>{{ d.done }}</div>
             <div style="display:flex;gap:10px;align-items:center"><div style="flex:1;height:7px;background:#EDF1F6;border-radius:99px;overflow:hidden"><div style="height:100%;background:{{ d.color }};width:{{ d.pct }}"></div></div><span style="font-size:13.5px;font-weight:700;color:{{ d.color }};width:48px;text-align:right">{{ d.pct }}</span></div>
           </div>
         </sc-for>
@@ -742,7 +804,7 @@
             </sc-for>
           </div>
           <div style="font-size:17px;font-weight:700;color:#0B4B8F;margin:28px 0 12px">Hình ảnh công trường</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px">
             <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="4">
               <div style="height:120px;border-radius:6px;overflow:hidden"><image-slot id="{{ g.pslot }}" shape="rounded" radius="6" placeholder="Ảnh"></image-slot></div>
             </sc-for>
@@ -783,14 +845,14 @@
     <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:22px">{{ tenderTitle }}</div>
     <sc-if value="{{ tenderResult }}" hint-placeholder-val="{{ false }}">
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto">
-      <div style="display:grid;grid-template-columns:1fr 200px 130px 160px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:860px">
+      <div style="display:{{ thDisp }};grid-template-columns:{{ cRes }};gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:{{ m860 }}">
         <div>Gói thầu</div><div>Nhà thầu trúng thầu</div><div>Giá trúng thầu</div><div>Quyết định phê duyệt</div>
       </div>
       <sc-for list="{{ tenderResults }}" as="r" hint-placeholder-count="5">
-        <div style="display:grid;grid-template-columns:1fr 200px 130px 160px;gap:14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:860px" style-hover="background:#F8FAFD">
+        <div style="display:grid;grid-template-columns:{{ cRes }};gap:{{ rowGap }} 14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:{{ m860 }}" style-hover="background:#F8FAFD">
           <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ r.name }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">{{ r.code }} · Giá gói thầu {{ r.value }}</div></div>
-          <div style="font-size:14px;font-weight:600;color:#0B4B8F;line-height:1.4">{{ r.winner }}</div>
-          <div style="font-size:14px;font-weight:600">{{ r.price }}</div>
+          <div style="font-size:14px;font-weight:600;color:#0B4B8F;line-height:1.4"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Nhà thầu: </span>{{ r.winner }}</div>
+          <div style="font-size:14px;font-weight:600"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Giá trúng thầu: </span>{{ r.price }}</div>
           <div style="font-size:13.5px;color:#455567;line-height:1.45">{{ r.decision }}<div style="font-size:12.5px;color:#8A98A8">{{ r.date }}</div></div>
         </div>
       </sc-for>
@@ -804,12 +866,12 @@
             <div style="font-size:15.5px;font-weight:700;color:#0B4B8F">{{ pl.project }}</div>
             <div style="font-size:13px;color:#5A6B80">{{ pl.decision }}</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 130px 170px 130px 120px;gap:14px;padding:11px 18px;background:#F1F5FA;font-size:12px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:860px">
+          <div style="display:{{ thDisp }};grid-template-columns:{{ cPlan }};gap:14px;padding:11px 18px;background:#F1F5FA;font-size:12px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:{{ m860 }}">
             <div>Tên gói thầu</div><div>Giá gói thầu</div><div>Hình thức lựa chọn</div><div>Thời gian tổ chức</div><div>Loại hợp đồng</div>
           </div>
           <sc-for list="{{ pl.items }}" as="it" hint-placeholder-count="3">
-            <div style="display:grid;grid-template-columns:1fr 130px 170px 130px 120px;gap:14px;padding:13px 18px;border-top:1px solid #EDF1F6;align-items:center;min-width:860px;font-size:14px">
-              <div style="line-height:1.45;text-wrap:pretty">{{ it.name }}</div><div style="font-weight:600">{{ it.value }}</div><div style="color:#455567">{{ it.method }}</div><div>{{ it.time }}</div><div style="color:#455567">{{ it.contract }}</div>
+            <div style="display:grid;grid-template-columns:{{ cPlan }};gap:{{ rowGap }} 14px;padding:13px 18px;border-top:1px solid #EDF1F6;align-items:center;min-width:{{ m860 }};font-size:14px">
+              <div style="line-height:1.45;text-wrap:pretty">{{ it.name }}</div><div style="font-weight:600"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Giá gói thầu: </span>{{ it.value }}</div><div style="color:#455567"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Hình thức: </span>{{ it.method }}</div><div><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Thời gian: </span>{{ it.time }}</div><div style="color:#455567"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Loại hợp đồng: </span>{{ it.contract }}</div>
             </div>
           </sc-for>
         </div>
@@ -824,15 +886,15 @@
       </sc-for>
     </div>
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto;-webkit-overflow-scrolling:touch">
-      <div style="display:grid;grid-template-columns:96px 1fr 150px 130px 120px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:820px">
+      <div style="display:{{ thDisp }};grid-template-columns:{{ cTen }};gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:{{ m820 }}">
         <div>Mã TBMT</div><div>Tên gói thầu</div><div>Bên mời thầu</div><div>Đóng thầu</div><div>Trạng thái</div>
       </div>
       <sc-for list="{{ tendersFull }}" as="t" hint-placeholder-count="6">
-        <div style="display:grid;grid-template-columns:96px 1fr 150px 130px 120px;gap:14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:820px;cursor:pointer" style-hover="background:#F8FAFD">
+        <div style="display:grid;grid-template-columns:{{ cTen }};gap:{{ rowGap }} 14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:{{ m820 }};cursor:pointer" style-hover="background:#F8FAFD">
           <div style="font-size:13px;color:#0B4B8F;font-weight:600">{{ t.code }}</div>
           <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ t.name }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">Giá gói thầu: {{ t.value }}</div></div>
-          <div style="font-size:13.5px;color:#455567">{{ t.owner }}</div>
-          <div style="font-size:13.5px;font-weight:600">{{ t.deadline }}</div>
+          <div style="font-size:13.5px;color:#455567"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Bên mời thầu: </span>{{ t.owner }}</div>
+          <div style="font-size:13.5px;font-weight:600"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Đóng thầu: </span>{{ t.deadline }}</div>
           <div><span style="font-size:11.5px;font-weight:600;color:{{ t.color }};background:{{ t.bg }};padding:4px 10px;border-radius:3px;white-space:nowrap">{{ t.status }}</span></div>
         </div>
       </sc-for>
@@ -855,15 +917,15 @@
       <div style="display:flex;align-items:flex-end"><button style="width:100%;border:0;background:#0B4B8F;color:#fff;font-family:inherit;font-weight:600;font-size:14px;padding:11px;border-radius:6px;cursor:pointer">Tra cứu</button></div>
     </div>
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto;-webkit-overflow-scrolling:touch">
-      <div style="display:grid;grid-template-columns:170px 1fr 130px 120px 90px;gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:840px">
+      <div style="display:{{ thDisp }};grid-template-columns:{{ cDocs }};gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:{{ m840 }}">
         <div>Số ký hiệu</div><div>Trích yếu</div><div>Cơ quan</div><div>Ngày ban hành</div><div>Tải về</div>
       </div>
       <sc-for list="{{ docsFull }}" as="d" hint-placeholder-count="6">
-        <div style="display:grid;grid-template-columns:170px 1fr 130px 120px 90px;gap:14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:840px" style-hover="background:#F8FAFD">
+        <div style="display:grid;grid-template-columns:{{ cDocs }};gap:{{ rowGap }} 14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:{{ m840 }}" style-hover="background:#F8FAFD">
           <div style="font-size:13.5px;font-weight:600;color:#0B4B8F">{{ d.number }}</div>
           <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ d.title }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">{{ d.type }}</div></div>
-          <div style="font-size:13.5px;color:#455567">{{ d.org }}</div>
-          <div style="font-size:13.5px">{{ d.date }}</div>
+          <div style="font-size:13.5px;color:#455567"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Cơ quan: </span>{{ d.org }}</div>
+          <div style="font-size:13.5px"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Ngày ban hành: </span>{{ d.date }}</div>
           <div><span style="font-size:12px;font-weight:600;color:#D42A2A;border:1px solid #F0C9C9;background:#FDF0F0;padding:5px 10px;border-radius:4px;cursor:pointer">PDF ↓</span></div>
         </div>
       </sc-for>
@@ -942,7 +1004,7 @@
   <!-- footer -->
   <div style="position:relative;overflow:hidden;color:#D3E4F6;margin-top:36px;background:radial-gradient(950px 420px at 88% 0%,rgba(122,208,255,.3),rgba(122,208,255,0) 62%),radial-gradient(700px 340px at 6% 110%,rgba(46,178,146,.26),rgba(46,178,146,0) 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.055) 0 2px,rgba(255,255,255,0) 2px 11px),linear-gradient(180deg,#0C5192 0%,#0A3F73 62%,#093459 100%)">
     <div style="position:relative;max-width:1280px;margin:0 auto;padding:36px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px">
-      <div style="grid-column:span 2;min-width:260px;display:flex;gap:16px;align-items:flex-start">
+      <div style="grid-column:{{ footSpan }};min-width:0;display:flex;gap:16px;align-items:flex-start">
         <div style="width:62px;height:62px;flex:none"><img src="assets/logo-phu-tho.svg" alt="Logo tỉnh Phú Thọ" style="width:100%;height:100%;object-fit:contain" /></div>
         <div>
         <div style="color:#fff;font-size:16.5px;font-weight:700;line-height:1.4">BAN QUẢN LÝ DỰ ÁN KHU VỰC PHÚ THỌ</div>
@@ -1099,14 +1161,20 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0 };
+  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0, vw: window.innerWidth, menu: false, mexp: null };
 
-  set(s, sub = null) { return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ screen: s, sub, openNav: null }); window.scrollTo(0, 0); }; }
+  set(s, sub = null) { return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ screen: s, sub, openNav: null, menu: false, mexp: null }); document.body.style.overflow = ''; window.scrollTo(0, 0); }; }
 
   componentDidMount() {
     this.timer = setInterval(() => this.setState(s => ({ slide: (s.slide + 1) % 4, album: (s.album + 1) % 5 })), 6000);
+    this.onResize = () => {
+      const vw = window.innerWidth;
+      if (vw >= 1024 && this.state.menu) { document.body.style.overflow = ''; this.setState({ vw, menu: false }); }
+      else this.setState({ vw });
+    };
+    window.addEventListener('resize', this.onResize);
   }
-  componentWillUnmount() { clearInterval(this.timer); }
+  componentWillUnmount() { clearInterval(this.timer); window.removeEventListener('resize', this.onResize); }
 
   renderVals() {
     const screen = this.state.screen;
@@ -1133,6 +1201,38 @@ class Component extends DCLogic {
       enter: () => this.setState({ openNav: i }),
       leave: () => this.setState({ openNav: null })
     }));
+
+    // responsive: điện thoại < 640px, menu thu gọn < 1024px
+    const vw = this.state.vw, phone = vw < 640, compact = vw < 1024, stack = vw < 900;
+    const navOf = { article: 'news', project: 'projects' };
+    const curNav = navDefs.find(n => n.to === (navOf[screen] || screen));
+    const mnav = navDefs.map((n, i) => {
+      const kidsOpen = this.state.mexp === i;
+      return {
+        label: n.label, go: this.set(n.to), hasKids: !!n.children, kidsOpen,
+        color: curNav && curNav.to === n.to ? '#D42A2A' : '#16202E', bar: curNav && curNav.to === n.to ? '#D42A2A' : 'transparent',
+        arrow: kidsOpen ? '−' : '+',
+        toggle: () => this.setState(st => ({ mexp: st.mexp === i ? null : i })),
+        children: (n.children || []).map((c, j) => ({ label: c, go: this.set(n.to, j) }))
+      };
+    });
+    const R = {
+      navFull: !compact, navCompact: compact, mnav,
+      curNavLabel: curNav ? curNav.label : screen === 'sitemap' ? 'Sơ đồ trang' : '',
+      toggleMenu: () => { const open = !this.state.menu; document.body.style.overflow = open ? 'hidden' : ''; this.setState({ menu: open, mexp: null }); },
+      drawerX: this.state.menu ? '0' : 'calc(-100% - 50px)', ovOp: this.state.menu ? 1 : 0, ovPe: this.state.menu ? 'auto' : 'none',
+      utilDate: phone ? 'none' : 'inline', utilLinks: phone ? 'none' : 'flex',
+      logoSize: phone ? '58px' : '78px', hdrPad: phone ? '18px 16px' : '26px 20px',
+      hdrRight: phone ? '1 1 100%' : '0 1 auto', hdrAlign: phone ? 'stretch' : 'flex-end',
+      searchMin: phone ? '0' : '330px', hotlineAlign: phone ? 'center' : 'right',
+      footSpan: phone ? 'auto' : 'span 2',
+      thDisp: stack ? 'none' : 'grid', mLbl: stack ? 'inline' : 'none', rowGap: stack ? '4px' : '14px',
+      m820: stack ? '0' : '820px', m840: stack ? '0' : '840px', m860: stack ? '0' : '860px',
+      cDisb: stack ? '1fr' : '1fr 150px 150px 220px', cRes: stack ? '1fr' : '1fr 200px 130px 160px',
+      cPlan: stack ? '1fr' : '1fr 130px 170px 130px 120px', cTen: stack ? '1fr' : '96px 1fr 150px 130px 120px',
+      cDocs: stack ? '1fr' : '170px 1fr 130px 120px 90px',
+      bannerCols: compact && !phone ? 'repeat(2,1fr)' : 'repeat(auto-fit,minmax(200px,1fr))'
+    };
 
     const IMG = n => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(n) + '?width=900';
     const PIC = [1,2,3,4,5,6,7,8,9].map(i => 'assets/img/anh-' + i + '.jpg');
@@ -1318,8 +1418,8 @@ class Component extends DCLogic {
         { year: '07/2025', title: 'Sắp xếp sau hợp nhất tỉnh', text: 'Sau khi hợp nhất tỉnh và thực hiện chính quyền địa phương hai cấp, tỉnh Phú Thọ tổ chức 3 Ban quản lý dự án cấp tỉnh theo khu vực; Ban được tổ chức lại thành Ban Quản lý dự án khu vực Phú Thọ, tiếp nhận các dự án chuyển giao trên địa bàn khu vực Phú Thọ.' },
         { year: '2026', title: 'Quản lý 34 dự án', text: 'Trực tiếp quản lý 34 dự án với tổng mức đầu tư hơn 9.800 tỷ đồng, trong đó có 6 dự án trọng điểm của tỉnh.' }
       ],
-      leaders: [
-        { role: 'Giám đốc', name: 'Phạm Xuân Sơn', task: 'Phụ trách chung', slot: 'leader-0' },
+      leaderHead: { role: 'Giám đốc', name: 'Phạm Xuân Sơn', task: 'Phụ trách chung', slot: 'leader-0' },
+      leaderDeps: [
         { role: 'Phó Giám đốc', name: 'Khuất Đăng Khoa', task: 'Phụ trách Phòng Quản lý dự án II', slot: 'leader-1' },
         { role: 'Phó Giám đốc', name: 'Đỗ Thế Nam', task: 'Phụ trách Phòng Quản lý dự án III', slot: 'leader-2' },
         { role: 'Phó Giám đốc', name: 'Lâm Việt Tuấn', task: 'Phụ trách Phòng Quản lý dự án I', slot: 'leader-3' }
@@ -1332,6 +1432,7 @@ class Component extends DCLogic {
           : n.to === 'contact' ? [{ label: 'Gửi câu hỏi, kiến nghị', go: this.set('contact') }, { label: 'Câu hỏi đã trả lời', go: this.set('contact') }, { label: 'Bản đồ vị trí trụ sở', go: this.set('contact') }]
           : [{ label: 'Tin nổi bật', go: this.set('home') }, { label: 'Dự án tiêu biểu', go: this.set('home') }, { label: 'Thư viện ảnh — video', go: this.set('home') }]
       })),
+      ...R,
       pageZoom: this.state.zoom,
       today: 'Thứ Hai, ngày 24 tháng 8 năm 2026',
       fontUp: () => this.setState(s => ({ zoom: Math.min(1.3, +(s.zoom + 0.1).toFixed(2)) })),
