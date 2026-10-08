@@ -32,7 +32,7 @@
   <div style="background:#073766;color:#C7D8EC;font-size:13px">
     <div style="max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;min-height:38px">
       <div style="display:{{ utilLinks }};gap:18px;align-items:center;flex-wrap:wrap">
-        <span style="display:{{ utilDate }}">{{ today }}</span>
+        <span id="vn-clock" style="display:{{ utilDate }};font-variant-numeric:tabular-nums">{{ today }}</span>
         <span style="opacity:.4;display:{{ utilDate }}">|</span>
         <a href="#" onClick="{{ goSitemap }}" style="color:#C7D8EC">Sơ đồ trang</a>
         <a href="#" onClick="{{ goContact }}" style="color:#C7D8EC">Hỏi đáp</a>
@@ -1162,11 +1162,37 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0, vw: window.innerWidth, menu: false, mexp: null };
+  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0, vw: window.innerWidth, menu: false, mexp: null, skew: null };
+
+  // Lấy giờ chuẩn từ header Date của máy chủ web (không phụ thuộc đồng hồ máy người xem)
+  async syncClock() {
+    try {
+      const t0 = Date.now();
+      const r = await fetch(location.href.split('#')[0], { method: 'HEAD', cache: 'no-store' });
+      const t1 = Date.now(), h = r.headers.get('Date');
+      if (!h) throw new Error('no Date header');
+      this.setState({ skew: new Date(h).getTime() + 500 + (t1 - t0) / 2 - t1 });
+    } catch (e) {
+      if (this.state.skew === null) this.setState({ skew: 0 });
+    }
+  }
 
   set(s, sub = null) { return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ screen: s, sub, openNav: null, menu: false, mexp: null }); document.body.style.overflow = ''; window.scrollTo(0, 0); }; }
 
+  vnNow() {
+    if (this.state.skew === null) return '';
+    const p = {};
+    new Intl.DateTimeFormat('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' })
+      .formatToParts(new Date(Date.now() + this.state.skew)).forEach(x => { p[x.type] = x.value; });
+    const wd = p.weekday.charAt(0).toUpperCase() + p.weekday.slice(1);
+    return wd + ', ' + p.day + '/' + p.month + '/' + p.year + ' — ' + p.hour + ':' + p.minute + ':' + p.second;
+  }
+
   componentDidMount() {
+    this.syncClock();
+    this.clockSync = setInterval(() => this.syncClock(), 10 * 60 * 1000);
+    // chỉ cập nhật ô đồng hồ mỗi giây, không vẽ lại cả trang
+    this.clock = setInterval(() => { const el = document.getElementById('vn-clock'); if (el) el.textContent = this.vnNow(); }, 1000);
     this.timer = setInterval(() => this.setState(s => ({ slide: (s.slide + 1) % 4, album: (s.album + 1) % 5 })), 6000);
     this.onResize = () => {
       const vw = window.innerWidth;
@@ -1175,7 +1201,7 @@ class Component extends DCLogic {
     };
     window.addEventListener('resize', this.onResize);
   }
-  componentWillUnmount() { clearInterval(this.timer); window.removeEventListener('resize', this.onResize); }
+  componentWillUnmount() { clearInterval(this.timer); clearInterval(this.clock); clearInterval(this.clockSync); window.removeEventListener('resize', this.onResize); }
 
   renderVals() {
     const screen = this.state.screen;
@@ -1435,7 +1461,7 @@ class Component extends DCLogic {
       })),
       ...R,
       pageZoom: this.state.zoom,
-      today: 'Thứ Hai, ngày 24 tháng 8 năm 2026',
+      today: this.vnNow(),
       fontUp: () => this.setState(s => ({ zoom: Math.min(1.3, +(s.zoom + 0.1).toFixed(2)) })),
       fontDown: () => this.setState(s => ({ zoom: Math.max(0.85, +(s.zoom - 0.1).toFixed(2)) })),
       fontReset: () => this.setState({ zoom: 1 }),
