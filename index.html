@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./assets/js/xuat-excel.js"></script>
 <title>Trang TTĐT Ban QLDA khu vực Phú Thọ — Bản xin ý kiến</title>
 </head>
 <body>
@@ -845,18 +846,37 @@
   <div style="max-width:1280px;margin:0 auto;padding:28px 20px">
     <div style="font-size:23px;font-weight:700;padding-bottom:10px;border-bottom:3px solid #D42A2A;display:inline-block;margin-bottom:22px">{{ tenderTitle }}</div>
     <sc-if value="{{ tenderResult }}" hint-placeholder-val="{{ false }}">
+    <div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div style="font-size:13.5px;color:#5A6B80">Bấm <strong>Chi tiết</strong> ở từng dòng để xem đầy đủ thông tin gói thầu.</div>
+      <button onClick="{{ exportRes }}" style="display:flex;align-items:center;gap:8px;border:0;background:#0B5A2B;color:#fff;font-family:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:6px;cursor:pointer" style-hover="background:#08451F"><span style="font-size:16px;line-height:1">⬇</span>Xuất Excel</button>
+    </div>
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:auto">
       <div style="display:{{ thDisp }};grid-template-columns:{{ cRes }};gap:14px;padding:13px 18px;background:#F1F5FA;border-bottom:1px solid #E2E8F0;font-size:12.5px;font-weight:700;color:#5A6B80;text-transform:uppercase;letter-spacing:.05em;min-width:{{ m860 }}">
-        <div>Gói thầu</div><div>Nhà thầu trúng thầu</div><div>Giá trúng thầu</div><div>Quyết định phê duyệt</div>
+        <div>Gói thầu</div><div>Nhà thầu trúng thầu</div><div>Giá trúng thầu</div><div>Quyết định phê duyệt</div><div></div>
       </div>
       <sc-for list="{{ tenderResults }}" as="r" hint-placeholder-count="5">
-        <div style="display:grid;grid-template-columns:{{ cRes }};gap:{{ rowGap }} 14px;padding:15px 18px;border-bottom:1px solid #EDF1F6;align-items:center;min-width:{{ m860 }}" style-hover="background:#F8FAFD">
+        <div style="border-bottom:1px solid #EDF1F6;min-width:{{ m860 }}">
+        <div style="display:grid;grid-template-columns:{{ cRes }};gap:{{ rowGap }} 14px;padding:15px 18px;align-items:center" style-hover="background:#F8FAFD">
           <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty">{{ r.name }}<div style="font-size:12.5px;color:#8A98A8;margin-top:3px">{{ r.code }} · Giá gói thầu {{ r.value }}</div></div>
           <div style="font-size:14px;font-weight:600;color:#0B4B8F;line-height:1.4"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Nhà thầu: </span>{{ r.winner }}</div>
           <div style="font-size:14px;font-weight:600"><span style="display:{{ mLbl }};color:#8A98A8;font-weight:400">Giá trúng thầu: </span>{{ r.price }}</div>
           <div style="font-size:13.5px;color:#455567;line-height:1.45">{{ r.decision }}<div style="font-size:12.5px;color:#8A98A8">{{ r.date }}</div></div>
+          <div><button onClick="{{ r.toggle }}" style="border:1px solid #0B4B8F;background:{{ r.btnBg }};color:{{ r.btnColor }};font-family:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:5px;cursor:pointer;white-space:nowrap">{{ r.btn }}</button></div>
+        </div>
+        <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:0 18px 16px;background:#F8FAFD;border:1px solid #E2E8F0;border-left:3px solid #0B4B8F;border-radius:6px;padding:6px 16px">
+            <sc-for list="{{ r.details }}" as="dt" hint-placeholder-count="13">
+              <div style="display:flex;flex-wrap:wrap;gap:2px 16px;padding:8px 0;border-bottom:1px dashed #E2E8F0;font-size:14px;line-height:1.5">
+                <div style="flex:0 0 230px;color:#5A6B80">{{ dt.k }}</div>
+                <div style="flex:1 1 260px;color:#16202E;font-weight:500">{{ dt.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
         </div>
       </sc-for>
+    </div>
     </div>
     </sc-if>
     <sc-if value="{{ tenderPlan }}" hint-placeholder-val="{{ false }}">
@@ -1162,7 +1182,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0, vw: window.innerWidth, menu: false, mexp: null, skew: null };
+  state = { screen: 'home', sub: null, zoom: 1, openNav: null, tab: 0, slide: 0, album: 0, vw: window.innerWidth, menu: false, mexp: null, skew: null, openRes: null };
 
   // Lấy giờ chuẩn từ header Date của máy chủ web (không phụ thuộc đồng hồ máy người xem)
   async syncClock() {
@@ -1255,7 +1275,7 @@ class Component extends DCLogic {
       footSpan: phone ? 'auto' : 'span 2',
       thDisp: stack ? 'none' : 'grid', mLbl: stack ? 'inline' : 'none', rowGap: stack ? '4px' : '14px',
       m820: stack ? '0' : '820px', m840: stack ? '0' : '840px', m860: stack ? '0' : '860px',
-      cDisb: stack ? '1fr' : '1fr 150px 150px 220px', cRes: stack ? '1fr' : '1fr 200px 130px 160px',
+      cDisb: stack ? '1fr' : '1fr 150px 150px 220px', cRes: stack ? '1fr' : '1fr 200px 120px 150px 104px',
       cPlan: stack ? '1fr' : '1fr 130px 170px 130px 120px', cTen: stack ? '1fr' : '96px 1fr 150px 130px 120px',
       cDocs: stack ? '1fr' : '170px 1fr 130px 120px 90px',
       bannerCols: compact && !phone ? 'repeat(2,1fr)' : 'repeat(auto-fit,minmax(200px,1fr))'
@@ -1398,13 +1418,40 @@ class Component extends DCLogic {
       return { name, plan: plan + ' tỷ', done: done + ' tỷ', pct: p + '%', color: p >= 80 ? '#0B5A2B' : p >= 50 ? '#0B4B8F' : '#B5651D' };
     });
 
-    const tenderResults = [
-      { code: 'IB2600171', name: 'Gói thầu số 12: Cung cấp và lắp đặt thiết bị phòng học, nhà học 4 tầng', value: '24,6 tỷ', winner: 'Công ty CP Thiết bị giáo dục Hùng Vương', price: '23,92 tỷ', decision: 'QĐ số 2098/QĐ-BDA', date: '26/06/2026' },
-      { code: 'IB2600168', name: 'Gói thầu số 05: Thi công hệ thống thu gom nước thải KCN Thụy Vân', value: '96,2 tỷ', winner: 'Liên danh Xây dựng Thủy lợi Phú Thọ — Hạ tầng Việt Trì', price: '94,05 tỷ', decision: 'QĐ số 2131/QĐ-BDA', date: '22/08/2026' },
-      { code: 'IB2600160', name: 'Gói thầu số 02: Khảo sát, lập thiết kế bản vẽ thi công kè bờ hữu sông Thao', value: '5,4 tỷ', winner: 'Công ty CP Tư vấn Xây dựng Giao thông Phú Thọ', price: '5,21 tỷ', decision: 'QĐ số 2117/QĐ-BDA', date: '15/08/2026' },
-      { code: 'IB2600155', name: 'Gói thầu số 09: Bảo hiểm công trình xây dựng đường trục Đông Tây', value: '3,1 tỷ', winner: 'Tổng Công ty Bảo hiểm — Chi nhánh Phú Thọ', price: '2,96 tỷ', decision: 'QĐ số 2102/QĐ-BDA', date: '08/08/2026' },
-      { code: 'IB2600151', name: 'Gói thầu số 04: Thi công xây dựng nhà học 4 tầng Trường THPT chuyên Hùng Vương', value: '128,7 tỷ', winner: 'Công ty CP Xây dựng và Thương mại Đất Tổ', price: '126,14 tỷ', decision: 'QĐ số 2089/QĐ-BDA', date: '01/08/2026' }
+    // Kết quả lựa chọn nhà thầu (dữ liệu minh họa — sẽ thay bằng dữ liệu thật của Ban)
+    const resRaw = [
+      { projCode: 'DA.2025.031', projName: 'Trường THPT chuyên Hùng Vương — hạng mục nhà học 4 tầng', code: 'IB2600171', name: 'Gói thầu số 12: Cung cấp và lắp đặt thiết bị phòng học, nhà học 4 tầng', online: 'Có', field: 'Hàng hóa', openDate: '05/06/2026', valueVnd: 24600000000, priceVnd: 23920000000, winner: 'Công ty CP Thiết bị giáo dục Hùng Vương', tax: '2600398541', address: 'Số 126 đường Hùng Vương, phường Việt Trì, tỉnh Phú Thọ', decisionNo: '2098/QĐ-BDA', date: '26/06/2026' },
+      { projCode: 'DA.2024.018', projName: 'Hệ thống thoát nước và xử lý nước thải KCN Thụy Vân', code: 'IB2600168', name: 'Gói thầu số 05: Thi công hệ thống thu gom nước thải KCN Thụy Vân', online: 'Có', field: 'Xây lắp', openDate: '23/07/2026', valueVnd: 96200000000, priceVnd: 94050000000, winner: 'Liên danh Xây dựng Thủy lợi Phú Thọ — Hạ tầng Việt Trì', tax: '2600274316 (thành viên đứng đầu liên danh)', address: 'Số 45 đường Châu Phong, phường Việt Trì, tỉnh Phú Thọ', decisionNo: '2131/QĐ-BDA', date: '22/08/2026' },
+      { projCode: 'DA.2026.004', projName: 'Kè bờ hữu sông Thao đoạn qua khu vực Phú Thọ', code: 'IB2600160', name: 'Gói thầu số 02: Khảo sát, lập thiết kế bản vẽ thi công kè bờ hữu sông Thao', online: 'Có', field: 'Tư vấn', openDate: '24/07/2026', valueVnd: 5400000000, priceVnd: 5210000000, winner: 'Công ty CP Tư vấn Xây dựng Giao thông Phú Thọ', tax: '2600215873', address: 'Số 8 đường Nguyễn Tất Thành, phường Thanh Miếu, tỉnh Phú Thọ', decisionNo: '2117/QĐ-BDA', date: '15/08/2026' },
+      { projCode: 'DA.2023.012', projName: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', code: 'IB2600155', name: 'Gói thầu số 09: Bảo hiểm công trình xây dựng đường trục Đông Tây', online: 'Có', field: 'Phi tư vấn', openDate: '28/07/2026', valueVnd: 3100000000, priceVnd: 2960000000, winner: 'Tổng Công ty Bảo hiểm — Chi nhánh Phú Thọ', tax: '0101527385-012', address: 'Số 1508 đại lộ Hùng Vương, phường Việt Trì, tỉnh Phú Thọ', decisionNo: '2102/QĐ-BDA', date: '08/08/2026' },
+      { projCode: 'DA.2025.031', projName: 'Trường THPT chuyên Hùng Vương — hạng mục nhà học 4 tầng', code: 'IB2600151', name: 'Gói thầu số 04: Thi công xây dựng nhà học 4 tầng Trường THPT chuyên Hùng Vương', online: 'Có', field: 'Xây lắp', openDate: '10/07/2026', valueVnd: 128700000000, priceVnd: 126140000000, winner: 'Công ty CP Xây dựng và Thương mại Đất Tổ', tax: '2600641937', address: 'Số 22 đường Trần Phú, phường Nông Trang, tỉnh Phú Thọ', decisionNo: '2089/QĐ-BDA', date: '01/08/2026' }
     ];
+    const ty = n => (n / 1e9).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) + ' tỷ';
+    const dong = n => n.toLocaleString('vi-VN') + ' đồng';
+    const resCols = [
+      { header: 'STT', width: 6 }, { header: 'Mã dự án', width: 14 }, { header: 'Tên dự án', width: 40 },
+      { header: 'Số thông báo', width: 16 }, { header: 'Tên gói thầu', width: 50 }, { header: 'Đấu thầu qua mạng', width: 12 },
+      { header: 'Lĩnh vực', width: 13 }, { header: 'Ngày mở thầu', width: 13 },
+      { header: 'Giá gói thầu/ Giá dự toán (đồng)', width: 20, money: true }, { header: 'Giá trúng thầu (đồng)', width: 20, money: true },
+      { header: 'Tên nhà thầu', width: 40 }, { header: 'Mã số thuế', width: 18 }, { header: 'Địa chỉ', width: 45 },
+      { header: 'Số Quyết định phê duyệt KQLCNT', width: 30 }
+    ];
+    const resRow = (r, i) => [i + 1, r.projCode, r.projName, r.code + '-00', r.name, r.online, r.field, r.openDate, r.valueVnd, r.priceVnd, r.winner, r.tax, r.address, r.decisionNo + ' ngày ' + r.date];
+    const tenderResults = resRaw.map((r, i) => {
+      const open = this.state.openRes === i;
+      const cells = resRow(r, i);
+      return {
+        ...r, value: ty(r.valueVnd), price: ty(r.priceVnd), decision: 'QĐ số ' + r.decisionNo,
+        open, btn: open ? 'Thu gọn ▴' : 'Chi tiết ▾', btnBg: open ? '#0B4B8F' : '#fff', btnColor: open ? '#fff' : '#0B4B8F',
+        toggle: () => this.setState(st => ({ openRes: st.openRes === i ? null : i })),
+        details: resCols.slice(1).map((c, k) => ({ k: c.header.replace(' (đồng)', ''), v: c.money ? dong(cells[k + 1]) : cells[k + 1] }))
+      };
+    });
+    const exportRes = () => window.xuatExcel({
+      file: 'ket-qua-lua-chon-nha-thau.xlsx', sheet: 'KQLCNT',
+      title: 'KẾT QUẢ LỰA CHỌN NHÀ THẦU — BAN QUẢN LÝ DỰ ÁN KHU VỰC PHÚ THỌ',
+      columns: resCols, rows: resRaw.map(resRow)
+    });
     const tenderPlans = [
       { project: 'Đường trục Đông Tây, thành phố Việt Trì (giai đoạn 2)', decision: 'QĐ số 2145/QĐ-BDA ngày 05/08/2026', items: [
         { name: 'Gói thầu số 07: Thi công xây dựng đoạn Km2+300 — Km4+800', value: '312,4 tỷ', method: 'Đấu thầu rộng rãi qua mạng', time: 'Quý III/2026', contract: 'Đơn giá cố định' },
@@ -1434,7 +1481,7 @@ class Component extends DCLogic {
       ],
       tenderTitle: subLabel || titles.tender,
       tenderNotice: sub == null || sub === 0, tenderResult: sub === 1, tenderPlan: sub === 2,
-      tenderResults, tenderPlans,
+      tenderResults, tenderPlans, exportRes,
       aboutTitle: subLabel || titles.about,
       aboutDuties: sub == null || sub === 0, aboutOrg: sub == null || sub === 1,
       aboutHistory: sub === 2, aboutLeaders: sub === 3,
@@ -1445,11 +1492,11 @@ class Component extends DCLogic {
         { year: '07/2025', title: 'Sắp xếp sau hợp nhất tỉnh', text: 'Sau khi hợp nhất tỉnh và thực hiện chính quyền địa phương hai cấp, tỉnh Phú Thọ tổ chức 3 Ban quản lý dự án cấp tỉnh theo khu vực; Ban được tổ chức lại thành Ban Quản lý dự án khu vực Phú Thọ, tiếp nhận các dự án chuyển giao trên địa bàn khu vực Phú Thọ.' },
         { year: '2026', title: 'Quản lý 34 dự án', text: 'Trực tiếp quản lý 34 dự án với tổng mức đầu tư hơn 9.800 tỷ đồng, trong đó có 6 dự án trọng điểm của tỉnh.' }
       ],
-      leaderHead: { role: 'Giám đốc', name: 'Phạm Xuân Sơn', task: 'Phụ trách chung', slot: 'leader-0' },
+      leaderHead: { role: 'Giám đốc', name: 'Phạm Xuân Sơn', task: 'Phụ trách chung; phụ trách Phòng Tài chính — Kế toán, Phòng Kế hoạch — Đầu tư', slot: 'leader-0' },
       leaderDeps: [
-        { role: 'Phó Giám đốc', name: 'Khuất Đăng Khoa', task: 'Phụ trách Phòng Quản lý dự án II', slot: 'leader-1' },
-        { role: 'Phó Giám đốc', name: 'Đỗ Thế Nam', task: 'Phụ trách Phòng Quản lý dự án III', slot: 'leader-2' },
-        { role: 'Phó Giám đốc', name: 'Lâm Việt Tuấn', task: 'Phụ trách Phòng Quản lý dự án I', slot: 'leader-3' }
+        { role: 'Phó Giám đốc', name: 'Khuất Đăng Khoa', task: 'Phụ trách Phòng Quản lý dự án II, Phòng Hành chính — Tổng hợp', slot: 'leader-1' },
+        { role: 'Phó Giám đốc', name: 'Đỗ Thế Nam', task: 'Phụ trách Phòng Quản lý dự án III, Phòng Quản lý dự án IV', slot: 'leader-2' },
+        { role: 'Phó Giám đốc', name: 'Lâm Việt Tuấn', task: 'Phụ trách Phòng Quản lý dự án I, Phòng Kỹ thuật — Thẩm định', slot: 'leader-3' }
       ],
       goAbout: this.set('about'), goSitemap: this.set('sitemap'), isSitemap: screen === 'sitemap',
       sitemap: navDefs.map(n => ({
